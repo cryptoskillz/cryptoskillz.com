@@ -1,0 +1,167 @@
+// Font
+@mixin font($family:$text-font, $weight: 400, $style: normal) {
+    font-family: '#{$family}', Helvetica, Arial, sans-serif;
+    font-weight: $weight;
+    font-style: $style;
+}
+
+// Headings
+@mixin title-fonts-prop {
+    @include font($title-font);
+    line-height: 120%;
+}
+
+// Display Flex
+@mixin display-flex($align-items:stretch, $flex-wrap:nowrap, $flex-direction:row, $justify-content:flex-start) {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -ms-align-items:$align-items;
+    -moz-align-items:$align-items;
+    -webkit-align-items:$align-items;
+    align-items:$align-items;
+    -ms-flex-wrap:$flex-wrap;
+    -moz-flex-wrap:$flex-wrap;
+    -webkit-flex-wrap:$flex-wrap;
+    flex-wrap:$flex-wrap;
+    -ms-flex-direction:$flex-direction;
+    -moz-flex-direction:$flex-direction;
+    -webkit-flex-direction:$flex-direction;
+    flex-direction:$flex-direction;
+    -ms-justify-content:$justify-content;
+    -moz-justify-content:$justify-content;
+    -webkit-justify-content:$justify-content;
+    justify-content:$justify-content;    
+}
+
+@mixin flex-item($flex-grow:0, $flex-shrink:1, $flex-basis:auto) {
+    -ms-flex:$flex-grow $flex-shrink $flex-basis;
+    -moz-flex:$flex-grow $flex-shrink $flex-basis;
+    -webkit-flex:$flex-grow $flex-shrink $flex-basis;
+    flex:$flex-grow $flex-shrink $flex-basis;
+}
+
+@mixin flex-item-order($flex-order:1){
+    -ms-flex-order:$flex-order;
+    -webkit-order:$flex-order;
+    order:$flex-order;
+}
+
+// CSS3 Animation
+@mixin animated_elem($animated-val){
+    -o-animation: $animated-val;
+    -webkit-animation: $animated-val;
+    animation: $animated-val;
+}
+
+// CSS3 Transition
+@mixin transition_elem ($trans-prop:all ease-in-out 0.4s) {
+    -o-transition:$trans-prop;
+    -webkit-transition:$trans-prop;
+    transition:$trans-prop;
+}
+
+// CSS3 ScaleX
+@mixin scaleX($scale-2d-x, $scale-2d-transform-origin:center ) {
+    -ms-transform: scaleX($scale-2d-x);
+    -o-transform: scaleX($scale-2d-x);
+    -webkit-transform: scaleX($scale-2d-x);
+    transform: scaleX($scale-2d-x);
+    -ms-transform-origin:$scale-2d-transform-origin;
+    -o-transform-origin:$scale-2d-transform-origin;
+    -webkit-transform-origin:$scale-2d-transform-origin;
+    transform-origin:$scale-2d-transform-origin;
+}
+
+// CSS3 Translate 2d
+@mixin translate-2d($translate-2d-x,$translate-2d-y){
+    -ms-transform: translate($translate-2d-x,$translate-2d-y);
+    -o-transform: translate($translate-2d-x,$translate-2d-y);
+    -webkit-transform: translate($translate-2d-x,$translate-2d-y);
+    transform: translate($translate-2d-x,$translate-2d-y);   
+}
+
+// CSS3 Translate3d
+@mixin translate-3d($translate-3d-val...){    
+    -webkit-transform: translate3d($translate-3d-val);
+    transform: translate3d($translate-3d-val)  
+}
+
+// CSS3 Rotate
+@mixin rotate($rotate-val){
+    -ms-transform: rotate($rotate-val);
+    -o-transform: rotate($rotate-val);
+    -webkit-transform:rotate($rotate-val);
+    transform: rotate($rotate-val);   
+}
+
+// CSS3 Backface Visibility
+@mixin backface-visible($backface-visi-val:hidden){
+    -webkit-backface-visibility:$backface-visi-val;
+    backface-visibility:$backface-visi-val;
+}
+
+// CSS3 Input Placeholders
+@mixin placeholder {
+    &::-webkit-input-placeholder {@content}
+    &:-moz-placeholder{@content}
+    &:-ms-input-placeholder {@content}     
+    &::-moz-placeholder {@content}
+}
+
+// CSS3 Calc Function
+@mixin calc($property, $expression) {
+    #{$property} :-webkit-calc(#{$expression});
+    #{$property} : calc(#{$expression});    
+}
+
+// CSS3 Box Shadow
+@mixin box-shadow($shadow-val:1px 2px 8px rgba(0, 0, 0, 0.1)){
+    -webkit-box-shadow:$shadow-val;
+    box-shadow:$shadow-val;
+}
+// CSS3 Border Radius
+@mixin border-radius($radius-size:3px) {
+   -webkit-border-radius:$radius-size;
+    border-radius:$radius-size; 
+}
+
+// Circle Border
+@mixin circle-border($border-color:$color-2, $border:1px solid, $radius-size:50%) {
+    border-color:$border-color;
+    border:$border;    
+    -webkit-border-radius:$radius-size;
+    border-radius:$radius-size;
+}
+
+// Clearfix
+@mixin clearfix {
+  &:after {
+    content:"";
+    clear:both;
+    display:block;
+    height:0;
+    visibility:hidden;
+  }
+}
+
+// Background Cover
+@mixin bg-cover($position:center center){
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:$position;
+}
+
+// Resizing Images
+@mixin fig-holder($max-width-size:100%) {
+    max-width:$max-width-size;
+    height:auto;
+}
+
+// Grayscale filter
+@mixin gray-scale {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+}

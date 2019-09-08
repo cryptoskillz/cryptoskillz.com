@@ -1,0 +1,593 @@
+<!doctype html><html amp lang="en"><head><meta charset="utf-8"><title>Part 2: Generate a BTC address - cryptoskillz</title><meta name="description" content="blockchain,bitcoin,node js, fullnode"><link rel="canonical" href="https://cryptoskillz.com/blog/part-2-generate-a-btc-address.html"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css"><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://cryptoskillz.com/blog/amp/part-2-generate-a-btc-address.html"},"headline":"Part 2: Generate a BTC address","datePublished":"2019-09-07T18:56","dateModified":"2019-09-08T04:59","image":{"@type":"ImageObject","url":"https://cryptoskillz.com/blog/media/website/logo.png","height":178,"width":685},"description":"<figure class=\"post__image\"><amp-img  src=\"https://cryptoskillz.com/blog/media/posts/4/1_FOAkdC5qviQuoNH-UUQY8Q.jpeg\" sizes=\"(max-width: 48em) 100vw, 768px\" srcset=\"https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-xs.jpeg 300w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-sm.jpeg 480w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-md.jpeg 768w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-lg.jpeg 1024w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-xl.jpeg 1360w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-2xl.jpeg 1600w\"  alt=\"\" width=\"640\" height=\"360\" layout=\"responsive\"></amp-img></figure>\n<p> </p>\n","author":{"@type":"Person","name":"cryptoskillz"},"publisher":{"@type":"Organization","name":"cryptoskillz","logo":{"@type":"ImageObject","url":"https://cryptoskillz.com/blog/media/website/logo.png","height":178,"width":685}}}</script><style amp-custom>article,
+aside,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+amp-img {
+  max-width: 100%; }
+
+button,
+input,
+select,
+textarea {
+  font: inherit; }
+
+html {
+  font-size: 1rem; }
+
+body {
+  background: #f1f1f1;
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6; }
+
+a {
+  color:  #039be5;
+  text-decoration: none;
+  -webkit-transition: all 0.12s linear 0s;
+  -o-transition: all 0.12s linear 0s;
+  transition: all 0.12s linear 0s; }
+
+a:hover {
+  color: #262626;
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink; }
+
+a:active {
+  color: #262626; }
+
+a:focus {
+  outline: 2px dotted #039be5; }
+
+figure,
+blockquote,
+p,
+ul,
+ol,
+dl,
+table,
+hr,
+fieldset {
+  margin-top: 1.6rem; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 2.13333rem; }
+
+h1 {
+  font-size: 1.67583rem;
+  font-weight: normal; }
+
+h2 {
+  font-size: 1.4729rem; }
+
+h3 {
+  font-size: 1.29454rem; }
+
+h4 {
+  font-size: 1.13778rem; }
+
+h5 {
+  font-size: 1rem; }
+
+h6 {
+  font-size: 0.87891rem; }
+
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0.8rem; }
+
+b,
+strong {
+  font-weight: 600; }
+
+blockquote {
+  color: #6c7175;
+  font-family: "Droid Serif", "Times", "Source Serif Pro", serif;
+  font-style: italic;
+  padding: 1.33333rem 0.53333rem 1.33333rem 3.2rem;
+  position: relative; }
+  blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 4.41226rem;
+    position: absolute;
+    left: 0;
+    top: -12px;
+    color: rgba(108, 113, 117, 0.5); }
+  blockquote > :nth-child(1) {
+    margin-top: 0; }
+
+ul,
+ol {
+  margin-left: 2rem; }
+  ul > li,
+  ol > li {
+    list-style: inherit;
+    padding: 0 0 0.26667rem 0.26667rem; }
+
+dl dt {
+  color: #262626;
+  font-weight: 600; }
+
+code,
+pre {
+  background-color: #f1f1f1;
+  font-family: monospace; }
+
+pre {
+  margin: 1.6rem 0 0;
+  padding: 1.6rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto; }
+  pre > code {
+    color: #262626;
+    padding: 0; }
+
+code {
+  border-radius: 3px;
+  color: #262626;
+  padding: 0.26667rem 0.53333rem; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  overflow-x: auto;
+  vertical-align: top;
+  text-align: left;
+  white-space: nowrap; }
+  table th {
+    font-weight: 500;
+    padding: 0.53333rem 1.06667rem; }
+  table tr {
+    border-bottom: 1px solid #d4d4d4; }
+    table tr:nth-child(2n) {
+      background: #f1f1f1; }
+  table td {
+    padding: 0.53333rem 1.06667rem; }
+
+figcaption {
+  clear: both;
+  color: rgba(108, 113, 117, 0.6);
+  font-size: 0.82397rem;
+  margin: 0.8rem 0 0;
+  text-align: center; }
+
+sub,
+sup {
+  font-size: 65%; }
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+.btn, [type=button],
+[type=submit],
+button {
+  background: #039be5;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.87891rem;
+  font-weight: 500;
+  line-height: 1.9;
+  padding: 0.53333rem 1.33333rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease;
+  width: auto; }
+  .btn:hover, [type=button]:hover,
+  [type=submit]:hover,
+  button:hover {
+    background: #262626;
+    color: #ffffff; }
+  .btn:focus, [type=button]:focus,
+  [type=submit]:focus,
+  button:focus {
+    outline: none; }
+  .btn-outline {
+    border: 1px solid #ddd;
+    background: #ffffff;
+    border-radius: 3px;
+    color: #262626; }
+
+[type=button],
+[type=submit],
+button {
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+.navbar {
+  background: #039be5;
+  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3;
+  max-height: 4rem; }
+  .navbar > div {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto; }
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none; }
+  .navbar-sidebar-toggle {
+    left: 0;
+    position: relative;
+    text-indent: -99999rem; }
+    .navbar-sidebar-toggle:before {
+      content: "";
+      display: block;
+      border-top: 0.375rem double #ffffff;
+      border-bottom: 0.125rem solid #ffffff;
+      height: 0.125rem;
+      position: absolute;
+      text-indent: 0;
+      top: 50%;
+      width: 1.3rem;
+      -webkit-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%); }
+
+
+.logo {
+                    background-image: url('https://cryptoskillz.com/blog/media/website/logo.png');
+                    background-size: auto 2rem;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+            display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+            margin: 0 auto;
+            height: 2rem;
+            text-indent: -9999px;
+            width: 240px;vertical-align: middle;
+        }
+        .logo.logo-text {
+            line-height: 2;
+            text-align: center;
+            text-indent: 0;
+        }
+
+amp-sidebar {
+  background: #ffffff;
+  width: 240px; }
+  amp-sidebar > ul {
+    margin: 0.8rem 0 0;
+    padding: 0; }
+    amp-sidebar > ul ul {
+      border-left: 1px solid #d4d4d4;
+      margin: 0.53333rem 0 0; }
+    amp-sidebar > ul li {
+      color: #262626;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      list-style: none;
+      line-height: 1.4;
+      padding: 0.42667rem 1.06667rem; }
+      amp-sidebar > ul li li {
+        font-weight: normal;
+        padding: 0.26667rem 0 0.26667rem 1.06667rem; }
+    amp-sidebar > ul a,
+    amp-sidebar > ul a:visited {
+      color: #262626; }
+
+.bg-white {
+  background: #ffffff; }
+
+.wrap-page {
+  max-width: 700px;
+  margin: 0 auto; }
+
+@media all and (max-width: 43.6875em) {
+  .wrap-inner {
+    padding: 0 6%; } }
+
+.page-title {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding: 1.6rem 6%; }
+  .page-title > h1 {
+    margin: 0;
+    font-size: 1.29454rem; }
+  .page-title > p {
+    font-size: 0.87891rem;
+    color: #6c7175;
+    line-height: 1.3;
+    margin: 0.26667rem 0 0; }
+  .page-title-author {
+    border-radius: 50%;
+    float: left;
+    height: 2.5rem;
+    width: 2.5rem; }
+    .page-title-author + h1 {
+      margin-left: 3.5rem; }
+      .page-title-author + h1 + p {
+        margin-left: 3.5rem; }
+
+.card {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding-bottom: 1.06667rem; }
+
+  .card-meta {
+    border-top: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-top: 1.06667rem;
+    text-transform: uppercase; }
+    .card-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .card-text {
+    font-size: 0.9375rem;
+    overflow: hidden;
+    padding: 0 6%; }
+    .card-text h2 {
+      font-size: 1.13778rem; }
+
+.post {
+  margin-bottom: 2.13333rem; }
+  .post-featured-image {
+    margin-top: 0;
+    position: relative; }
+    .post-featured-image > figcaption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 3px;
+      color: #ffffff;
+      position: absolute;
+      bottom: 0.8rem;
+      padding: 0 0.26667rem;
+      right: 6%; }
+  .post-header {
+    margin-bottom: 2.13333rem; }
+  .post-meta {
+    border-bottom: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-bottom: 1.06667rem;
+    text-transform: uppercase; }
+    .post-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .post-tag {
+    margin: 0; }
+    .post-tag > li {
+      display: inline-block;
+      padding: 0; }
+      .post-tag > li a {
+        background: #f1f1f1;
+        border-radius: 2px;
+        color: #6c7175;
+        font-size: 0.77248rem;
+        display: inline-block;
+        margin: 0 0.26667rem 0.26667rem 0;
+        padding: 0.26667rem 0.53333rem; }
+        .post-tag > li a:hover {
+          background: #039be5;
+          color: #ffffff;
+          text-decoration: none; }
+  .post-share {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    width: 100%; }
+    .post-share amp-social-share {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+      background-size: 24px; }
+  .post-scroll {
+    color: #ffffff;
+    background: #039be5;
+    bottom: 10px;
+    border-radius: 50%;
+    border: none;
+    -webkit-box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    font-size: 1.13778rem;
+    height: 46px;
+    opacity: 0;
+    outline: none;
+    position: fixed;
+    padding: 0;
+    right: 4%;
+    visibility: hidden;
+    width: 46px;
+    z-index: 9999; }
+    .post-scroll-marker {
+      height: 0px;
+      position: absolute;
+      top: 100px;
+      width: 0px; }
+        .post-pagination {
+    background: #f1f1f1;
+    -webkit-box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    border-top: 1px solid #d4d4d4;
+    padding: 1.06667rem 0; }
+    .post-pagination > div {
+      line-height: 1.2;
+      padding: 0.53333rem 1.06667rem;
+      text-align: center; }
+      .post-pagination > div span {
+        display: block;
+        color: #6c7175;
+        font-size: 0.7242rem;
+        font-weight: 500;
+        margin-bottom: 0.26667rem;
+        text-transform: uppercase; }
+    .post-pagination-prev a:before {
+      content: "\2190";
+      margin-right: 0.26667rem; }
+    .post-pagination-next a:after {
+      content: "\2192";
+      margin-left: 0.26667rem; }
+
+aside {
+  margin: 1.6rem 0 0; }
+
+.align-left {
+  text-align: left; }
+
+.align-right {
+  text-align: right; }
+
+.align-center {
+  text-align: center; }
+
+.align-justify {
+  text-align: justify; }
+
+.msg {
+  border-left: 2px solid transparent;
+  padding: 1.06667rem 1.06667rem; }
+  .msg--highlight {
+    background-color: #fff8e6;
+    border-color: #e2ac4f; }
+  .msg--info {
+    background: rgba(45, 97, 201, 0.03);
+    border-color: #039be5; }
+  .msg--success {
+    background: #f7fbf6;
+    border-color: #5ab44b; }
+  .msg--warning {
+    background: #fff3f3;
+    border-color: #c06367;
+    color: #a94442; }
+
+.dropcap:first-letter {
+  float: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 2.16943rem;
+  line-height: 0.7;
+  margin-right: 0.53333rem;
+  padding: 0.53333rem 0.53333rem 0.53333rem 0; }
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0.8rem 0; }
+  .pagination > a {
+    padding-left: 0;
+    padding-right: 0;
+    width: 49%; }
+  .pagination-right {
+    margin-left: auto; }
+
+.bottom {
+  background: #039be5;
+  color: #ffffff;
+  padding: 1.06667rem 4%;
+  text-align: center; }</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script><script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4710117865976591",
+    enable_page_level_ads: true
+  });</script></head><body class="bg-white"><nav class="navbar wrap-inner" id="top"><div><a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a> <a class="logo" href="https://cryptoskillz.com/blog/amp/">cryptoskillz</a></div></nav><main class="wrap-page"><article class="post"><div class="wrap-inner"><header class="post-header"><h1>Part 2: Generate a BTC address</h1><p class="post-meta">By <a href="https://cryptoskillz.com/blog/amp/authors/cryptoskillz/" rel="nofollow" title="cryptoskillz">cryptoskillz</a> <time datetime="2019-09-07T18:56">September 7, 2019</time></p></header><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/4/1_FOAkdC5qviQuoNH-UUQY8Q.jpeg" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-xs.jpeg 300w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-sm.jpeg 480w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-md.jpeg 768w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-lg.jpeg 1024w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-xl.jpeg 1360w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_FOAkdC5qviQuoNH-UUQY8Q-2xl.jpeg 1600w" alt="" width="640" height="360" layout="responsive"></amp-img></figure><p> </p><h1 id="1f98" class="kw kx bf av au el ky kz la lb lc ld le lf lg lh li" data-selectable-paragraph="">Introduction</h1><p id="dfde" class="lj lk bf av ll b lm ln lo lp lq lr ls lt lu lv lw" data-selectable-paragraph="">This guide aims to program a website to accept Bitcoin. In the previous article, I used <a href="https://block.io/" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">block.io</strong></a> to easily create a bitcoin address and check for payment using <a href="https://nodejs.org/en/" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">node.js</strong></a>. This time we are going to remove that dependency and do it using <a href="https://github.com/bitcoinjs/bitcoinjs-lib" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer">b<strong class="ll mb">itcoinjs-lib</strong></a></p><h1 id="0a13" class="kw kx bf av au el ky kz la lb lc ld le lf lg lh li" data-selectable-paragraph="">The SQL</h1><p id="fced" class="lj lk bf av ll b lm ln lo lp lq lr ls lt lu lv lw" data-selectable-paragraph="">We have implemented a database to store the payment details. We have used SQLlite here as it is simple to use and set up. This would be recommended for any production application but it is good enough for this tutorial.</p><p id="9d4d" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">To the database, we added a table called keys to store the information on the address we generated. We will add more fields to this table as we go on.</p><pre class="mh mi mj mk ml dv gg df"><span id="9ae3" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">CREATE TABLE "keys" <br>( `id` INTEGER PRIMARY KEY AUTOINCREMENT,<br> `privatekey` TEXT,<br> `publickey` TEXT,<br> `address` TEXT<br>)</span></pre><h1 id="cc83" class="kw kx bf av au el ky kz la lb lc ld le lf lg lh li" data-selectable-paragraph="">The Code</h1><p id="ff28" class="lj lk bf av ll b lm ln lo lp lq lr ls lt lu lv lw" data-selectable-paragraph="">From this point as the code is going to get a little more complex, we are going to have a git <a href="https://git-scm.com/docs/git-branch" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">branch</strong></a> to keep a snapshot of the code for each tutorial.</p><p id="2c5a" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">The latest code can be found <a href="https://github.com/cryptoskillz/Bitcoin-Tutorial/tree/generateaddress" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">here</strong></a> and it is also listed below.</p><pre class="mh mi mj mk ml dv gg df"><span id="45c9" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">//load express<br>const express = require("express");<br>//load body parser<br>const bodyParser = require("body-parser");<br>//load the bitcoin js files<br>var bitcoin = require("bitcoinjs-lib");<br>//load SQLlite (use any database you want or none)<br>const sqlite3 = require("sqlite3").verbose();<br>//init it<br>const app = express();<br>//set up the network we would like to connect to. in this case test net.<br>const TestNet = bitcoin.networks.testnet;<br>//open a database connection<br>let db = new sqlite3.Database("./db/db.db", err =&gt; {<br>  if (err) {<br>    console.error(err.message);<br>  }<br>});<br>//generate the key pair using the makeRandom functions (there a bunch of ways to make an address btw)<br>let keyPair = bitcoin.ECPair.makeRandom({ network: TestNet });<br>//extract the publickey<br>let publicKey = keyPair.publicKey;<br>//get the private key<br>let privateKey = keyPair.toWIF();<br>//get an address from the keyPair we generated above.<br>let { address } = bitcoin.payments.p2pkh({<br>  pubkey: publicKey,<br>  network: TestNet<br>});<br>db.run(<br>  `INSERT INTO keys(address,privatekey,publickey) VALUES(?,?,?)`,<br>  [address, privateKey, publicKey],<br>  function(err) {<br>    if (err) {<br>      return console.log(err.message);<br>    }<br>    // get the last insert id<br>    //debug<br>    //console.log(this.lastID);<br>  }<br>);<br>//display it to the user<br>console.log("Pay me f00l " + address);<br>app.listen(3000, () =&gt; {});</span></pre><p id="207b" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph=""><strong class="ll mb">What is going in the code above?</strong></p><p id="56ca" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">Firstly we have cleaned up the code, removed block.io dependency and instead added <a href="https://github.com/bitcoinjs/bitcoinjs-lib" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">bitcoinjs-lib</strong></a> which is included in our application with the code line below.</p><pre class="mh mi mj mk ml dv gg df"><span id="3e0e" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">var bitcoin = require(‘bitcoinjs-lib’);</span></pre><p id="6765" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">After that, we set the network to “testnet” when you remove this it will default to the live network as shown below.</p><pre class="mh mi mj mk ml dv gg df"><span id="1e47" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">const TestNet = bitcoin.networks.testnet</span></pre><p id="884f" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">After that, we open a connection to the <a href="https://www.sqlite.org/about.html" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">SQLLite</strong></a> database, feel free to swap this with whatever database that you want.</p><pre class="mh mi mj mk ml dv gg df"><span id="6d75" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">//open a database connection<br>let db = new sqlite3.Database("./db/db.db", err =&gt; {<br>  if (err) {<br>    console.error(err.message);<br>  }<br>});</span></pre><p id="79cf" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">Next, we generate a random key pair. There are a number of ways to generate Bitcoin address but this the simplest way to do so. Also, note that we pass in the “testnet” parameter that we created earlier inside the config part {}.</p><pre class="mh mi mj mk ml dv gg df"><span id="bf35" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">let keyPair = bitcoin.ECPair.makeRandom({ network: TestNet });</span></pre><p id="0a16" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">Next, we extract the public and private key in variables, this is not essential is just makes the variables easier to use later on in the code.</p><p id="758d" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">The <a href="https://en.bitcoin.it/wiki/Wallet_import_format" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">toWIF</strong></a> function is worth talking about here it stands and basically stands for Wallet Import Format (WIF, also known as Wallet Export Format) is a way of encoding a private <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">ECDSA key</strong></a> so as to make it easier to copy.</p><pre class="mh mi mj mk ml dv gg df"><span id="1c77" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">//extract the publickey<br>let publicKey = keyPair.publicKey</span><span id="9438" class="mm kx bf av mn b dz mr ms mt mu mv mp l mq" data-selectable-paragraph="">//get the private key<br>let privateKey = keyPair.toWIF();</span></pre><p id="15d6" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">Next, we want to extract the address to allow so that someone can pay us/ As you can see we pass in the <strong class="ll mb">publicKey</strong> we extracted earlier as well as setting it to the test network (again this gets boring fast)</p><p id="fee6" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">To get the address we have to call the <strong class="ll mb">p2pkh</strong> (Pay-to-PubkeyHash) function. you can read about it in more detail <a href="https://en.bitcoin.it/wiki/Transaction#Pay-to-PubkeyHash" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer">here</a>.</p><pre class="mh mi mj mk ml dv gg df"><span id="46e5" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">let { address } = bitcoin.payments.p2pkh({ pubkey: publicKey,network: TestNet });</span></pre><p id="631f" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">Lastly, we simply store it in our database. Note I know this is super insecure but it is just a test, for now, we will make it much more secure later on.</p><pre class="mh mi mj mk ml dv gg df"><span id="bbb6" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">db.run(`INSERT INTO keys(address,privatekey,publickey) VALUES(?,?,?)`, [address,privateKey,publicKey], function(err) {<br>if (err) {<br> return console.log(err.message);<br>}</span></pre><h1 id="5cbd" class="kw kx bf av au el ky kz la lb lc ld le lf lg lh li" data-selectable-paragraph=""><strong class="ch">Does it work?</strong></h1><p id="3917" class="lj lk bf av ll b lm ln lo lp lq lr ls lt lu lv lw" data-selectable-paragraph="">Let’s run the program and find out. Open a terminal session (Mac/Linux), putty on windows or whatever method you use to run your note app. I use terminal so this is what I will document going forward.</p><p id="f765" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">Run the generate script.</p><pre class="mh mi mj mk ml dv gg df"><span id="3d1f" class="mm kx bf av mn b dz mo mp l mq" data-selectable-paragraph="">node generate.js</span></pre><p id="dc05" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">If everything goes well you will see the following output</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/4/1_gmZwW3S_AzI8oeNcf7XAsg.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/4/responsive/1_gmZwW3S_AzI8oeNcf7XAsg-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_gmZwW3S_AzI8oeNcf7XAsg-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_gmZwW3S_AzI8oeNcf7XAsg-md.png 768w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_gmZwW3S_AzI8oeNcf7XAsg-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_gmZwW3S_AzI8oeNcf7XAsg-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_gmZwW3S_AzI8oeNcf7XAsg-2xl.png 1600w" alt="" width="1218" height="97" layout="responsive"></amp-img></figure><p id="8d5f" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">You will see the details in the database. This is not used now but in the next tutorial, we are going to claim this Bitcoin. You can view this database by using any <a href="https://www.sqlite.org/about.html" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">SQLLite</strong></a> browser I use this <a href="http://sqlitebrowser.org/" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer">one</a>.</p><p id="72c2" class="lj lk bf av ll b lm mc lo md lq me ls mf lu mg lw" data-selectable-paragraph="">Now let’s send a payment to this address.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/4/1_dfIfiR_ewQPNidHuxkfwpg.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/4/responsive/1_dfIfiR_ewQPNidHuxkfwpg-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_dfIfiR_ewQPNidHuxkfwpg-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_dfIfiR_ewQPNidHuxkfwpg-md.png 768w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_dfIfiR_ewQPNidHuxkfwpg-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_dfIfiR_ewQPNidHuxkfwpg-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_dfIfiR_ewQPNidHuxkfwpg-2xl.png 1600w" alt="" width="3335" height="1300" layout="responsive"></amp-img></figure><p data-selectable-paragraph="">Now let’s see if it has shown up on the network. I use blockchain as my blockchain <a href="https://testnet.blockchain.info/" class="cb bx lx ly lz ma" target="_blank" rel="noopener noreferrer"><strong class="ll mb">explorer</strong></a>.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/4/1_zxANBApe6C4npY_R6Rz8nQ.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/4/responsive/1_zxANBApe6C4npY_R6Rz8nQ-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_zxANBApe6C4npY_R6Rz8nQ-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_zxANBApe6C4npY_R6Rz8nQ-md.png 768w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_zxANBApe6C4npY_R6Rz8nQ-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_zxANBApe6C4npY_R6Rz8nQ-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/4/responsive/1_zxANBApe6C4npY_R6Rz8nQ-2xl.png 1600w" alt="" width="2797" height="1158" layout="responsive"></amp-img></figure><h1 id="8655" class="kw kx bf av au el ky kz la lb lc ld le lf lg lh li" data-selectable-paragraph="">Conclusion</h1><p id="a570" class="lj lk bf av ll b lm ln lo lp lq lr ls lt lu lv lw" data-selectable-paragraph="">We have managed to connect to the Bitcoin network generate an address and send some Bitcoin to it and store the keys. Next time we will use the private key to claim those coins.</p><aside><div class="post-share"><amp-social-share type="system" width="40" height="40" data-param-text="Part 2: Generate a BTC address"></amp-social-share><amp-social-share type="facebook" width="40" height="40" data-param-app_id="" data-param-text="Part 2: Generate a BTC address" data-param-href="https://cryptoskillz.com/blog/amp/part-2-generate-a-btc-address.html"></amp-social-share><amp-social-share type="twitter" width="40" height="40" data-param-text="Part 2: Generate a BTC address" data-param-url="https://cryptoskillz.com/blog/amp/part-2-generate-a-btc-address.html"></amp-social-share><amp-social-share type="pinterest" width="40" height="40" data-param-url="https://cryptoskillz.com/blog/amp/part-2-generate-a-btc-address.html"></amp-social-share><amp-social-share type="tumblr" width="40" height="40" data-param-text="Part 2: Generate a BTC address" data-param-url="https://cryptoskillz.com/blog/amp/part-2-generate-a-btc-address.html"></amp-social-share><amp-social-share type="whatsapp" width="40" height="40" data-param-text="Part 2: Generate a BTC address"></amp-social-share></div></aside></div></article><nav class="post-pagination wrap-inner"><div class="post-pagination-prev"><span>Previous</span> <a href="https://cryptoskillz.com/blog/amp/part-1-using-3rd-party-providers.html">Part 1: Using 3rd Party providers</a></div><div class="post-pagination-next"><span>Next</span> <a href="https://cryptoskillz.com/blog/amp/part-3-monitor-blockchain-for-payment.html">Part 3: Monitor blockchain for payment</a></div></nav></main><amp-animation id="showAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "1",
+                            "visibility": "visible",
+                            "transform": "scale(1)"
+                        }]
+                    }]
+                }</script></amp-animation><amp-animation id="hideAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "0",
+                            "visibility": "hidden",
+                            "transform": "scale(0.1)"
+                        }]
+                    }]
+                }</script></amp-animation><div class="post-scroll-marker"><amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay"></amp-position-observer></div><button class="post-scroll" on="tap:top.scrollTo(duration=200)">&#8593;</button><footer class="bottom">Powered by Publii</footer><amp-sidebar id="navbar-sidebar" layout="nodisplay"><ul><li><a href="https://cryptoskillz.com/index.html">ECS</a></li><li><a href="https://cryptoskillz.com/blox.html">BLOX</a></li><li><a href="https://cryptoskillz.com/about.html">ABOUT</a></li></ul></amp-sidebar><script async src="https://www.googletagmanager.com/gtag/js?id=UA-111636971-1"></script><script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111636971-1');</script></body></html>
