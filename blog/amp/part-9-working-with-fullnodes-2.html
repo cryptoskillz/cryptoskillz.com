@@ -1,0 +1,593 @@
+<!doctype html><html amp lang="en"><head><meta charset="utf-8"><title>Part 9: Working with Fullnodes 2 - cryptoskillz</title><meta name="description" content="blockchain,bitcoin,node js, fullnode"><link rel="canonical" href="https://cryptoskillz.com/blog/part-9-working-with-fullnodes-2.html"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css"><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://cryptoskillz.com/blog/amp/part-9-working-with-fullnodes-2.html"},"headline":"Part 9: Working with Fullnodes 2","datePublished":"2019-09-09T00:34","dateModified":"2019-09-09T00:34","image":{"@type":"ImageObject","url":"https://cryptoskillz.com/blog/media/website/logo.png","height":178,"width":685},"description":"<figure class=\"post__image\"><amp-img  src=\"https://cryptoskillz.com/blog/media/posts/11/1_63p4B8NFmprNKx3-VZHkeA.jpeg\" sizes=\"(max-width: 48em) 100vw, 768px\" srcset=\"https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-xs.jpeg 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-sm.jpeg 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-md.jpeg 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-lg.jpeg 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-xl.jpeg 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-2xl.jpeg 1600w\"  alt=\"\" width=\"4000\" height=\"2250\" layout=\"responsive\"></amp-img></figure>\n<p> </p>\n","author":{"@type":"Person","name":"cryptoskillz"},"publisher":{"@type":"Organization","name":"cryptoskillz","logo":{"@type":"ImageObject","url":"https://cryptoskillz.com/blog/media/website/logo.png","height":178,"width":685}}}</script><style amp-custom>article,
+aside,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+amp-img {
+  max-width: 100%; }
+
+button,
+input,
+select,
+textarea {
+  font: inherit; }
+
+html {
+  font-size: 1rem; }
+
+body {
+  background: #f1f1f1;
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6; }
+
+a {
+  color:  #039be5;
+  text-decoration: none;
+  -webkit-transition: all 0.12s linear 0s;
+  -o-transition: all 0.12s linear 0s;
+  transition: all 0.12s linear 0s; }
+
+a:hover {
+  color: #262626;
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink; }
+
+a:active {
+  color: #262626; }
+
+a:focus {
+  outline: 2px dotted #039be5; }
+
+figure,
+blockquote,
+p,
+ul,
+ol,
+dl,
+table,
+hr,
+fieldset {
+  margin-top: 1.6rem; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 2.13333rem; }
+
+h1 {
+  font-size: 1.67583rem;
+  font-weight: normal; }
+
+h2 {
+  font-size: 1.4729rem; }
+
+h3 {
+  font-size: 1.29454rem; }
+
+h4 {
+  font-size: 1.13778rem; }
+
+h5 {
+  font-size: 1rem; }
+
+h6 {
+  font-size: 0.87891rem; }
+
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0.8rem; }
+
+b,
+strong {
+  font-weight: 600; }
+
+blockquote {
+  color: #6c7175;
+  font-family: "Droid Serif", "Times", "Source Serif Pro", serif;
+  font-style: italic;
+  padding: 1.33333rem 0.53333rem 1.33333rem 3.2rem;
+  position: relative; }
+  blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 4.41226rem;
+    position: absolute;
+    left: 0;
+    top: -12px;
+    color: rgba(108, 113, 117, 0.5); }
+  blockquote > :nth-child(1) {
+    margin-top: 0; }
+
+ul,
+ol {
+  margin-left: 2rem; }
+  ul > li,
+  ol > li {
+    list-style: inherit;
+    padding: 0 0 0.26667rem 0.26667rem; }
+
+dl dt {
+  color: #262626;
+  font-weight: 600; }
+
+code,
+pre {
+  background-color: #f1f1f1;
+  font-family: monospace; }
+
+pre {
+  margin: 1.6rem 0 0;
+  padding: 1.6rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto; }
+  pre > code {
+    color: #262626;
+    padding: 0; }
+
+code {
+  border-radius: 3px;
+  color: #262626;
+  padding: 0.26667rem 0.53333rem; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  overflow-x: auto;
+  vertical-align: top;
+  text-align: left;
+  white-space: nowrap; }
+  table th {
+    font-weight: 500;
+    padding: 0.53333rem 1.06667rem; }
+  table tr {
+    border-bottom: 1px solid #d4d4d4; }
+    table tr:nth-child(2n) {
+      background: #f1f1f1; }
+  table td {
+    padding: 0.53333rem 1.06667rem; }
+
+figcaption {
+  clear: both;
+  color: rgba(108, 113, 117, 0.6);
+  font-size: 0.82397rem;
+  margin: 0.8rem 0 0;
+  text-align: center; }
+
+sub,
+sup {
+  font-size: 65%; }
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+.btn, [type=button],
+[type=submit],
+button {
+  background: #039be5;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.87891rem;
+  font-weight: 500;
+  line-height: 1.9;
+  padding: 0.53333rem 1.33333rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease;
+  width: auto; }
+  .btn:hover, [type=button]:hover,
+  [type=submit]:hover,
+  button:hover {
+    background: #262626;
+    color: #ffffff; }
+  .btn:focus, [type=button]:focus,
+  [type=submit]:focus,
+  button:focus {
+    outline: none; }
+  .btn-outline {
+    border: 1px solid #ddd;
+    background: #ffffff;
+    border-radius: 3px;
+    color: #262626; }
+
+[type=button],
+[type=submit],
+button {
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+.navbar {
+  background: #039be5;
+  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3;
+  max-height: 4rem; }
+  .navbar > div {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto; }
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none; }
+  .navbar-sidebar-toggle {
+    left: 0;
+    position: relative;
+    text-indent: -99999rem; }
+    .navbar-sidebar-toggle:before {
+      content: "";
+      display: block;
+      border-top: 0.375rem double #ffffff;
+      border-bottom: 0.125rem solid #ffffff;
+      height: 0.125rem;
+      position: absolute;
+      text-indent: 0;
+      top: 50%;
+      width: 1.3rem;
+      -webkit-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%); }
+
+
+.logo {
+                    background-image: url('https://cryptoskillz.com/blog/media/website/logo.png');
+                    background-size: auto 2rem;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+            display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+            margin: 0 auto;
+            height: 2rem;
+            text-indent: -9999px;
+            width: 240px;vertical-align: middle;
+        }
+        .logo.logo-text {
+            line-height: 2;
+            text-align: center;
+            text-indent: 0;
+        }
+
+amp-sidebar {
+  background: #ffffff;
+  width: 240px; }
+  amp-sidebar > ul {
+    margin: 0.8rem 0 0;
+    padding: 0; }
+    amp-sidebar > ul ul {
+      border-left: 1px solid #d4d4d4;
+      margin: 0.53333rem 0 0; }
+    amp-sidebar > ul li {
+      color: #262626;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      list-style: none;
+      line-height: 1.4;
+      padding: 0.42667rem 1.06667rem; }
+      amp-sidebar > ul li li {
+        font-weight: normal;
+        padding: 0.26667rem 0 0.26667rem 1.06667rem; }
+    amp-sidebar > ul a,
+    amp-sidebar > ul a:visited {
+      color: #262626; }
+
+.bg-white {
+  background: #ffffff; }
+
+.wrap-page {
+  max-width: 700px;
+  margin: 0 auto; }
+
+@media all and (max-width: 43.6875em) {
+  .wrap-inner {
+    padding: 0 6%; } }
+
+.page-title {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding: 1.6rem 6%; }
+  .page-title > h1 {
+    margin: 0;
+    font-size: 1.29454rem; }
+  .page-title > p {
+    font-size: 0.87891rem;
+    color: #6c7175;
+    line-height: 1.3;
+    margin: 0.26667rem 0 0; }
+  .page-title-author {
+    border-radius: 50%;
+    float: left;
+    height: 2.5rem;
+    width: 2.5rem; }
+    .page-title-author + h1 {
+      margin-left: 3.5rem; }
+      .page-title-author + h1 + p {
+        margin-left: 3.5rem; }
+
+.card {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding-bottom: 1.06667rem; }
+
+  .card-meta {
+    border-top: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-top: 1.06667rem;
+    text-transform: uppercase; }
+    .card-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .card-text {
+    font-size: 0.9375rem;
+    overflow: hidden;
+    padding: 0 6%; }
+    .card-text h2 {
+      font-size: 1.13778rem; }
+
+.post {
+  margin-bottom: 2.13333rem; }
+  .post-featured-image {
+    margin-top: 0;
+    position: relative; }
+    .post-featured-image > figcaption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 3px;
+      color: #ffffff;
+      position: absolute;
+      bottom: 0.8rem;
+      padding: 0 0.26667rem;
+      right: 6%; }
+  .post-header {
+    margin-bottom: 2.13333rem; }
+  .post-meta {
+    border-bottom: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-bottom: 1.06667rem;
+    text-transform: uppercase; }
+    .post-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .post-tag {
+    margin: 0; }
+    .post-tag > li {
+      display: inline-block;
+      padding: 0; }
+      .post-tag > li a {
+        background: #f1f1f1;
+        border-radius: 2px;
+        color: #6c7175;
+        font-size: 0.77248rem;
+        display: inline-block;
+        margin: 0 0.26667rem 0.26667rem 0;
+        padding: 0.26667rem 0.53333rem; }
+        .post-tag > li a:hover {
+          background: #039be5;
+          color: #ffffff;
+          text-decoration: none; }
+  .post-share {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    width: 100%; }
+    .post-share amp-social-share {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+      background-size: 24px; }
+  .post-scroll {
+    color: #ffffff;
+    background: #039be5;
+    bottom: 10px;
+    border-radius: 50%;
+    border: none;
+    -webkit-box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    font-size: 1.13778rem;
+    height: 46px;
+    opacity: 0;
+    outline: none;
+    position: fixed;
+    padding: 0;
+    right: 4%;
+    visibility: hidden;
+    width: 46px;
+    z-index: 9999; }
+    .post-scroll-marker {
+      height: 0px;
+      position: absolute;
+      top: 100px;
+      width: 0px; }
+        .post-pagination {
+    background: #f1f1f1;
+    -webkit-box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    border-top: 1px solid #d4d4d4;
+    padding: 1.06667rem 0; }
+    .post-pagination > div {
+      line-height: 1.2;
+      padding: 0.53333rem 1.06667rem;
+      text-align: center; }
+      .post-pagination > div span {
+        display: block;
+        color: #6c7175;
+        font-size: 0.7242rem;
+        font-weight: 500;
+        margin-bottom: 0.26667rem;
+        text-transform: uppercase; }
+    .post-pagination-prev a:before {
+      content: "\2190";
+      margin-right: 0.26667rem; }
+    .post-pagination-next a:after {
+      content: "\2192";
+      margin-left: 0.26667rem; }
+
+aside {
+  margin: 1.6rem 0 0; }
+
+.align-left {
+  text-align: left; }
+
+.align-right {
+  text-align: right; }
+
+.align-center {
+  text-align: center; }
+
+.align-justify {
+  text-align: justify; }
+
+.msg {
+  border-left: 2px solid transparent;
+  padding: 1.06667rem 1.06667rem; }
+  .msg--highlight {
+    background-color: #fff8e6;
+    border-color: #e2ac4f; }
+  .msg--info {
+    background: rgba(45, 97, 201, 0.03);
+    border-color: #039be5; }
+  .msg--success {
+    background: #f7fbf6;
+    border-color: #5ab44b; }
+  .msg--warning {
+    background: #fff3f3;
+    border-color: #c06367;
+    color: #a94442; }
+
+.dropcap:first-letter {
+  float: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 2.16943rem;
+  line-height: 0.7;
+  margin-right: 0.53333rem;
+  padding: 0.53333rem 0.53333rem 0.53333rem 0; }
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0.8rem 0; }
+  .pagination > a {
+    padding-left: 0;
+    padding-right: 0;
+    width: 49%; }
+  .pagination-right {
+    margin-left: auto; }
+
+.bottom {
+  background: #039be5;
+  color: #ffffff;
+  padding: 1.06667rem 4%;
+  text-align: center; }</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script><script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+    google_ad_client: "ca-pub-4710117865976591",
+    enable_page_level_ads: true
+  });</script></head><body class="bg-white"><nav class="navbar wrap-inner" id="top"><div><a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a> <a class="logo" href="https://cryptoskillz.com/blog/amp/">cryptoskillz</a></div></nav><main class="wrap-page"><article class="post"><div class="wrap-inner"><header class="post-header"><h1>Part 9: Working with Fullnodes 2</h1><p class="post-meta">By <a href="https://cryptoskillz.com/blog/amp/authors/cryptoskillz/" rel="nofollow" title="cryptoskillz">cryptoskillz</a> <time datetime="2019-09-09T00:34">September 9, 2019</time></p></header><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_63p4B8NFmprNKx3-VZHkeA.jpeg" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-xs.jpeg 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-sm.jpeg 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-md.jpeg 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-lg.jpeg 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-xl.jpeg 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_63p4B8NFmprNKx3-VZHkeA-2xl.jpeg 1600w" alt="" width="4000" height="2250" layout="responsive"></amp-img></figure><p> </p><h1 id="e03d" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" data-selectable-paragraph="">Introduction</h1><p id="ad64" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">This guide aims to program a website to accept Bitcoin. In the previous article, we deep dived into Fullnodes and what a lot of fun that was.</p><p id="cc89" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">In this tutorial, we are going to use the knowledge we gained to recode the server section, remove <a href="https://block.io/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">block.io</strong></a> and <a href="http://blockcypher.com/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">blockcypher</strong></a> to push the transaction. Which means we will have 0 external dependencies in our stack, yay.</p><p id="919a" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">We also removed <a href="https://github.com/bitcoinjs/bitcoinjs-lib" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">Bitcoinjs</strong></a> and replaced it with <a href="https://www.npmjs.com/package/bitcoin-core" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">bitcoin core</strong></a>. We went into great detail about why we made these decisions in the <a class="cb bx lb lc ld le" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/https-medium-com-cryptoskillz-58791-part-8-working-with-fullnodes-f2b32d3c57b4" rel="noopener noreferrer">previous article</a> so please check this out if you have not already done so.</p><h1 id="7588" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" data-selectable-paragraph="">The SQL</h1><p id="dcc5" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">We removed the private and public key of fields from the <strong class="lu ml">keys</strong> table. As we now have RPC access to the full node that created the transactions we can get these details directly from the node.</p><pre class="ke kf kg kh ki dv ge df"><span id="f58e" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">CREATE TABLE "keys" <br>( `id` INTEGER PRIMARY KEY AUTOINCREMENT,<br> `address` TEXT, `processed` INTEGER DEFAULT 0,<br> `swept` INTEGER DEFAULT 0,<br> `userid` INTEGER,<br> `net` INTEGER DEFAULT 1,<br> `amount` TEXT DEFAULT 0<br>)</span></pre><h1 id="ea8b" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" data-selectable-paragraph="">The Code</h1><p id="af79" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">All of the code changes are isolated to the Server this time. Firstly we removed monitor.js (we will replace this later in a much better way) and then we completely refactored app.js.</p><p id="03fb" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">The branch for this tutorial can be found <a href="https://github.com/cryptoskillz/Bitcoin-Tutorial/tree/9-fullnode-part-2" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer">here</a>.</p><p id="805d" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph=""><a href="https://github.com/cryptoskillz/Bitcoin-Tutorial/blob/9-fullnode-part-2/server/app.js" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">app.js</strong></a></p><p id="2895" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Apart from moving some functions so they were more logically grouped all of the code changes are contained in the 3 main API methods <strong class="lu ml">address</strong>, <strong class="lu ml">monitor</strong> and <strong class="lu ml">sweep</strong>.</p><pre class="ke kf kg kh ki dv ge df"><span id="4584" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">app.get("/api/sweep", (req, res) =&gt; {<br>  //set the headers<br>  res = setHeaders(res);<br>  //unlock the wallet<br>  client.walletPassphrase(process.env.walletpassphrase, 10).then(() =&gt; {<br>    client.listUnspent(1, 9999999, [req.query.address]).then(result =&gt; {<br>      //get the private key<br>      client.dumpPrivKey(req.query.address).then(pkey =&gt; {<br>        //check if there are any<br>        if (result.length == 0) {<br>          //debug<br>          //console.log(result);<br>          //exit gracefully<br>          res.send(<br>            JSON.stringify({<br>              result: "nothing to sweep no unspent transactions"<br>            })<br>          );<br>          return;<br>        } else {<br>          //check the confirmation count<br>          if (result[0].confirmations &gt; 1) {<br>            //estimate fee<br>            client.estimateSmartFee(6).then(fee =&gt; {<br>              //work out the amount to send<br>              var amounttosend = result[0].amount - fee.feerate;<br>              //create raw transaction<br>              client<br>                .createRawTransaction(<br>                  [{ txid: result[0].txid, vout: 0 }],<br>                  [{ [process.env.toaddress]: amounttosend }]<br>                )<br>                .then(txhash =&gt; {<br>                  //sign it<br>                  client<br>                    .signRawTransaction(<br>                      txhash,<br>                      [<br>                        {<br>                          txid: result[0].txid,<br>                          vout: 0,<br>                          amount: result[0].amount,<br>                          scriptPubKey: result[0].scriptPubKey,<br>                          redeemScript: result[0].redeemScript<br>                        }<br>                      ],<br>                      [pkey]<br>                    )<br>                    .then(signed =&gt; {<br>                      //broadcast it<br>                      client<br>                        .sendRawTransaction(signed.hex)<br>                        .then(broadcasted =&gt; {<br>                          //build sql<br>                          let sqldata = ["1", req.query.address];<br>                          let sql = `UPDATE keys<br>                                       SET swept = ?<br>                                       WHERE address = ?`;</span><span id="46a6" class="mm lg bf av mn b dz mr ms mt mu mv mp l mq" data-selectable-paragraph="">                          //run sql<br>                          db.run(sql, sqldata, function(err) {<br>                            if (err) {<br>                            }<br>                            //lock wallet<br>                            client.walletLock();<br>                            //return status<br>                            res.send(JSON.stringify({ status: "swept" }));<br>                            return;<br>                          });<br>                        });<br>                    });<br>                });<br>            });<br>          } else {<br>            //lock wallet<br>            client.walletLock();<br>            //return status<br>            res.send(<br>              JSON.stringify({<br>                status: "not enough confirmations :" + result[0].confirmations<br>              })<br>            );<br>            return;<br>          }<br>        }<br>      });<br>    });<br>  });<br>});</span></pre><p id="f1ac" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Let us break down what is happening:</p><p id="031f" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">The first thing we have to do is include <a href="https://www.npmjs.com/package/bitcoin-core" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">Bitcoin Core</strong></a> and configure it which we do with the code below</p><pre class="ke kf kg kh ki dv ge df"><span id="89d9" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">//load bitcoin core<br>const Client = require("bitcoin-core");<br>//open a connection to the RPC client<br>const client = new Client({<br>  host: "127.0.0.1",<br>  port: 18332,<br>  username: "test",<br>  password: "test"<br>});</span></pre><h2 id="66f0" class="mm lg bf av au el mw mx my mz na nb nc nd ne nf ng" data-selectable-paragraph="">generate</h2><p id="604c" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">In the generate function he first thing we do is unlock the wallet using the passphrase that we have set as an environment variable and calling the <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/wallet/walletpassphrase/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">walletPassphrase</strong></a> function.</p><pre class="ke kf kg kh ki dv ge df"><span id="6c76" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">client.walletPassphrase(process.env.walletpassphrase, 10).then(() =&gt; {<br>   <br>})</span></pre><p id="eab3" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, we generate a new address by calling the <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/wallet/getnewaddress/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">getNewAddress</strong></a> function and passing in the name of the wallet account, again we set the account name as an environment variable</p><pre class="ke kf kg kh ki dv ge df"><span id="98ff" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">client.getNewAddress(process.env.walletaccount).then(address =&gt; {<br>     <br>})</span></pre><p id="6ee4" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Lastly, we are adding the new address to the database and returning it as a JSON object to the caller.</p><pre class="ke kf kg kh ki dv ge df"><span id="045a" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">db.run(`INSERT INTO keys(address,userid,net) VALUES(?,?,?)`, [address,req.query.uid,network], function(err) {<br>   if (err) {<br>     res.send(JSON.stringify({error: err.message}));<br>     return;<br>   }<br>   //return the address<br>   res.send(JSON.stringify({address:address}));<br>  });<br>     client.walletLock();<br>     return;<br>   });<br> });</span></pre><h2 id="407d" class="mm lg bf av au el mw mx my mz na nb nc nd ne nf ng" data-selectable-paragraph="">monitor</h2><p id="8cd3" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">Firstly, we see which funds are unspent in this address by using the <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/wallet/getreceivedbyaddress/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">getRecievedByAdress</strong></a> and passing it the address we generated above.</p><pre class="ke kf kg kh ki dv ge df"><span id="cdf2" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">client.getReceivedByAddress(req.query.address).then(result =&gt; {</span><span id="067c" class="mm lg bf av mn b dz mr ms mt mu mv mp l mq" data-selectable-paragraph="">});</span></pre><p id="607b" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, we check the value is more than 0 if it is then we update the entry in the database to “<strong class="lu ml">process</strong>”. We could do a confirmation check here if we really wanted to but I am happy to have that in the sweep function that is shown below.</p><pre class="ke kf kg kh ki dv ge df"><span id="f67f" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">if (result &gt; 0) {<br>  //build the query<br>  let data = ["1", result, req.query.address];<br>  let sql = `UPDATE keys<br>               SET processed = ?,<br>                amount = ?<br>               WHERE address = ?`;<br>  //run the query<br>  db.run(sql, data, function(err) {<br>    if (err) {<br>      return console.error(err.message);<br>    }<br>    //retun response<br>    res.send(JSON.stringify({ status: "confirmed" }));<br>  });<br>} else {<br>  //return error<br>  res.send(JSON.stringify({ status: "not confirmed" }));<br>}</span></pre><h2 id="68bb" class="mm lg bf av au el mw mx my mz na nb nc nd ne nf ng" data-selectable-paragraph="">sweep</h2><p id="c0c5" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">The sweep function is used to move the received funds to our cold storage address.</p><p id="2e45" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Firstly, we unlock the wallet for 10 seconds using the <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/wallet/walletpassphrase/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">walletPassphrase</strong></a>function</p><pre class="ke kf kg kh ki dv ge df"><span id="36c0" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">client.walletPassphrase(process.env.walletpassphrase, 10).then(() =&gt; {<br> <br>})</span></pre><p id="8f28" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, we want to get all of the unspent UTX’s for the address we generated above using the <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/wallet/listunspent/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">listUnspent</strong></a> function</p><pre class="ke kf kg kh ki dv ge df"><span id="f1cc" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph=""> client.listUnspent(1,9999999,[req.query.address]).then(result =&gt; {<br>   <br> });</span></pre><p id="5abb" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, we want to get the private key for this address so we can sign a transaction later. We achieve this by calling the <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/wallet/dumpprivkey/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">dumpPrivKey</strong></a> function.</p><pre class="ke kf kg kh ki dv ge df"><span id="5687" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">client.dumpPrivKey(req.query.address).then(pkey =&gt; {<br>    <br>});</span></pre><p id="a259" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, we check that we have some unspent transactions if we do not we exit as there is nothing else to do.</p><pre class="ke kf kg kh ki dv ge df"><span id="1524" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">if (result.length == 0) {<br>  //exit gracefully<br>  res.send(<br>    JSON.stringify({ result: "nothing to sweep no unspent transactions" })<br>  );<br>  return;<br>} </span></pre><p id="2cf9" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, as there are some unspent transactions then we want to check the number of confirmations that we want before we class it as a valid transaction. As you can see we have set it to 1 (to make testing faster) but in any production code, it should be between 3–6.</p><pre class="ke kf kg kh ki dv ge df"><span id="b304" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">if (result[0].confirmations &gt; 1) {<br>    <br>}</span></pre><p id="1607" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, we call the <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/util/estimatesmartfee/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">estimatesmartfee</strong></a> function and remove this fee from the amount we want to send.</p><pre class="ke kf kg kh ki dv ge df"><span id="02fb" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">client.estimateSmartFee(6).then(fee =&gt; {<br>      //work out the amount to send<br>      var amounttosend = result[0].amount - fee.feerate;<br>  }</span></pre><p id="40c1" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Next, we want to create, sign and broadcast the transaction assuming this all works as expected we update the database and you should see the money in your bitcoin wallet. We use the functions <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/rawtransactions/createrawtransaction/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">createRawTransaction</strong></a>and <a href="https://bitcoincore.org/en/doc/0.17.0/rpc/rawtransactions/sendrawtransaction/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">sendRawTransaction</strong></a> functions to achieve this.</p><pre class="ke kf kg kh ki dv ge df"><span id="12da" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">client.createRawTransaction(<br>          [{ txid: result[0].txid, vout: 0 }],<br>          [{ [process.env.toaddress]: amounttosend }]<br>        )<br>        .then(txhash =&gt; {<br>          client<br>            .signRawTransaction(<br>              txhash,<br>              [<br>                {<br>                  txid: result[0].txid,<br>                  vout: 0,<br>                  amount: result[0].amount,<br>                  scriptPubKey: result[0].scriptPubKey,<br>                  redeemScript: result[0].redeemScript<br>                }<br>              ],<br>              [pkey]<br>            )<br>            .then(signed =&gt; {<br>              client.sendRawTransaction(signed.hex).then(broadcasted =&gt; {<br>                let sqldata = ["1", req.query.address];<br>                let sql = `UPDATE keys<br>               SET swept = ?<br>               WHERE address = ?`;</span><span id="e65e" class="mm lg bf av mn b dz mr ms mt mu mv mp l mq" data-selectable-paragraph="">//run sql<br>                db.run(sql, sqldata, function(err) {<br>                  if (err) {<br>                  }<br>                  //lock wallet<br>                  client.walletLock();<br>                  //return status<br>                  res.send(JSON.stringify({ status: "swept" }));<br>                  return;<br>                });<br>              });<br>            });<br>        });<br>    });<br>  } else {<br>    //lock wallet<br>    client.walletLock();<br>    //return status<br>    res.send(<br>      JSON.stringify({<br>        status: "not enough confirmations :" + result[0].confirmations<br>      })<br>    );<br></span></pre><h1 id="95a3" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" data-selectable-paragraph=""><strong class="ch">Using the code</strong></h1><h2 id="82c7" class="mm lg bf av au el mw mx my mz na nb nc nd ne nf ng" data-selectable-paragraph="">Step 1: Start Bitcoin Core</h2><p id="3a1e" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">Browse to the following directory by using the following command in a terminal window.</p><pre class="ke kf kg kh ki dv ge df"><span id="99a4" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">cd /Applications/Bitcoin-Qt.app/Contents/MacOS/</span></pre><p id="38bf" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Then start it with the following parameters:</p><p id="ebf5" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph=""><strong class="lu ml">rpcuser</strong><br>The username for the RPC server</p><p id="12cf" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph=""><strong class="lu ml">rpcpassword<br></strong>The password for the RPC server</p><p id="5147" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph=""><strong class="lu ml">rest</strong> <br>Start the REST server</p><p id="9bfd" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph=""><strong class="lu ml">testnet</strong> <br>Connect to the test network</p><p id="bec2" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph=""><strong class="lu ml">deprecatedrpc<br></strong>Run deprecated functions. The reason we are doing this here is to use the <strong class="lu ml">signrawtransaction</strong> function which has technically been deprecated but its replacement is not available until Bitcoin Core v0.018.0</p><pre class="ke kf kg kh ki dv ge df"><span id="4c58" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">./Bitcoin-Qt -server -rpcuser=test  -rpcpassword=test -rest -testnet  -deprecatedrpc=signrawtransaction</span></pre><h2 id="8bbd" class="mm lg bf av au el mw mx my mz na nb nc nd ne nf ng" data-selectable-paragraph="">step 2: generate a transaction</h2><p id="7fdc" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">Open a new terminal window and go into the server directory of the project and run <a href="https://github.com/cryptoskillz/Bitcoin-Tutorial/blob/9-fullnode-part-2/server/app.js" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu ml">app.js</strong></a>, this will start the server</p><pre class="ke kf kg kh ki dv ge df"><span id="4334" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph="">node app.js</span></pre><p id="74c2" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Now go to chrome (or your browser of choice) and call the generate address function by calling the URL below. Note you can also do this via WWW (see the previous tutorial for details on how to do this)</p><pre class="ke kf kg kh ki dv ge df"><span id="70cb" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph=""><a href="http://127.0.0.1:3000/api/address?uid=3" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer">http://127.0.0.1:3000/api/address?uid=3</a></span></pre><p id="30a6" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">This will generate an address that we can use for the payment as shown below</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_-HErYZdxIs1ozMSAV6tdmQ.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_-HErYZdxIs1ozMSAV6tdmQ-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_-HErYZdxIs1ozMSAV6tdmQ-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_-HErYZdxIs1ozMSAV6tdmQ-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_-HErYZdxIs1ozMSAV6tdmQ-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_-HErYZdxIs1ozMSAV6tdmQ-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_-HErYZdxIs1ozMSAV6tdmQ-2xl.png 1600w" alt="" width="1164" height="351" layout="responsive"></amp-img></figure><h2 id="c100" class="mm lg bf av au el mw mx my mz na nb nc nd ne nf ng" data-selectable-paragraph="">step 3: monitor a transaction</h2><p id="ba93" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">Now we can go ahead and send some money to this address by going to our Bitcoin wallet and sending funds</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_991QXPGUBCSWtEPSjKrLmw.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_991QXPGUBCSWtEPSjKrLmw-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_991QXPGUBCSWtEPSjKrLmw-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_991QXPGUBCSWtEPSjKrLmw-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_991QXPGUBCSWtEPSjKrLmw-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_991QXPGUBCSWtEPSjKrLmw-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_991QXPGUBCSWtEPSjKrLmw-2xl.png 1600w" alt="" width="2286" height="1011" layout="responsive"></amp-img></figure><p id="bde7" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">Now we can go back to our browser and call the monitor script by going to the URL below. Not you will see that we have added the address that was generated.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_c63oAwTdOaR_6hlD60sP4g.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_c63oAwTdOaR_6hlD60sP4g-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_c63oAwTdOaR_6hlD60sP4g-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_c63oAwTdOaR_6hlD60sP4g-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_c63oAwTdOaR_6hlD60sP4g-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_c63oAwTdOaR_6hlD60sP4g-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_c63oAwTdOaR_6hlD60sP4g-2xl.png 1600w" alt="" width="1596" height="359" layout="responsive"></amp-img></figure><p id="9a3f" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">It will say unconfirmed until the total shows in the blockchain we can check this using an <a href="https://live.blockcypher.com/btc-testnet/address/2Mx1TYm5J87WQAuqo4SBMQZJZLRPNjg716N/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer">explorer</a></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_HG_hUtWVsHP7lQtaG5b-dg.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_HG_hUtWVsHP7lQtaG5b-dg-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_HG_hUtWVsHP7lQtaG5b-dg-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_HG_hUtWVsHP7lQtaG5b-dg-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_HG_hUtWVsHP7lQtaG5b-dg-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_HG_hUtWVsHP7lQtaG5b-dg-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_HG_hUtWVsHP7lQtaG5b-dg-2xl.png 1600w" alt="" width="2917" height="1096" layout="responsive"></amp-img></figure><p id="6dbd" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">After 10 minutes (more or less) it will receive its first confirmation (as shown below) and we can move on to sweeping it into our cold storage wallet.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_ofWuu5uTyLEmasHVwxX9WA.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_ofWuu5uTyLEmasHVwxX9WA-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_ofWuu5uTyLEmasHVwxX9WA-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_ofWuu5uTyLEmasHVwxX9WA-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_ofWuu5uTyLEmasHVwxX9WA-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_ofWuu5uTyLEmasHVwxX9WA-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_ofWuu5uTyLEmasHVwxX9WA-2xl.png 1600w" alt="" width="2206" height="949" layout="responsive"></amp-img></figure><h2 id="c5fe" class="mm lg bf av au el mw mx my mz na nb nc nd ne nf ng" data-selectable-paragraph="">step 4: sweep transaction</h2><p id="29f7" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">We run the sweep by going to the following URL in your browser. As you will see we are using the same address (created in generating) again.</p><pre class="ke kf kg kh ki dv ge df"><span id="977d" class="mm lg bf av mn b dz mo mp l mq" data-selectable-paragraph=""><a href="http://127.0.0.1:3000/api/sweep?address=2Mx1TYm5J87WQAuqo4SBMQZJZLRPNjg716N" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer">http://127.0.0.1:3000/api/sweep?address=2Mx1TYm5J87WQAuqo4SBMQZJZLRPNjg716N</a></span></pre><p id="65aa" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">At first, you will see it display not enough confirmations (if you did it directly after monitor had finished) as we make it require more than 1 confirmed transaction to sweep. This should be greater than 6 but for testing 1 is fine.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_48D1fLtMrmJNSbYgyC3Fgw.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_48D1fLtMrmJNSbYgyC3Fgw-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_48D1fLtMrmJNSbYgyC3Fgw-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_48D1fLtMrmJNSbYgyC3Fgw-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_48D1fLtMrmJNSbYgyC3Fgw-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_48D1fLtMrmJNSbYgyC3Fgw-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_48D1fLtMrmJNSbYgyC3Fgw-2xl.png 1600w" alt="" width="1464" height="552" layout="responsive"></amp-img></figure><p id="f1ff" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">This will take another 10 minutes (more or less) to get a second confirmation. Eventually, you will see the following screen.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_L2V87ynoHcoSA0-wiQjfjw.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_L2V87ynoHcoSA0-wiQjfjw-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_L2V87ynoHcoSA0-wiQjfjw-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_L2V87ynoHcoSA0-wiQjfjw-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_L2V87ynoHcoSA0-wiQjfjw-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_L2V87ynoHcoSA0-wiQjfjw-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_L2V87ynoHcoSA0-wiQjfjw-2xl.png 1600w" alt="" width="1583" height="440" layout="responsive"></amp-img></figure><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_vhbooVgjpB2NlBFcJ3GsrA.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_vhbooVgjpB2NlBFcJ3GsrA-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_vhbooVgjpB2NlBFcJ3GsrA-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_vhbooVgjpB2NlBFcJ3GsrA-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_vhbooVgjpB2NlBFcJ3GsrA-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_vhbooVgjpB2NlBFcJ3GsrA-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_vhbooVgjpB2NlBFcJ3GsrA-2xl.png 1600w" alt="" width="699" height="131" layout="responsive"></amp-img></figure><p id="a16d" class="ls lt bf av lu b lv mg lx mh lz mi mb mj md mk mf" data-selectable-paragraph="">and the money will be in your wallet as shown below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/11/1_aG1x7EgXM0ElWul57Q7r4g.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/11/responsive/1_aG1x7EgXM0ElWul57Q7r4g-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_aG1x7EgXM0ElWul57Q7r4g-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_aG1x7EgXM0ElWul57Q7r4g-md.png 768w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_aG1x7EgXM0ElWul57Q7r4g-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_aG1x7EgXM0ElWul57Q7r4g-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/11/responsive/1_aG1x7EgXM0ElWul57Q7r4g-2xl.png 1600w" alt="" width="2288" height="702" layout="responsive"></amp-img></figure><p data-selectable-paragraph=""> </p><h1 id="8d7c" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" data-selectable-paragraph="">Conclusion</h1><p id="4505" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" data-selectable-paragraph="">We have successfully managed to remove all 3rd party APIs from and we are using our own full node to manage transactions. We finally have 100% sovereignty over our money. In the next tutorial, we hope to deep dive the transaction calls and really break down what vout and all that other fun stuff is doing.</p><aside><ul class="post-tag"><li><a href="https://cryptoskillz.com/blog/amp/ecs/">ecs</a></li></ul><div class="post-share"><amp-social-share type="system" width="40" height="40" data-param-text="Part 9: Working with Fullnodes 2"></amp-social-share><amp-social-share type="facebook" width="40" height="40" data-param-app_id="" data-param-text="Part 9: Working with Fullnodes 2" data-param-href="https://cryptoskillz.com/blog/amp/part-9-working-with-fullnodes-2.html"></amp-social-share><amp-social-share type="twitter" width="40" height="40" data-param-text="Part 9: Working with Fullnodes 2" data-param-url="https://cryptoskillz.com/blog/amp/part-9-working-with-fullnodes-2.html"></amp-social-share><amp-social-share type="pinterest" width="40" height="40" data-param-url="https://cryptoskillz.com/blog/amp/part-9-working-with-fullnodes-2.html"></amp-social-share><amp-social-share type="tumblr" width="40" height="40" data-param-text="Part 9: Working with Fullnodes 2" data-param-url="https://cryptoskillz.com/blog/amp/part-9-working-with-fullnodes-2.html"></amp-social-share><amp-social-share type="whatsapp" width="40" height="40" data-param-text="Part 9: Working with Fullnodes 2"></amp-social-share></div></aside></div></article><nav class="post-pagination wrap-inner"><div class="post-pagination-prev"><span>Previous</span> <a href="https://cryptoskillz.com/blog/amp/part-8-working-with-fullnodes.html">Part 8: Working with Fullnodes</a></div></nav></main><amp-animation id="showAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "1",
+                            "visibility": "visible",
+                            "transform": "scale(1)"
+                        }]
+                    }]
+                }</script></amp-animation><amp-animation id="hideAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "0",
+                            "visibility": "hidden",
+                            "transform": "scale(0.1)"
+                        }]
+                    }]
+                }</script></amp-animation><div class="post-scroll-marker"><amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay"></amp-position-observer></div><button class="post-scroll" on="tap:top.scrollTo(duration=200)">&#8593;</button><footer class="bottom">Powered by Publii</footer><amp-sidebar id="navbar-sidebar" layout="nodisplay"><ul><li><a href="https://cryptoskillz.com/index.html">ECS</a></li><li><a href="https://cryptoskillz.com/blox.html">BLOX</a></li><li><a href="https://cryptoskillz.com/about.html">ABOUT</a></li></ul></amp-sidebar><script async src="https://www.googletagmanager.com/gtag/js?id=UA-111636971-1"></script><script>window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-111636971-1');</script></body></html>
