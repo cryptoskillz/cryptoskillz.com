@@ -3,7 +3,7 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2019-09-12T12:52:04+01:00</updated>
+    <updated>2019-09-12T22:36:44+01:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
@@ -34,7 +34,7 @@
 <p id="dfde" class="lh li bf av lj b lk ll lm ln lo lp lq lr ls lt lu" >This guide aims to program a website to accept Bitcoin. In the previous part, we monitored the blockchain with "<strong class="lj lz"><a href="https://block.io/" class="cb bx lv lw lx ly" target="_blank" rel="noopener noreferrer">block.io</a>"</strong> to let us know when the payment was successful.</p>
 <p id="d59d" class="lh li bf av lj b lk ma lm mb lo mc lq md ls me lu" >Now we aim to take processed funds and sweep them into a "<strong class="lj lz"><a href="https://en.bitcoin.it/wiki/Cold_storage" class="cb bx lv lw lx ly" target="_blank" rel="noopener noreferrer">cold storage</a>" </strong>wallet. We do this with a new script called “<a href="https://github.com/cryptoskillz/Bitcoin-Tutorial/blob/sweep/sweep.js" class="cb bx lv lw lx ly" target="_blank" rel="noopener noreferrer"><strong class="lj lz">sweep.js</strong></a>”.</p>
 <blockquote class="mf mg mh">
-<p id="770b" class="lh li bf mi lj b lk ma lm mb lo mc lq md ls me lu" >Note cryptoskillz from the future here. It turns out we did this bit really badly you can read about in part 10 "<strong><a href="https://cryptoskillz.com/blog/part-10-address-101.html" target="_blank" rel="noopener noreferrer">here</a>"</strong> . As a result we would ignore this and instead wait to part 11 which fixes the issues. Ok, Bye, friend :]</p>
+<p id="770b" class="lh li bf mi lj b lk ma lm mb lo mc lq md ls me lu" >Note cryptoskillz from the future here. It turns out we did this bit really badly you can read about in part 10 "<strong><a href="https://cryptoskillz.com/blog/address-101.html" target="_blank" rel="noopener noreferrer">here</a>"</strong> . As a result we would ignore this and instead wait to part 11 which fixes the issues. Ok, Bye, friend :]</p>
 </blockquote>
 <h1 id="05f0" class="ku kv bf av au el kw kx ky kz la lb lc ld le lf lg" >The SQL</h1>
 <p id="fa99" class="lh li bf av lj b lk ll lm ln lo lp lq lr ls lt lu" >We have added a field called swept which is to check if we have moved the payment to our "<strong><a href="https://en.bitcoin.it/wiki/Cold_storage" class="cb bx lv lw lx ly" target="_blank" rel="noopener noreferrer">cold storage</a>"</strong> or not.</p>
