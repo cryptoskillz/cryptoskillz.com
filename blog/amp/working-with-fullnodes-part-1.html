@@ -1,0 +1,596 @@
+<!doctype html><html amp lang="en"><head><meta charset="utf-8"><title>Working with Fullnodes part 1 - cryptoskillz</title><meta name="description" content="ECS (e-commerce software) is an open source Bitcoin e-commerce server. It comes with a Javascript e-commerce injector a REST server and an admin control panel. "><link rel="canonical" href="https://cryptoskillz.com/blog/working-with-fullnodes-part-1.html"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css"><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://cryptoskillz.com/blog/amp/working-with-fullnodes-part-1.html"},"headline":"Working with Fullnodes part 1","datePublished":"2018-10-16T11:58","dateModified":"2019-09-20T12:05","image":{"@type":"ImageObject","url":"https://cryptoskillz.com/blog/media/website/logo.png","height":178,"width":685},"description":"<figure class=\"post__image\"><amp-img  src=\"https://cryptoskillz.com/blog/media/posts/10/1_rMm82XhYrGNRVwNsWs2uIw.jpeg\" sizes=\"(max-width: 48em) 100vw, 768px\" srcset=\"https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-xs.jpeg 300w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-sm.jpeg 480w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-md.jpeg 768w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-lg.jpeg 1024w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-xl.jpeg 1360w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-2xl.jpeg 1600w\"  alt=\"\" width=\"639\" height=\"391\" layout=\"responsive\"></amp-img></figure>\n<p> </p>\n","author":{"@type":"Person","name":"cryptoskillz"},"publisher":{"@type":"Organization","name":"cryptoskillz","logo":{"@type":"ImageObject","url":"https://cryptoskillz.com/blog/media/website/logo.png","height":178,"width":685}}}</script><style amp-custom>article,
+aside,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+amp-img {
+  max-width: 100%; }
+
+button,
+input,
+select,
+textarea {
+  font: inherit; }
+
+html {
+  font-size: 1rem; }
+
+body {
+  background: #f1f1f1;
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6; }
+
+a {
+  color:  #039be5;
+  text-decoration: none;
+  -webkit-transition: all 0.12s linear 0s;
+  -o-transition: all 0.12s linear 0s;
+  transition: all 0.12s linear 0s; }
+
+a:hover {
+  color: #262626;
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink; }
+
+a:active {
+  color: #262626; }
+
+a:focus {
+  outline: 2px dotted #039be5; }
+
+figure,
+blockquote,
+p,
+ul,
+ol,
+dl,
+table,
+hr,
+fieldset {
+  margin-top: 1.6rem; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 2.13333rem; }
+
+h1 {
+  font-size: 1.67583rem;
+  font-weight: normal; }
+
+h2 {
+  font-size: 1.4729rem; }
+
+h3 {
+  font-size: 1.29454rem; }
+
+h4 {
+  font-size: 1.13778rem; }
+
+h5 {
+  font-size: 1rem; }
+
+h6 {
+  font-size: 0.87891rem; }
+
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0.8rem; }
+
+b,
+strong {
+  font-weight: 600; }
+
+blockquote {
+  color: #6c7175;
+  font-family: "Droid Serif", "Times", "Source Serif Pro", serif;
+  font-style: italic;
+  padding: 1.33333rem 0.53333rem 1.33333rem 3.2rem;
+  position: relative; }
+  blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 4.41226rem;
+    position: absolute;
+    left: 0;
+    top: -12px;
+    color: rgba(108, 113, 117, 0.5); }
+  blockquote > :nth-child(1) {
+    margin-top: 0; }
+
+ul,
+ol {
+  margin-left: 2rem; }
+  ul > li,
+  ol > li {
+    list-style: inherit;
+    padding: 0 0 0.26667rem 0.26667rem; }
+
+dl dt {
+  color: #262626;
+  font-weight: 600; }
+
+code,
+pre {
+  background-color: #f1f1f1;
+  font-family: monospace; }
+
+pre {
+  margin: 1.6rem 0 0;
+  padding: 1.6rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto; }
+  pre > code {
+    color: #262626;
+    padding: 0; }
+
+code {
+  border-radius: 3px;
+  color: #262626;
+  padding: 0.26667rem 0.53333rem; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  overflow-x: auto;
+  vertical-align: top;
+  text-align: left;
+  white-space: nowrap; }
+  table th {
+    font-weight: 500;
+    padding: 0.53333rem 1.06667rem; }
+  table tr {
+    border-bottom: 1px solid #d4d4d4; }
+    table tr:nth-child(2n) {
+      background: #f1f1f1; }
+  table td {
+    padding: 0.53333rem 1.06667rem; }
+
+figcaption {
+  clear: both;
+  color: rgba(108, 113, 117, 0.6);
+  font-size: 0.82397rem;
+  margin: 0.8rem 0 0;
+  text-align: center; }
+
+sub,
+sup {
+  font-size: 65%; }
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+.btn, [type=button],
+[type=submit],
+button {
+  background: #039be5;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.87891rem;
+  font-weight: 500;
+  line-height: 1.9;
+  padding: 0.53333rem 1.33333rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease;
+  width: auto; }
+  .btn:hover, [type=button]:hover,
+  [type=submit]:hover,
+  button:hover {
+    background: #262626;
+    color: #ffffff; }
+  .btn:focus, [type=button]:focus,
+  [type=submit]:focus,
+  button:focus {
+    outline: none; }
+  .btn-outline {
+    border: 1px solid #ddd;
+    background: #ffffff;
+    border-radius: 3px;
+    color: #262626; }
+
+[type=button],
+[type=submit],
+button {
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+.navbar {
+  background: #039be5;
+  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3;
+  max-height: 4rem; }
+  .navbar > div {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto; }
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none; }
+  .navbar-sidebar-toggle {
+    left: 0;
+    position: relative;
+    text-indent: -99999rem; }
+    .navbar-sidebar-toggle:before {
+      content: "";
+      display: block;
+      border-top: 0.375rem double #ffffff;
+      border-bottom: 0.125rem solid #ffffff;
+      height: 0.125rem;
+      position: absolute;
+      text-indent: 0;
+      top: 50%;
+      width: 1.3rem;
+      -webkit-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%); }
+
+
+.logo {
+                    background-image: url('https://cryptoskillz.com/blog/media/website/logo.png');
+                    background-size: auto 2rem;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+            display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+            margin: 0 auto;
+            height: 2rem;
+            text-indent: -9999px;
+            width: 240px;vertical-align: middle;
+        }
+        .logo.logo-text {
+            line-height: 2;
+            text-align: center;
+            text-indent: 0;
+        }
+
+amp-sidebar {
+  background: #ffffff;
+  width: 240px; }
+  amp-sidebar > ul {
+    margin: 0.8rem 0 0;
+    padding: 0; }
+    amp-sidebar > ul ul {
+      border-left: 1px solid #d4d4d4;
+      margin: 0.53333rem 0 0; }
+    amp-sidebar > ul li {
+      color: #262626;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      list-style: none;
+      line-height: 1.4;
+      padding: 0.42667rem 1.06667rem; }
+      amp-sidebar > ul li li {
+        font-weight: normal;
+        padding: 0.26667rem 0 0.26667rem 1.06667rem; }
+    amp-sidebar > ul a,
+    amp-sidebar > ul a:visited {
+      color: #262626; }
+
+.bg-white {
+  background: #ffffff; }
+
+.wrap-page {
+  max-width: 700px;
+  margin: 0 auto; }
+
+@media all and (max-width: 43.6875em) {
+  .wrap-inner {
+    padding: 0 6%; } }
+
+.page-title {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding: 1.6rem 6%; }
+  .page-title > h1 {
+    margin: 0;
+    font-size: 1.29454rem; }
+  .page-title > p {
+    font-size: 0.87891rem;
+    color: #6c7175;
+    line-height: 1.3;
+    margin: 0.26667rem 0 0; }
+  .page-title-author {
+    border-radius: 50%;
+    float: left;
+    height: 2.5rem;
+    width: 2.5rem; }
+    .page-title-author + h1 {
+      margin-left: 3.5rem; }
+      .page-title-author + h1 + p {
+        margin-left: 3.5rem; }
+
+.card {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding-bottom: 1.06667rem; }
+
+  .card-meta {
+    border-top: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-top: 1.06667rem;
+    text-transform: uppercase; }
+    .card-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .card-text {
+    font-size: 0.9375rem;
+    overflow: hidden;
+    padding: 0 6%; }
+    .card-text h2 {
+      font-size: 1.13778rem; }
+
+.post {
+  margin-bottom: 2.13333rem; }
+  .post-featured-image {
+    margin-top: 0;
+    position: relative; }
+    .post-featured-image > figcaption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 3px;
+      color: #ffffff;
+      position: absolute;
+      bottom: 0.8rem;
+      padding: 0 0.26667rem;
+      right: 6%; }
+  .post-header {
+    margin-bottom: 2.13333rem; }
+  .post-meta {
+    border-bottom: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-bottom: 1.06667rem;
+    text-transform: uppercase; }
+    .post-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .post-tag {
+    margin: 0; }
+    .post-tag > li {
+      display: inline-block;
+      padding: 0; }
+      .post-tag > li a {
+        background: #f1f1f1;
+        border-radius: 2px;
+        color: #6c7175;
+        font-size: 0.77248rem;
+        display: inline-block;
+        margin: 0 0.26667rem 0.26667rem 0;
+        padding: 0.26667rem 0.53333rem; }
+        .post-tag > li a:hover {
+          background: #039be5;
+          color: #ffffff;
+          text-decoration: none; }
+  .post-share {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    width: 100%; }
+    .post-share amp-social-share {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+      background-size: 24px; }
+  .post-scroll {
+    color: #ffffff;
+    background: #039be5;
+    bottom: 10px;
+    border-radius: 50%;
+    border: none;
+    -webkit-box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    font-size: 1.13778rem;
+    height: 46px;
+    opacity: 0;
+    outline: none;
+    position: fixed;
+    padding: 0;
+    right: 4%;
+    visibility: hidden;
+    width: 46px;
+    z-index: 9999; }
+    .post-scroll-marker {
+      height: 0px;
+      position: absolute;
+      top: 100px;
+      width: 0px; }
+        .post-pagination {
+    background: #f1f1f1;
+    -webkit-box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    border-top: 1px solid #d4d4d4;
+    padding: 1.06667rem 0; }
+    .post-pagination > div {
+      line-height: 1.2;
+      padding: 0.53333rem 1.06667rem;
+      text-align: center; }
+      .post-pagination > div span {
+        display: block;
+        color: #6c7175;
+        font-size: 0.7242rem;
+        font-weight: 500;
+        margin-bottom: 0.26667rem;
+        text-transform: uppercase; }
+    .post-pagination-prev a:before {
+      content: "\2190";
+      margin-right: 0.26667rem; }
+    .post-pagination-next a:after {
+      content: "\2192";
+      margin-left: 0.26667rem; }
+
+aside {
+  margin: 1.6rem 0 0; }
+
+.align-left {
+  text-align: left; }
+
+.align-right {
+  text-align: right; }
+
+.align-center {
+  text-align: center; }
+
+.align-justify {
+  text-align: justify; }
+
+.msg {
+  border-left: 2px solid transparent;
+  padding: 1.06667rem 1.06667rem; }
+  .msg--highlight {
+    background-color: #fff8e6;
+    border-color: #e2ac4f; }
+  .msg--info {
+    background: rgba(45, 97, 201, 0.03);
+    border-color: #039be5; }
+  .msg--success {
+    background: #f7fbf6;
+    border-color: #5ab44b; }
+  .msg--warning {
+    background: #fff3f3;
+    border-color: #c06367;
+    color: #a94442; }
+
+.dropcap:first-letter {
+  float: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 2.16943rem;
+  line-height: 0.7;
+  margin-right: 0.53333rem;
+  padding: 0.53333rem 0.53333rem 0.53333rem 0; }
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0.8rem 0; }
+  .pagination > a {
+    padding-left: 0;
+    padding-right: 0;
+    width: 49%; }
+  .pagination-right {
+    margin-left: auto; }
+
+.bottom {
+  background: #039be5;
+  color: #ffffff;
+  padding: 1.06667rem 4%;
+  text-align: center; }</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script><script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script></head><body class="bg-white"><nav class="navbar wrap-inner" id="top"><div><a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a> <a class="logo" href="https://cryptoskillz.com/blog/amp/">cryptoskillz</a></div></nav><main class="wrap-page"><article class="post"><div class="wrap-inner"><header class="post-header"><h1>Working with Fullnodes part 1</h1><p class="post-meta"><time datetime="2018-10-16T11:58">October 16, 2018</time></p></header><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/10/1_rMm82XhYrGNRVwNsWs2uIw.jpeg" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-xs.jpeg 300w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-sm.jpeg 480w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-md.jpeg 768w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-lg.jpeg 1024w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-xl.jpeg 1360w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rMm82XhYrGNRVwNsWs2uIw-2xl.jpeg 1600w" alt="" width="639" height="391" layout="responsive"></amp-img></figure><p> </p><h1 id="f6a6" class="kz la bf av au el lb lc ld le lf lg lh li lj lk ll" data-selectable-paragraph="">Introduction</h1><p id="c7e7" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">This guide aims to program a website to accept Bitcoin. In the last section, we refactored a bunch of code and this time we are going to look at full nodes. There is not much code change in this part, instead, we are going to discuss the theory of how to use a full node. The reason being when we first jumped into full nodes (about a month ago) as a simple replacement for "<strong><a href="https://block.io/" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">block.io’s</a>"</strong> estimatefee function and found Full nodes are hella cool and can do a whole more than what our original plan was. Never be scared to change your mind kids, it’s a core tenet of programming.</p><h1 id="4db9" class="kz la bf av au el lb lc ld le lf lg lh li lj lk ll" data-selectable-paragraph="">What is a fullnode?</h1><p id="7602" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">Lifted directly from "<strong><a href="https://bitcoin.org/en/full-node" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">bitcoin.org</a>"</strong>. A full node is a program that fully validates transactions and blocks. Almost all full nodes also help the network by accepting transactions and blocks from other full nodes, validating those transactions and blocks, and then relaying them to further full nodes.</p><p id="d196" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Most full nodes also serve lightweight clients by allowing them to transmit their transactions to the network and by notifying them when a transaction affects their wallet. If not enough nodes perform this function, clients won’t be able to connect through the peer-to-peer network — they’ll have to use centralized services instead.</p><p id="1a2f" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Many people and organizations volunteer to run full nodes using spare computing and bandwidth resources — but more volunteers are needed to allow Bitcoin to continue to grow.</p><h1 id="181c" class="kz la bf av au el lb lc ld le lf lg lh li lj lk ll" data-selectable-paragraph="">fullnode 101</h1><h2 id="cd3e" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">Disclaimer</h2><p id="1ba9" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">There a number of full nodes out there I am going to focus on "<strong><a href="https://bitcoin.org/en/bitcoin-core/" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>"</strong>. Also, I use a Mac so all instructions will show how to interact with it on a mac. Please adjust the information accordingly.</p><h2 id="a2b3" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">Good things to know</h2><p id="473e" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">Most of the tutorials on setting up / running a full node are pretty old (read out of date) and as a result, you have to do a lot of wrong things to get one up and running and start interacting with it. I have listed factoids below that I found whilst doing my research.</p><p id="5a37" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph=""><strong class="lo mv">what is </strong><a href="https://en.bitcoin.it/wiki/Bitcoind" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer"><strong class="lo mv">Bitcoind</strong></a><strong class="lo mv">?<br></strong>Bitcoind is a headless daemon. It provides a JSON-RPC and a REST (in beta restricted to local access for now) interface, allowing it to be controlled locally or remotely which makes it useful for integration with other software or in larger payment systems. Various commands are made available by the API.</p><p id="4161" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph=""><strong class="lo mv">What is </strong><a href="https://en.bitcoin.it/wiki/Bitcoin_Core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer"><strong class="lo mv">Bitcoin Core</strong></a><strong class="lo mv">?<br></strong>"<strong><a href="https://en.bitcoin.it/wiki/Bitcoin_Core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>"</strong> (formerly Bitcoin-Qt) is the third Bitcoin client by "<strong><a href="https://en.bitcoin.it/wiki/Wladimir_van_der_Laan" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Wladimir van der Laan</a>"</strong> based on the original reference code by "<strong><a href="https://en.bitcoin.it/wiki/Satoshi_Nakamoto" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Satoshi Nakamoto</a>"</strong>.</p><p id="def7" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">"<strong><a href="https://en.bitcoin.it/wiki/Bitcoin_Core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>"</strong> can be used as a desktop client for regular payments or as a server utility for merchants and other payment services.</p><p id="5660" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Note, even though BitcoinQT was renamed to "<strong><a href="https://en.bitcoin.it/wiki/Bitcoin_Core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>"</strong> when you reference it from the terminal it is still called BitcoinQT, nice work devs.</p><p id="d22d" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph=""><a href="https://en.bitcoin.it/wiki/Bitcoind" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer"><strong class="lo mv">bitcoind</strong></a><strong class="lo mv"> is included in Bitcoin Core<br></strong>You will read lots of tutorials that tell you "<strong><a href="https://en.bitcoin.it/wiki/Bitcoind" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">bitcoind</a>"</strong> is not in BitcoinQT or it is not the mac version and you will have to download it separately. Although you can download bitcoind separately (recommended for servers) for testing you can use "<strong><a href="https://en.bitcoin.it/wiki/Bitcoin_Core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>"</strong>.</p><p id="a2b1" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph=""><a href="https://en.bitcoin.it/wiki/Bitcoin_Core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer"><strong class="lo mv">Bitcoin core</strong></a><strong class="lo mv"> comes with an excellent javascript library<br></strong>As part of the rebranding to "<strong><a href="https://en.bitcoin.it/wiki/Bitcoin_Core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core</a>"</strong>, I assume the package called bitcoin was retired and replaced with the "<strong><a href="https://www.npmjs.com/package/bitcoin-core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core package</a>"</strong> so if you come across any tutorials referencing the NPM Bitcoin package you can replace it with the Bitcoin Core package (with the appropriate code changes)</p><h2 id="ae32" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">What are the accounts?</h2><p id="f7c1" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">Think of them as a way to track transactions for “users” just the way banks do. I have used these in this tutorial even though the whole account concept is being deprecated. However, the new functions are only in a "<a href="https://yangsu.github.io/pull-request-tutorial/" target="_blank" rel="noopener noreferrer">pull request</a><strong>"</strong> so I will continue to use them until the new functions are ready. You can find more about accounts "<strong><a href="https://en.bitcoin.it/wiki/Help:Accounts_explained" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">here</a>"</strong> and the proposed changes "<strong><a href="https://github.com/bitcoin/bitcoin/pull/7729/files?diff=unified#diff-df7d84ff2f53fcb2a0dc15a3a51e55ceR3216" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">here</a>"</strong>.</p><p id="9ed2" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph=""><strong class="lo mv">Default RPC ports<br></strong>Bitcoin RPC mainnet runs on port 8332 and testnet runs on 18332</p><h2 id="8f55" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">CamelCase</h2><p id="7559" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">You will see that all of the "<strong><a href="https://en.bitcoin.it/wiki/Original_Bitcoin_client/API_calls_list" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">RPC calls</a>"</strong> are in lower case but when we use them in the code "<strong><a href="https://en.wikipedia.org/wiki/Camel_case" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">camel case</a>"</strong> is excepted. This is more annoying in anything else they should agree on one methodology and use it holistically throughout all aspects of Bitcoin.<br>Note the docs also show them a third format (shown below) all the mean the same thing.</p><p id="6e80" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">estimatesmartfee<br>estimateSmartFee<br>EstimateSmartFee</p><h1 id="e903" class="kz la bf av au el lb lc ld le lf lg lh li lj lk ll" data-selectable-paragraph="">Setting up a fullnode</h1><p id="02e8" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">great, now we got the above out the way lets go ahead and set up the "<strong><a href="https://bitcoin.org/en/bitcoin-core/" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin Core full node</a>"</strong>, shall we.</p><h2 id="5602" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">Download Bitcoin Core</h2><p id="56ae" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">You should have already had Bitcoin Core if you have followed any of the tutorials if not you can get it "<strong><a href="https://bitcoin.org/en/bitcoin-core/" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">here</a>"</strong>.</p><p id="e976" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Once you have downloaded it open a terminal type the following command.</p><pre class="kg kh ki kj kk dv gg df"><span id="bd1d" class="mj la bf av mw b dz mx my l mz" data-selectable-paragraph="">cd /Applications/Bitcoin-Qt.app/Contents/MacOS/</span></pre><p id="6225" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Once you in this directory run the command below. This command will launch the Bitcoin Core client in server mode. Let’s take a look at what the arguments are doing.</p><p id="070b" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph=""><strong class="lo mv">server</strong>: Start in server mode<br><strong class="lo mv">rpcuser</strong>: The username for the RPC server<br><strong class="lo mv">rpcpassword</strong>: The password for the RPC server<br><strong class="lo mv">rest</strong>: The rest server<br><strong class="lo mv">testnet</strong>: Launch in the test network</p><pre class="kg kh ki kj kk dv gg df"><span id="81bc" class="mj la bf av mw b dz mx my l mz" data-selectable-paragraph="">./Bitcoin-Qt -server -rpcuser=test  -rpcpassword=test -rest -testnet</span></pre><p id="14ba" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Once you have run that command you will see Bitcoin Core boot up as shown below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/10/1_MguOpMbOHjnTklkrbKhgmg.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/10/responsive/1_MguOpMbOHjnTklkrbKhgmg-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_MguOpMbOHjnTklkrbKhgmg-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_MguOpMbOHjnTklkrbKhgmg-md.png 768w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_MguOpMbOHjnTklkrbKhgmg-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_MguOpMbOHjnTklkrbKhgmg-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_MguOpMbOHjnTklkrbKhgmg-2xl.png 1600w" alt="" width="3335" height="1290" layout="responsive"></amp-img></figure><h2 id="8a4c" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">Connect to rest</h2><p id="c8da" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">Now we can connect via REST by opening a browser and going to this <a href="http://127.0.0.1:18332/rest/chaininfo.json" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">URL</a>and you will see a JSON output (as shown below). Of course, this is a simple GET request with POST etc it is slightly trickier.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/10/1_rXzf1_ECGd_UtcCMlznYMg.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/10/responsive/1_rXzf1_ECGd_UtcCMlznYMg-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rXzf1_ECGd_UtcCMlznYMg-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rXzf1_ECGd_UtcCMlznYMg-md.png 768w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rXzf1_ECGd_UtcCMlznYMg-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rXzf1_ECGd_UtcCMlznYMg-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_rXzf1_ECGd_UtcCMlznYMg-2xl.png 1600w" alt="" width="3159" height="365" layout="responsive"></amp-img></figure><p id="9bb8" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">You can find a full list of REST commands "<strong><a href="https://bitcoin.org/en/developer-reference#http-rest" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">here</a>"</strong> you can either interact with this with a Chrome extension called "<strong><a href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">POSTMAN</a>"</strong> or by opening a new terminal window and running a CURL request as shown below.</p><pre class="kg kh ki kj kk dv gg df"><span id="247f" class="mj la bf av mw b dz mx my l mz" data-selectable-paragraph="">curl <a href="http://127.0.0.1:18332/rest/chaininfo.json" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">http://127.0.0.1:18332/rest/chaininfo.json</a></span></pre><p id="4375" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Some useful CURL examples can be found "<strong><a href="https://www.rosehosting.com/blog/curl-command-examples/" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">here</a>"</strong>.</p><h2 id="52c6" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">Connect to RPC</h2><p id="6d07" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">Connecting to RPC using is similar to the REST and is shown below. This is the main we are going to interact with the fullnode as good as REST is it is not nearly as feature rich as the RPC API.</p><p id="40ff" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph=""><strong class="lo mv"><em class="ne">*note: cryptoskillz from the future here the “getinfo” function has been removed from the most recent version of RPC so this command will now produce an error.</em></strong></p><pre class="kg kh ki kj kk dv gg df"><span id="a44b" class="mj la bf av mw b dz mx my l mz" data-selectable-paragraph="">curl --user test  --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getinfo", "params": [] }'     -H 'content-type: text/plain;' <a href="http://127.0.0.1:18332/" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">http://127.0.0.1:18332/</a></span></pre><p id="a887" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">You will be asked to enter the password which you set above (rpcpassword) enter this and you will get a result something like the one below.</p><pre class="kg kh ki kj kk dv gg df"><span id="c103" class="mj la bf av mw b dz mx my l mz" data-selectable-paragraph="">{<br>  "result": {<br>    "chain": "test",<br>    "blocks": 1438199,<br>    "headers": 1438199,<br>    "bestblockhash": "00000000000003e2ecbb6d376016a84aa5ab89d299e455c5823d8a90d300d6f5",<br>    "difficulty": 4166899.806567,<br>    "mediantime": 1539596338,<br>    "verificationprogress": 0.99999561714928,<br>    "initialblockdownload": false,<br>    "chainwork": "0000000000000000000000000000000000000000000000c8507d634426736c14",<br>    "size_on_disk": 22923325413,<br>    "pruned": false,<br>    "softforks": [<br>      {<br>        "id": "bip34",<br>        "version": 2,<br>        "reject": {<br>          "status": true<br>        }<br>      },<br>      {<br>        "id": "bip66",<br>        "version": 3,<br>        "reject": {<br>          "status": true<br>        }<br>      },<br>      {<br>        "id": "bip65",<br>        "version": 4,<br>        "reject": {<br>          "status": true<br>        }<br>      }<br>    ],<br>    "bip9_softforks": {<br>      "csv": {<br>        "status": "active",<br>        "startTime": 1456790400,<br>        "timeout": 1493596800,<br>        "since": 770112<br>      },<br>      "segwit": {<br>        "status": "active",<br>        "startTime": 1462060800,<br>        "timeout": 1493596800,<br>        "since": 834624<br>      }<br>    },<br>    "warnings": "Warning: unknown new rules activated (versionbit 28)"<br>  },<br>  "error": null,<br>  "id": "curltest"<br>}</span></pre><p id="78f1" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">You can find a full list or RPC commands <a href="https://bitcoin.org/en/developer-reference#addmultisigaddress" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">here</a>.</p><p data-selectable-paragraph=""> </p><h1 id="d065" class="kz la bf av au el lb lc ld le lf lg lh li lj lk ll" data-selectable-paragraph="">The Code</h1><p id="f646" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">As I said earlier we are not really going to modify any of the server code as we this is a deep dive of how full nodes work. The branch that has this code is "<strong><a href="https://github.com/cryptoskillz/Bitcoin-Tutorial/tree/8-fullnode" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">here</a>"</strong> and the file called "<strong><a href="https://github.com/cryptoskillz/Bitcoin-Tutorial/blob/8-fullnode/server/rpc.js" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">rpc.js</a>" </strong>so let’s take a look at what is happening.</p><p id="ea3a" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">As you can see I am using the "<strong><a href="https://www.npmjs.com/package/bitcoin-core" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoin core"</a> </strong>package but we could just as easily use a CURL class or even filgetcontents if we want to get really basic (we do not).</p><p id="1c9a" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">The reason I have used the bitcoin core package as it is coded by the same community who code Bitcoin Core wallet and bitcoind. When I started playing with it quickly became clear that it could do everything that "<strong><a href="https://github.com/bitcoinjs/bitcoinjs-lib" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">Bitcoinjs</a>"</strong> (the current package I am using) which to me is very interesting. As I was using Bitcoinjs it frustrated me that it would sign and create transactions but did not have native support for RPC commands. I get they want abstraction from node/wallets but it just feels like a compromise to the library purely for comprise sake.</p><p id="6364" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Also on top of that, we do not have to store the private keys anywhere as we have RPC access to the node that created the address we can simply use the dump private key function for singing etc. This makes perfect sense and as Bitcoin is one of the most secure pieces of software the world has ever seen why to try to replicate this security off chain?</p><p id="9f36" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">Note, cryptoskillz adding this from the future. It became very clear that "<strong><a href="https://github.com/bitcoinjs/bitcoinjs-lib" class="cb bx ma mb mc md" target="_blank" rel="noopener noreferrer">BitcoinJs</a>"</strong> is required when we researched "<strong><a class="cb bx ma mb mc md" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-10-address-101-51868eb6bc9b" rel="noopener noreferrer">addresses in part 10</a>"</strong>. It will be back in part 11 to generate the address to improve cold storage functionality.</p><h2 id="7bfe" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">On to the code.</h2><p id="eb84" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">You will see from the code below we are doing a really simple thing. unlocking the wallet, generating an address and getting the private key. The address I have used in one in the Bitcoin Core that I send funds to in an earlier tutorial.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/10/1_uzyguXzlF92DlEsMu1YuHQ.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/10/responsive/1_uzyguXzlF92DlEsMu1YuHQ-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_uzyguXzlF92DlEsMu1YuHQ-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_uzyguXzlF92DlEsMu1YuHQ-md.png 768w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_uzyguXzlF92DlEsMu1YuHQ-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_uzyguXzlF92DlEsMu1YuHQ-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/10/responsive/1_uzyguXzlF92DlEsMu1YuHQ-2xl.png 1600w" alt="" width="2154" height="1255" layout="responsive"></amp-img></figure><pre class="kg kh ki kj kk dv gg df"><span id="231c" class="mj la bf av mw b dz mx my l mz" data-selectable-paragraph="">//load bitcoin core<br>const Client = require("bitcoin-core");<br>//open a connection to the RPC client<br>const client = new Client({<br>  host: "127.0.0.1",<br>  port: 18332,<br>  username: "test",<br>  password: "test"<br>});<br>/*<br>//run this once to encrypt your wallet id you have not already done so.<br>client.encryptWallet('test').then((res) =&gt; {<br>  console.log(res)<br>});<br>*/<br>//unlock the waller for 10 seconds<br>client.walletPassphrase("test", 10).then(() =&gt; {<br>  //create a new address in theaccount account :]<br>  client.getNewAddress("theaccount").then(address =&gt; {<br>    //debug<br>    console.log(address);<br>    //get the private key<br>    client.dumpPrivKey(address).then(privkey =&gt; {<br>      //debug<br>      console.log("privkey:" + privkey);</span><span id="fb49" class="mj la bf av mw b dz nl nm nn no np my l mz" data-selectable-paragraph="">//now have the prviate key we can sign transactions etc, basically do whatever we did with BitcooinJS<br>      //do stuff</span><span id="c947" class="mj la bf av mw b dz nl nm nn no np my l mz" data-selectable-paragraph="">//lock the wallet<br>      client.walletLock();<br>    });<br>  });<br>});</span></pre><p id="4af1" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">You can run the code above by going to the server directory in a terminal window and typing the following command (as usual)</p><pre class="kg kh ki kj kk dv gg df"><span id="651c" class="mj la bf av mw b dz mx my l mz" data-selectable-paragraph="">node rpc.js</span></pre><h2 id="b7d7" class="mj la bf av au el mk ml mm mn mo mp mq mr ms mt mu" data-selectable-paragraph="">Conclusion</h2><p id="714c" class="lm ln bf av lo b lp lq lr ls lt lu lv lw lx ly lz" data-selectable-paragraph="">As you can see we can use the Bitcoin Core (with bitcoind) and the NPM package we have 100% sovereignty over our code and by extension our Bitcoin. See this as a segway to the main tutorial parts and as such, I can see myself coming back and updating this part a lot in the coming weeks and months (cryptoskillz adding this from the future “told ya”)</p><p id="d22b" class="lm ln bf av lo b lp me lr mf lt mg lv mh lx mi lz" data-selectable-paragraph="">In the next tutorial, we will either replace all the BitcoinJs code and/or replace the block.io 3rd party calls.</p><aside><ul class="post-tag"><li><a href="https://cryptoskillz.com/blog/amp/ecs/">ecs</a></li><li><a href="https://cryptoskillz.com/blog/amp/fullnode/">fullnode</a></li></ul><div class="post-share"><amp-social-share type="system" width="40" height="40" data-param-text="Working with Fullnodes part 1"></amp-social-share><amp-social-share type="twitter" width="40" height="40" data-param-text="Working with Fullnodes part 1" data-param-url="https://cryptoskillz.com/blog/amp/working-with-fullnodes-part-1.html"></amp-social-share></div></aside></div></article><nav class="post-pagination wrap-inner"><div class="post-pagination-prev"><span>Previous</span> <a href="https://cryptoskillz.com/blog/amp/recode-cdn-to-use-plain-js.html">Recode CDN to use plain js</a></div><div class="post-pagination-next"><span>Next</span> <a href="https://cryptoskillz.com/blog/amp/working-with-fullnodes-part-2.html">Working with Fullnodes part 2</a></div></nav></main><amp-animation id="showAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "1",
+                            "visibility": "visible",
+                            "transform": "scale(1)"
+                        }]
+                    }]
+                }</script></amp-animation><amp-animation id="hideAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "0",
+                            "visibility": "hidden",
+                            "transform": "scale(0.1)"
+                        }]
+                    }]
+                }</script></amp-animation><div class="post-scroll-marker"><amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay"></amp-position-observer></div><button class="post-scroll" on="tap:top.scrollTo(duration=200)">&#8593;</button><footer class="bottom">Powered by Publii</footer><amp-sidebar id="navbar-sidebar" layout="nodisplay"><ul><li><a href="https://cryptoskillz.com/index.html">ECS</a></li><li><a href="https://cryptoskillz.com/blox.html">BLOX</a></li><li><a href="https://cryptoskillz.com/about.html">ABOUT</a></li><li><a href="https://cryptoskillz.com/blog/ecs/">BLOG</a><ul class="navbar__submenu level-2" aria-hidden="true"><li><a href="https://cryptoskillz.com/blog/amp/ecs/" target="_self">ECS</a></li><li><a href="https://cryptoskillz.com/blog/amp/fullnode/" target="_self">FULLNODE</a></li><li><a href="https://cryptoskillz.com/blog/amp/cyphernode/" target="_self">CYPHERNODE</a></li></ul></li></ul></amp-sidebar><amp-analytics type="googleanalytics" id="analytics1"><script type="application/json">{
+            "vars": {
+                "account": "ca-pub-4710117865976591"
+            },
+            "triggers": {
+                "trackPageview": {
+                    "on": "visible",
+                    "request": "pageview"
+                }
+            }
+        }</script></amp-analytics></body></html>
