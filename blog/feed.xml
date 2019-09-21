@@ -3,7 +3,7 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2019-09-22T03:23:37+07:00</updated>
+    <updated>2019-09-22T03:32:48+07:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
@@ -17,34 +17,36 @@
         <link href="https://cryptoskillz.com/blog/working-with-fullnodes-part-7-cyphernode-iv.html"/>
         <id>https://cryptoskillz.com/blog/working-with-fullnodes-part-7-cyphernode-iv.html</id>
 
-        <updated>2019-09-22T03:23:28+07:00</updated>
+        <updated>2019-09-22T03:32:43+07:00</updated>
             <summary>
                 <![CDATA[
-                    Hosting on Digitial OceanIntroductionThis guide aims to program a website to accept Bitcoin. In the previous tutorial, we integrated “cyphernode”&hellip;
+                    <h3 id="mcetoc_1dlaocgki0" class="graf graf--h3"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/download.png" alt="" width="260" height="194"></h3>
+
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <h3 id="mcetoc_1dlan93jk0" class="graf graf--h3">Hosting on Digitial Ocean</h3>
-<h3 id="mcetoc_1dlan93jk1" class="graf graf--h3">Introduction</h3>
+                <h3 id="mcetoc_1dlaocgki0" class="graf graf--h3"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/download.png" alt="" width="260" height="194"></h3>
+
+<h3 id="mcetoc_1dlan93jk0" class="graf graf--h3">Introduction</h3>
 <p class="graf graf--p">This guide aims to program a website to accept Bitcoin. In the previous tutorial, we integrated “<a href="https://cyphernode.io/"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">cyphernode</strong></a><strong class="markup--strong markup--p-strong">” </strong>into our “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>” (with “<a href="https://en.wikipedia.org/wiki/Lightning_Network"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">Lightning</strong></a>”). This time we are going to host it on “<a href="https://www.digitalocean.com/"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">digitalocean</strong></a>”.</p>
 <p class="graf graf--p">We are going to create 2 droplets one to hold “<a href="https://cyphernode.io/"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">cyphernode</strong></a>” and the other to hold “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>”. We could keep them both in one instance but I prefer to use “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>” as a proxy that we can have a main and test node and have one “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>” to access both.</p>
 <h3 id="mcetoc_1dlan93jk2" class="graf graf--h3">Cyphernode droplet</h3>
 <h4 id="mcetoc_1dlan93jk3" class="graf graf--h4">step 1: create a droplet</h4>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//1.png" alt="" width="1600" height="174"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/1.png" width="1600" height="174"></figure>
 <h4 id="mcetoc_1dlan93jk4" class="graf graf--h4">step 2: chose OS</h4>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//2.png" alt="" width="1600" height="548"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/2.png" width="1600" height="548"></figure>
 <h4 id="mcetoc_1dlan93jk5" class="graf graf--h4">step 3: chose plan</h4>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//3.png" alt="" width="1600" height="666"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/3.png" width="1600" height="666"></figure>
 <h4 id="mcetoc_1dlan93jk6" class="graf graf--h4">step 4: assign SSH</h4>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//4.png" alt="" width="1600" height="460"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/4.png" width="1600" height="460"></figure>
 <h4 id="mcetoc_1dlan93jk7" class="graf graf--h4">step 5: create a droplet</h4>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//5.png" alt="" width="1600" height="552"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/5.png" width="1600" height="552"></figure>
 <h4 id="mcetoc_1dlan93jk8" class="graf graf--h4">step 6: access droplet</h4>
 <p class="graf graf--p">Copy the ipv4 address shown in the droplet admin</p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//6.png" alt="" width="1600" height="503"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/6.png" width="1600" height="503"></figure>
 <h4 id="mcetoc_1dlan93jk9" class="graf graf--h4">step 7: connect via ssh</h4>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//7.png" alt="" width="1358" height="979"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/7.png" width="1358" height="979"></figure>
 <h4 id="mcetoc_1dlan93jka" class="graf graf--h4">step 8: install docker</h4>
 <p class="graf graf--p">note, this step was taken from the following “<a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-18-04"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">guide</strong></a>”</p>
 <p class="graf graf--p">First, update your existing list of packages:</p>
@@ -60,13 +62,13 @@
 <p class="graf graf--p">Make sure you are about to install from the Docker repo instead of the default Ubuntu repo:</p>
 <pre class="graf graf--pre">apt-cache policy docker-ce</pre>
 <p class="graf graf--p">You’ll see output like this, although the version number for Docker may be different:</p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//8.png" alt="" width="1247" height="1028"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/8.png" width="1247" height="1028"></figure>
 <p class="graf graf--p">Finally, install Docker:</p>
 <pre class="graf graf--pre">sudo apt install docker-ce</pre>
 <p class="graf graf--p">Docker should now be installed, the daemon started, and the process enabled to start on boot. Check that it’s running:</p>
 <pre class="graf graf--pre">sudo systemctl status docker</pre>
 <p class="graf graf--p">The output should be similar to the following, showing that the service is active and running:</p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//9.png" alt="" width="1600" height="363"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/9.png" width="1600" height="363"></figure>
 <p class="graf graf--p">Installing Docker now gives you not just the Docker service (daemon) but also the docker command-line utility, or the Docker client. We’ll explore how to use the docker command later in this tutorial.</p>
 <p class="graf graf--p">add your username to the docker group:</p>
 <pre class="graf graf--pre">sudo usermod -aG docker ${USER}</pre>
@@ -100,7 +102,7 @@
 <p class="graf graf--p">You can use the commands below to view the version number installed.</p>
 <pre class="graf graf--pre">node -v<br>npm -v</pre>
 <p class="graf graf--p">and you will see something like the following screenshot</p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//10.png" alt="" width="817" height="56"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/10.png" width="817" height="56"></figure>
 <h4 id="mcetoc_1dlan93jkf" class="graf graf--h4">step 7: install ECS</h4>
 <p class="graf graf--p">First, make a directory called server</p>
 <pre class="graf graf--pre">mkdir server<br>cd server</pre>
@@ -120,16 +122,16 @@
 <p class="graf graf--p">Run app.js and see if it is working.</p>
 <pre class="graf graf--pre">node app.js</pre>
 <p class="graf graf--p">Note, sometimes you may get the following error</p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//0.png" alt="" width="1600" height="367"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/0.png" width="1600" height="367"></figure>
 <p class="graf graf--p">We are not sure why this happens but “<a href="https://www.sqlite.org/index.html"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">sqllite</strong></a>” for some reason does not always install from the package.json file. If you run into this error then type the following</p>
 <pre class="graf graf--pre">npm install sqlite3 --save</pre>
 <p class="graf graf--p">If it has worked you will see the following</p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//11.png" alt="" width="1045" height="140"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/11.png" width="1045" height="140"></figure>
 <p class="graf graf--p">You will now be able to access the “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>” API via the browser. Let us test this by going to the following URL</p>
 <p class="graf graf--p">Note, replace the IP address with the one Digitalocean gave you.</p>
 <pre class="graf graf--pre"><a href="http://157.245.13.93:3030/backoffice/test"  class="markup--anchor markup--pre-anchor" rel="noopener noreferrer" target="_blank">http://157.245.13.93:3030/backoffice/test</a></pre>
 <p class="graf graf--p">If it worked you will see something like the following </p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//12.png" alt="" width="1600" height="535"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/12.png" width="1600" height="535"></figure>
 <p class="graf graf--p">This is a test endpoint that shows us the actual block height the full node has synced to.</p>
 <h4 id="mcetoc_1dlan93jkg" class="graf graf--h4">step 8: install forever.js</h4>
 <p class="graf graf--p">Now we want “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>” to run even when we are not logged in and to do that we install a package called “forever.js”</p>
@@ -139,7 +141,7 @@
 <p class="graf graf--p">Next, we want to start “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>” and run it forever. The -w flag will restart the app.js if we change any of the files. Handy for when we update the code. </p>
 <pre class="graf graf--pre">forever -w start app.js</pre>
 <p class="graf graf--p">If it worked you will see the following output</p>
-<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23//13.png" alt="" width="1466" height="115"></figure>
+<figure class="graf graf--figure"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/23/13.png" width="1466" height="115"></figure>
 <h3 id="mcetoc_1dlan93jkh" class="graf graf--h3">Conclusion</h3>
 <p class="graf graf--p">Now we have ECS running on a cheap digitalocean box ($20 a month) and have cyphernode as our back end full node. We have everything we require to take payments in BTC and it is all working great. Next time we are going to do a 180 and update ECS to run with no full node at all, WHAT!</p>
 <p class="graf graf--p graf--empty"> </p>
