@@ -1,7 +1,7 @@
 var ecsuserid = 3;
 //var ecsurl = "http://127.0.0.1:3030"; //dev
-var ecsurl = "https://ecstestnet.cryptoskillz.com"; //testnet
-//var ecsurl = "http://165.22.109.223:3030"; //live
+//var ecsurl = "https://ecstestnet.cryptoskillz.com"; //testnet
+var ecsurl = "https://ecslive.cryptoskillz.com"; //live
 
 var outputcode = '<!-- Payment button -->'
 outputcode = outputcode+'<a href="#0" id="sr-add-to-cart" class="sr-add-to-cart" data-price="0.01" data-name="Entity T" data-preview="">Add To Cart</a>';
