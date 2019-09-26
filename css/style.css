@@ -785,8 +785,8 @@ em strong, i strong, em bold, i bold, strong em, strong i, bold em, bold i {
 #hero-section.hero-flexed-style.hero-form .hero-media {
   width: 41.66666667%; 
 top: 10px;
-    left: 800px;
-    position: absolute;}
+    /*left: 800px;*/
+    position: relative;}
 
   .no-flexbox #hero-section.hero-flexed-style.hero-form .hero-media {
     float: left; }
