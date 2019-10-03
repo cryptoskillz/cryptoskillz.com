@@ -3,7 +3,7 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2019-10-03T17:11:39+07:00</updated>
+    <updated>2019-10-03T17:49:33+07:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
@@ -17,7 +17,7 @@
         <link href="https://cryptoskillz.com/blog/adding-a-donation-mode-and-launching-the-saas-product.html"/>
         <id>https://cryptoskillz.com/blog/adding-a-donation-mode-and-launching-the-saas-product.html</id>
 
-        <updated>2019-10-03T17:11:31+07:00</updated>
+        <updated>2019-10-03T17:49:29+07:00</updated>
             <summary>
                 <![CDATA[
                     <figure class="post__image post__image" contenteditable="false"><img src="https://cryptoskillz.com/blog/media/posts/27/alex-wong-2Ow2lfQQWY-unsplash.jpg" alt="Photo by Alex wong on Unsplash" width="5724" height="3816">
@@ -75,6 +75,7 @@
 <p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/27/donationdemo.png" alt="" width="2488" height="1229"></p>
 <p>As you can see from the code below this is a small change of changing the cart type to put "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a></strong>" into donation mode.  </p>
 <pre class="ke kf kg kh ki dv ge df"><code>&lt;a href="#0"                                              </code><br><code>id="sr-add-to-cart" </code><br><code>cart-type="2" </code><br><code>class="sr-add-to-cart add-to-cart btn btn-primary" </code><br><code> </code><br><code> </code><br><code>&gt;Donate&lt;/a&gt;</code></pre>
+<p id="mcetoc_1dm8joqdh0">You can see the donation mode working at the following "<strong><a href="https://cryptoskillz.com/demos/donation.html#0" target="_blank" rel="noopener noreferrer">URL</a>"</strong></p>
 <h2 id="mcetoc_1dm8h7mk01">CONCLUSION</h2>
 <p>Now we have ECS running in a test and mainnet and launched a SAAS service to enourage people to accept payments on their websites in Bitcoin. Next time we are going to take a step back and review what it takes (revised) to get ECS up and running in your local enviorment</p>
 <p> </p>
