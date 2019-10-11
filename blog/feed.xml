@@ -3,7 +3,7 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2019-10-11T16:06:07+07:00</updated>
+    <updated>2019-10-11T16:10:56+07:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
@@ -17,20 +17,20 @@
         <link href="https://cryptoskillz.com/blog/setting-up-a-test-environment.html"/>
         <id>https://cryptoskillz.com/blog/setting-up-a-test-environment.html</id>
 
-        <updated>2019-10-11T16:00:37+07:00</updated>
+        <updated>2019-10-11T16:10:48+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/28/chuttersnap-pgfWIStWIfs-unsplash.jpg" alt="" />
-                    GIVE US YOUR BITCOIN ADVERTISMENT STARTOnly joking, but not. We want your Bitcoin, any amount will do. We like Bitcoin and want more of it, so please give it to us. Click the button below to donate. Donate This guide aims to program a website&hellip;
+                    GIVE US YOUR BITCOIN ADVERTISEMENT STARTOnly joking, but not. We want your Bitcoin, any amount will do. We like Bitcoin and want more of it, so please give it to us. Click the button below to donate. Donate This guide aims to program a website&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://cryptoskillz.com/blog/media/posts/28/chuttersnap-pgfWIStWIfs-unsplash.jpg" alt="" />
-                <h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISMENT START</h2>
+                <h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT START</h2>
 <p>Only joking, but not. We want your Bitcoin, any amount will do.  We like Bitcoin and want more of it, so please give it to us.  Click the button below to donate.</p>
-<p><a href="#0" id="sr-add-to-cart" cart-type="2" class="sr-add-to-cart add-to-cart btn btn-primary"   >Donate</a> </p>
-<h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISMENT END</h2>
+<p><a style="color: #000;" href="#0" id="sr-add-to-cart" cart-type="2" class="sr-add-to-cart add-to-cart btn btn-primary"   >Donate</a> </p>
+<h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT END</h2>
 <p> </p>
 <h2 id="mcetoc_1dmo28s090">Introduction</h2>
 <p>This guide aims to program a website to accept Bitcoin. In the previous tutorial, we added the donation mode to the CDN. This time we are going to go through the exact test environment we use locally. If you are a seasoned developer you will no doubt have your processes, practices and as such, you can skip the tutorial altogether but if you have tried to follow along from home and run into an issue or two this may prove to be of use to you.</p>
