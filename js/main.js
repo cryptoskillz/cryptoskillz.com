@@ -1,12 +1,29 @@
+
+//default test URL
 var ecsuserid = 3;
-//var ecsurl = "http://127.0.0.1:3030"; //dev
-//var ecsurl = "https://ecstestnet.cryptoskillz.com"; //testnet
-var ecsurl = "https://ecslive.cryptoskillz.com"; //live
+var serverurl;
+
+if(window.location.href.indexOf("127.0.0.1") > -1) 
+{
+    serverurl = "http://127.0.0.1:3030";
+}
+
+if(window.location.href.indexOf("cryptoskillz") > -1) 
+{
+    serverurl = "https://ecslive.cryptoskillz.com";
+}
+
+//if you want to point to testnet then unghost the line below/
+//serverurl = "https://ecstest.cryptoskillz.com"; //testnet
+
+//debug
+//alert(serverurl)
+
 
 var outputcode = '<!-- Payment button -->'
 outputcode = outputcode+'<a href="#0" id="sr-add-to-cart" class="sr-add-to-cart" data-price="0.01" data-name="Entity T" data-preview="">Add To Cart</a>';
 outputcode = outputcode+'<!-- add this to the footer -->';
-outputcode = outputcode+'<script type="text/javascript">SR.init(["'+ecsurl+'",false,15,"https://s3.eu-west-1.amazonaws.com/cryptoskillz.com/srcrypto/prod/cdn/","[ECSUSERID]","",0,0,"GB"]);';
+outputcode = outputcode+'<script type="text/javascript">SR.init(["'+serverurl+'",false,15,"https://s3.eu-west-1.amazonaws.com/cryptoskillz.com/srcrypto/prod/cdn/","[ECSUSERID]","",0,0,"GB"]);';
 outputcode = outputcode+'</script>';
 
 (function($) {
@@ -68,7 +85,7 @@ outputcode = outputcode+'</script>';
 
                 //store the details
                 $.ajax({
-                  url: ecsurl+"/api/adduser?email="+email+"&btc="+btc,
+                  url: serverurl+"/api/adduser?email="+email+"&btc="+btc,
                   context: document.body
                 }).done(function(res) {
                     var obj = JSON.parse(res);
