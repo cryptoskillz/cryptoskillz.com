@@ -3,12 +3,153 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2019-10-25T03:01:29+07:00</updated>
+    <updated>2019-11-03T17:39:36+07:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
     <id>https://cryptoskillz.com/blog</id>
 
+    <entry>
+        <title>Cart refactor and serverless mode</title>
+        <author>
+            <name>cryptoskillz</name>
+        </author>
+        <link href="https://cryptoskillz.com/blog/cart-refactor-and-serverless-mode.html"/>
+        <id>https://cryptoskillz.com/blog/cart-refactor-and-serverless-mode.html</id>
+
+        <updated>2019-11-03T17:39:29+07:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://cryptoskillz.com/blog/media/posts/29/goran-ivos-iacpoKgpBAM-unsplash.jpg" alt="" />
+                    GIVE US YOUR BITCOIN ADVERTISEMENT STARTOnly joking, but not. We want your Bitcoin, any amount will do. We like Bitcoin and want more of it, so please give it to us. Click the button below to donate. Donate This guide aims to program a website&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <img src="https://cryptoskillz.com/blog/media/posts/29/goran-ivos-iacpoKgpBAM-unsplash.jpg" alt="" />
+                <h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT START</h2>
+<p>Only joking, but not. We want your Bitcoin, any amount will do.  We like Bitcoin and want more of it, so please give it to us.  Click the button below to donate.</p>
+<p><a href="#0" id="sr-add-to-cart" cart-type="2" class="sr-add-to-cart add-to-cart btn btn-primary"    style="color: #000;">Donate</a> </p>
+<h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT END</h2>
+<p> </p>
+<h2 id="mcetoc_1dmo28s090">Introduction</h2>
+<p>This guide aims to program a website to accept Bitcoin. In the previous tutorial, we showed you how we create a test environment. This time we are going to recode the cart so that a front end dev can easily skin up new cart designs.  We are also going to add a serverless mode. </p>
+<p><span >We were going to integrate lightning fully into "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a>"</strong> via "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >cyphernode</span></strong></a><span >" but we noticed some critical bugs that had to be fixed when we added donation mode and everything else we have done expanded from those initial bugs.  The Lightning updates have been pushed back until next time.</span></p>
+<h2 id="mcetoc_1do79vraf0">Serverless mode</h2>
+<p>It is worth discussing the serverless mode. When we originally envisioned this we thought it would work without a full node but it occurred to us if we do not have a full node we may not even require a server and that is what we coded this time around. Of course, it has limited use mainly donation mode as there is no way to store shipping information or email as we are not utilising a server but it will mean you can run "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a>"</strong> from any static hosting website, which we think is pretty cool. </p>
+<p>We envisage that when complete "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a>"</strong> will have 3 modes of operation:<br><br>1) Full Node ("<strong><a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cyphernode</a>"</strong> or whatever <strong><a href="https://bitcoin.org/en/bitcoin-core/" target="_blank" rel="noopener noreferrer">full node</a></strong> you chose) "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/server" target="_blank" rel="noopener noreferrer">ECS Server</a>"</strong> and "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/cdn" target="_blank" rel="noopener noreferrer">ECS CDN</a>"</strong> (sr.js)<br>2) No "<strong><a href="https://bitcoin.org/en/bitcoin-core/" target="_blank" rel="noopener noreferrer">full node" </a></strong>+ "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/server" target="_blank" rel="noopener noreferrer">ECS Server</a>"</strong> and "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/cdn" target="_blank" rel="noopener noreferrer">ECS CDN</a>"</strong> (sr.js)<br>3) No "<strong><a href="https://bitcoin.org/en/bitcoin-core/" target="_blank" rel="noopener noreferrer">full node</a>"</strong>, no "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/server" target="_blank" rel="noopener noreferrer">ECS Server</a>"</strong> and "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/cdn" target="_blank" rel="noopener noreferrer">ECS CDN</a>"</strong> (sr.js)</p>
+<h2 id="mcetoc_1do7er7b60">Cart refactor</h2>
+<p>The cart when you break it down consists of 6 screens and can be as little as 2 depending on what mode you have the cart. Below you will see a simple mockup of each of these screens.</p>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/29/cartscreen1.png" alt="" width="1978" height="1173"></p>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/29/cartscreen2b.png" alt="" width="1933" height="1019"></p>
+<h3 id="mcetoc_1dogmkh3l0">Cart Icon</h3>
+<p>This is the entry point into the cart. It appears on the bottom right with a counter that goes up every time an item is added to it. Clicking on this icon opens the cart pop up. </p>
+<h3 id="mcetoc_1dogmkm7u1">Product Cart Screen</h3>
+<p>The product cart screen shows the product(s) you are purchasing, allowing you to edit the quantity and/or delete a product. Note this is an optional screen it is not used in donation mode. </p>
+<h3 id="mcetoc_1dogmkqcg2">Customer Info</h3>
+<p>The customer info screen shows a form to collect customer information such as an email and shipping address. Note this is an optional screen it is not used in donation mode and if you enable shipping you will see the shipping details otherwise you will just be asked to enter an email.</p>
+<h3 id="mcetoc_1dogml25c3"><span style="font-family: -apple-system, BlinkMacSystemFont, Arial, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: inherit;">Payment Screen</span></h3>
+<p>The payment screen is not used at present but it will hold the different payment options which will be Bitcoin and Lightning.</p>
+<h3 id="mcetoc_1dogmlan34">Bitcoin / Lightning Payment</h3>
+<p>This screen shows a BTC / Lightning QR code and payment address so you can make the payment. </p>
+<h3 id="mcetoc_1dogmlf6v5">Payment Confirmed</h3>
+<p>This screen is showing when a payment has been confirmed. As this is Bitcoin this is entirely optional. It polls the "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a>"</strong> server looking for payment confirmation. However, once the user has sent the Bitcoin they can close the site and move on as this is the way things work in our world. No middle man is authorising the transaction, yay.</p>
+<h2 id="mcetoc_1dogmvk7f7">The SQL</h2>
+<p>We made a change in the sessions table by adding 2 new fields and change the way it sits in the repo. We removed the db.db file from GIT and added it to the ignore as it was causing issues when we deployed to our production servers. We replaced this with a SQL file that you can use to create the database via a simple import command.</p>
+<h3 id="mcetoc_1dogmvhhe6">sessioncountcheck</h3>
+<p>This is used as a counter to check how many times we have checked for payment for this session item. At the moment we have it set so we check 10000 times which means we are looking for a payment for 24 hours or so. If we still have not received the payment them we stop looking for it automatically. Of course, it can still be done via the admin control panel using the sweep feature.</p>
+<h3 id="mcetoc_1doh6rrgm0"><strong>carttype</strong></h3>
+<p>This holds the carttype 0 for normal, 1 for anon, 2 for donation.  </p>
+<h3 id="mcetoc_1dooc0k0t0">schema</h3>
+<p>Below is the schema of the table.</p>
+<p><code>CREATE TABLE "sessions"                                        </code><br><code>( `id` INTEGER PRIMARY KEY AUTOINCREMENT,                       <br>   `address` TEXT, `processed` INTEGER DEFAULT 0,                <br>   `swept` INTEGER DEFAULT 0, `userid` INTEGER,                  <br>   `net` INTEGER DEFAULT 1, `amount` TEXT DEFAULT 0,                 `paymenttype` INTEGER DEFAULT 1,                              <br>   `sessioncountcheck` INTEGER DEFAULT 0,                        <br>   `carttype` INTEGER DEFAULT 1                                  <br>)                                                               </code></p>
+<h2 id="mcetoc_1dogo3kf08"> The Code</h2>
+<p><span >The branch for this release can be found "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/cdn" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >here</span></strong></a><strong><span >"</span></strong><span >.</span></p>
+<p><span >We are not going to break down every code change as there were a lot of bug fixes etc if you want to look at all the code changes then click "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/commits/refactoringcart/cdn" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >here</span></strong></a><strong><span >"</span></strong><span >. What we will do is break down each section and summaries/justify the changes, which seems like a much better way of doing things.</span></p>
+<h3 id="mcetoc_1doi5hu2a0">CDN (sr.js)</h3>
+<p><span >We updated the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/cdn" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >CDN</span></strong></a><strong><span >"</span></strong><span > to be able to handle serverless mode as well as fix several bugs that we introduced when we added the donation mode. The major change is in the </span><strong><span >INIT</span></strong><span > function.</span></p>
+<pre class="ke kf kg kh ki dv ge df">SR.init([<br>"https://ecstest.cryptoskillz.com/",<br>15,<br>"https://cryptoskillz.com/srcrypto/prod/demos/carts/default/",<br>"3",<br>1,<br>"GB",<br>0,<br>""<br>]);</pre>
+<p>Break down of the parmaters</p>
+<table style="width: 770px;">
+<tbody>
+<tr>
+<td style="width: 73px;">ID</td>
+<td style="width: 188px;">Name</td>
+<td style="width: 267px;">Value</td>
+<td style="width: 377px;">Description</td>
+</tr>
+<tr>
+<td style="width: 73px;">1</td>
+<td style="width: 188px;">Server URL</td>
+<td style="width: 267px;">https://ecstest.cryptoskillz.com/</td>
+<td style="width: 377px;">Hold the URL of the ECS server</td>
+</tr>
+<tr>
+<td style="width: 73px;">2</td>
+<td style="width: 188px;">Quantity</td>
+<td style="width: 267px;">15</td>
+<td style="width: 377px;">Holds the quantity for the quantity dropdown</td>
+</tr>
+<tr>
+<td style="width: 73px;">3</td>
+<td style="width: 188px;">CDN Url</td>
+<td style="width: 267px;">
+<p><a href="https://cryptoskillz.com/srcrypto/prod/">https://cryptoskillz.com/srcrypto/<br>prod/</a>demos/carts/default/</p>
+</td>
+<td style="width: 377px;">Hold the URL for the Cart theme</td>
+</tr>
+<tr>
+<td style="width: 73px;">4</td>
+<td style="width: 188px;"> User id</td>
+<td style="width: 267px;">3</td>
+<td style="width: 377px;">The ID of the account</td>
+</tr>
+<tr>
+<td style="width: 73px;">5</td>
+<td style="width: 188px;">Shipping address</td>
+<td style="width: 267px;">1/0</td>
+<td style="width: 377px;">Boolean to turn on/off shipping address</td>
+</tr>
+<tr>
+<td style="width: 73px;">6</td>
+<td style="width: 188px;"> Start Country</td>
+<td style="width: 267px;"> GB</td>
+<td style="width: 377px;">The default country for shipping address</td>
+</tr>
+<tr>
+<td style="width: 73px;">7</td>
+<td style="width: 188px;">Serverless </td>
+<td style="width: 267px;">1/0</td>
+<td style="width: 377px;">Boolean to turn on/off serverless mode</td>
+</tr>
+<tr>
+<td style="width: 73px;">8</td>
+<td style="width: 188px;"> BTC address</td>
+<td style="width: 267px;"> 2N677tdA2xcYfkfC6b2HWfqir7P8bmkrwo3</td>
+<td style="width: 377px;">Hold the payment address for serverless mode</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mcetoc_1doipdpm40"><br>THEME</h3>
+<p><span >We recoded the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/cdn/theme" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >theme</span></strong></a><strong><span >"</span></strong><span > from the ground up it was pretty "hard-wired" into the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/cdn" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >CDN</span></strong></a><strong><span >"</span></strong><span > and we wanted to have it obfuscate for 2 reasons:</span></p>
+<p><span >1) A front end designer could easily modify the cart</span></p>
+<p><span >2) It could be loaded into the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/cdn" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >CDN</span></strong></a><strong><span >"</span></strong><span > from anywhere.</span></p>
+<p><span >we achieved this by simply passing in the root URL in the SR Init function and having 2 files "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/blob/refactoringcart/cdn/theme/cart.css" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >cart.css</span></strong></a><strong><span >"</span></strong><span > and "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/blob/refactoringcart/cdn/theme/cart.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >cart.html</span></strong></a><strong><span >"</span></strong><span > which hold all the CSS and HTML respectively.</span></p>
+<p><span >You can see a demo of the cart running "</span><a target="_blank" href="https://cryptoskillz.com/srcrypto/prod/demos/carts/default/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >here</span></strong></a><strong><span >"</span></strong><span >. We will be adding a lot of different cart designs in the future. </span></p>
+<h3 id="mcetoc_1doipdud41">ADMIN</h3>
+<p><span >We upgraded the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/admin" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >admin</span></strong></a><strong><span >"</span></strong><span > to allow it to work in multi-user mode to support our recently launched "</span><a target="_blank" href="https://cryptoskillz.com/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >SAAS version</span></strong></a><strong><span >"</span></strong><span > of "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >ECS</span></strong></a><strong><span >"</span></strong><span > as well adding more functionality. The admin area is not required as we added autopayment last time. However, this is limited in its scope and if you require more then you can use the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/admin" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >admin</span></strong></a><strong><span >"</span></strong><span > area.</span></p>
+<p><span >However this "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/admin" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >admin</span></strong></a><strong><span >"</span></strong><span > area is pretty basic, we have taken the concept of just enough development, it works but you may want to integrate it into your admin (via webhooks / API, etc) or code the features directly into the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/admin" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >admin</span></strong></a><strong><span >"</span></strong><span > area. This is intentional as this meant primarily as a teaching project we did not want to spend too much of our resources on the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/admin" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >admin</span></strong></a><strong><span >"</span></strong><span > area.</span></p>
+<h3 id="mcetoc_1doipe2mv2">DEMOS</h3>
+<p><span >We created a new area called "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/tree/refactoringcart/demos" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >demos</span></strong></a><strong><span >"</span></strong><span > which allows you to see the cart in all its variations. You can see a demo of it "</span><a target="_blank" href="https://cryptoskillz.com/srcrypto/prod/demos/carts/default/index.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >here</span></strong></a><strong><span >".  </span></strong><span >It contains 5 demos as shown in the screenshot below and each demo explains its purpose. </span></p>
+<p><img class="post__image" style="font-family: -apple-system, BlinkMacSystemFont, Arial, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: inherit;" src="https://cryptoskillz.com/blog/media/posts/29/Untitled.png" alt="" width="854" height="409"></p>
+<h2 id="mcetoc_1doiphgls3">Conclusion</h2>
+<p>There we have it we set out to do full Lightning support via cyphernode and ended up refactoring the cart and adding a serverless mode. Coding is cool. Next time Lightning support for sure, friends. </p>
+<p> </p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Setting up a test environment</title>
         <author>
@@ -1030,69 +1171,6 @@
 </section>
 </div>
 </article>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Integrating 3rd party Lightning</title>
-        <author>
-            <name>cryptoskillz</name>
-        </author>
-        <link href="https://cryptoskillz.com/blog/integrating-3rd-party-lightning.html"/>
-        <id>https://cryptoskillz.com/blog/integrating-3rd-party-lightning.html</id>
-
-        <updated>2019-10-10T23:50:47+07:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://cryptoskillz.com/blog/media/posts/18/1_a22cZdqrqt3k_KXL4CcfDg-xs.jpeg" alt="" />
-                    IntroductionThis guide aims to program a website to accept "Bitcoin". In the previous tutorial, We added "strike" as a standalone project. This time we are going to fully integrate it into our "server" and "CDN" ("sr.js") The SQL in this release changed a lot as&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <img src="https://cryptoskillz.com/blog/media/posts/18/1_a22cZdqrqt3k_KXL4CcfDg-xs.jpeg" alt="" />
-                <article>
-<div>
-<section class="jd je jf jg jh">
-<div class="ae ji ab dn v w">
-<h1 id="8272" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" >Introduction</h1>
-<p id="ad64" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >This guide aims to program a website to accept "<a href="https://bitcoin.org/en/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">Bitcoin</strong></a>". In the previous tutorial, We added "<a href="https://strike.acinq.co/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">strike</strong></a>" as a standalone project. This time we are going to fully integrate it into our "<a href="https://github.com/cryptoskillz/ECS/tree/strikeintegration/server" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">server</strong></a>" and "<a href="https://github.com/cryptoskillz/ECS/tree/strikeintegration/cdn" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">CDN</strong></a>" ("<a href="https://github.com/cryptoskillz/ECS/blob/strikeintegration/cdn/js/sr.js" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">sr.js</strong></a>")</p>
-<p > </p>
-<h1 id="8136" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" >The SQL</h1>
-<p id="e9c5" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >The SQL in this release changed a lot as we are now offering multipile payment types we could no longer rely on the BTC address to be the join across the tables. Also because a lightning payment requires an amount which we do not always have we cannot cache a lightning address the way we do a Bitcoin one.</p>
-<p id="3c3f" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >As a result, we implemented a session which is based on "<a href="https://www.npmjs.com/package/uuid" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">uuidv1</strong></a>"</p>
-<p id="7e9c" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >We changed the name of the session table to "usersessions" added a session id as well as changed address into 2 fields "btcaddress" and "lightaddress". Note we could have used an address lookup table here to manage many types, however, we will most likely only support BTC and Lightning(if this changes we can easily implement this change)</p>
-<p id="feb7" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >We also added a timestamp so we know when the session was created in case we ever decided to add features such as cart abandonment etc.</p>
-<pre class="ke kf kg kh ki dv ge df"><span id="5176" class="mm lg bf av mn b dz mo mp l mq" >CREATE TABLE `usersessions` (<br> `id` INTEGER PRIMARY KEY AUTOINCREMENT,<br> `processed` INTEGER DEFAULT 0,<br> `swept` INTEGER DEFAULT 0,<br> `userid` INTEGER,<br> `net` INTEGER DEFAULT 1,<br> `amount` TEXT DEFAULT 0,<br> `paymenttype` INTEGER DEFAULT 1,<br> `sessionid` TEXT,<br> `sessiontime` INTEGER,<br> `btcaddress` TEXT,<br> `lightaddress` TEXT<br>);</span></pre>
-<p id="3243" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >The only other changes we made was to replace the "address" join in other fields and use "sessoinid" as well.</p>
-<h1 id="24b6" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" >The Code</h1>
-<p id="9cf2" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >The branch for the code for this release can be found "<a href="https://github.com/cryptoskillz/ECS/tree/strikeintegration" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">here</strong></a>"</p>
-<h2 id="4cea" class="mm lg bf av au el mr ms mt mu mv mw mx my mz na nb" >WWW</h2>
-<p id="592e" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >We made one small change to the init function and that as to pass in the ability to turn Lightning on or off.</p>
-<pre class="ke kf kg kh ki dv ge df"><span id="79e9" class="mm lg bf av mn b dz mo mp l mq" >&lt;script type="text/javascript"&gt;<br>       /*<br>          0 = server url<br>          1 = animated<br>          2 = quantity count<br>          3 = cdn url<br>          4 = uid<br>          5 = theme<br>          6 = billing address <br>          7 = shipping address<br>          8 = start country<br>          9 = lighting enabled<br>       */</span><span id="8fcb" class="mm lg bf av mn b dz nc nd ne nf ng mp l mq" ><br>       //local<br>SR.init([<br>"<a href="http://127.0.0.1:3030/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer">http://127.0.0.1:3030/</a>",<br>false,<br>15,<br>"<a href="http://127.0.0.1:8081/cdn/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8081/cdn/</a>",<br>"3",<br>"",<br>1,<br>1,<br>"GB",<br>1<br>]);</span></pre>
-<h2 id="af55" class="mm lg bf av au el mr ms mt mu mv mw mx my mz na nb" >CDN / SERVER</h2>
-<p id="a1c8" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >Most the changes this time were in "<a href="https://github.com/cryptoskillz/ECS/blob/strikeintegration/cdn/js/sr.js" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">SR.js</strong></a>" the "<a href="https://github.com/cryptoskillz/ECS/tree/strikeintegration/server" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">server</strong></a>" was obviously updated to handle the new requests. As I said we are no longer going to be listing all the code (as it is getting too long to read in a blog format) we will cover the salient updates.</p>
-<p id="ce2e" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" ><strong class="lu mg">Session Generation</strong></p>
-<p id="defa" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >We now store a cookie in a session which means everytime you now do a hard refresh you call the server and create a new session. This not only speeds things up allows us to have multiple payment types in one session. Note we did not retrieve the cart contents on a hard refresh but we will do that in a future update.</p>
-<p id="322d" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >It also has the added bonus of giving us a preloader (in a way) which use (at present) to generate a BTC address but can make it do a lot. One idea as mentioned above is to send the user cart so we maintain cart integrity over time, hard refreshes etc.</p>
-<p id="8210" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" ><strong class="lu mg">Multipile payment types</strong></p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/18/1_6Nxhy4i_b5kAX61HTSoDeg.png" alt="" width="1670" height="991"></p>
-<p id="714e" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >Now we have Lightning and Bitcoin to chose from this branches a number of UX flow and if we added more the complexity would rise more so we had to refactor the whole address/generation functionality on both the CDN and SERVER.</p>
-<p id="3a71" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" ><strong class="lu mg">Server webhooks</strong></p>
-<p id="82ba" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >We had a lot of code in server webhooks which did not have to be there so we removed it and refactored the function.</p>
-<p id="b928" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" ><strong class="lu mg">Misc</strong></p>
-<p id="3822" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >We fixed numerous bugs and refactored how a lot of the server code is working. It is a lot more friendly to work with now.</p>
-<h2 id="417c" class="mm lg bf av au el mr ms mt mu mv mw mx my mz na nb" >Admin</h2>
-<p id="6887" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >We made minimal changes to the admin, mainly the being able to deal with Lighting payments and the new session code. In a future update, we will focus exclusively on the admin as there is a lot we can be adding to improve this section.</p>
-<p > </p>
-<h1 id="e6de" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" >Conclusion</h1>
-<p id="6c4c" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >This now gives us a pretty decent platform to deal with Bitcoin and Lightning payments. Of course, we are going to replace "<a href="https://strike.acinq.co/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">strike</strong></a>" at some point with code completely under our control but this is adequate for now.</p>
-<p id="336a" class="ls lt bf av lu b lv mh lx mi lz mj mb mk md ml mf" >Next time around we will either clean up all the code and do a full regression in which case there will be no tutorial or implement an address cache method to be able to run ECS without any BTC node running on the server.</p>
-</div>
-</section>
-</div>
-</article>
-<div class="eb ec ed m ee ef eg eh ei e" > </div>
             ]]>
         </content>
     </entry>
