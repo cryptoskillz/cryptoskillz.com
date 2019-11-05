@@ -3,7 +3,7 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2019-11-03T17:39:36+07:00</updated>
+    <updated>2019-11-05T17:19:07+07:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
@@ -17,21 +17,17 @@
         <link href="https://cryptoskillz.com/blog/cart-refactor-and-serverless-mode.html"/>
         <id>https://cryptoskillz.com/blog/cart-refactor-and-serverless-mode.html</id>
 
-        <updated>2019-11-03T17:39:29+07:00</updated>
+        <updated>2019-11-05T17:18:33+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/29/goran-ivos-iacpoKgpBAM-unsplash.jpg" alt="" />
-                    GIVE US YOUR BITCOIN ADVERTISEMENT STARTOnly joking, but not. We want your Bitcoin, any amount will do. We like Bitcoin and want more of it, so please give it to us. Click the button below to donate. Donate This guide aims to program a website&hellip;
+                     IntroductionThis guide aims to program a website to accept Bitcoin. In the previous tutorial, we showed you how we create a test environment. This time we are going to recode the cart so that a front end dev can easily skin up new cart designs. We&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://cryptoskillz.com/blog/media/posts/29/goran-ivos-iacpoKgpBAM-unsplash.jpg" alt="" />
-                <h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT START</h2>
-<p>Only joking, but not. We want your Bitcoin, any amount will do.  We like Bitcoin and want more of it, so please give it to us.  Click the button below to donate.</p>
-<p><a href="#0" id="sr-add-to-cart" cart-type="2" class="sr-add-to-cart add-to-cart btn btn-primary"    style="color: #000;">Donate</a> </p>
-<h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT END</h2>
-<p> </p>
+                <h2 id="mcetoc_1dmt0knbc0"> </h2>
 <h2 id="mcetoc_1dmo28s090">Introduction</h2>
 <p>This guide aims to program a website to accept Bitcoin. In the previous tutorial, we showed you how we create a test environment. This time we are going to recode the cart so that a front end dev can easily skin up new cart designs.  We are also going to add a serverless mode. </p>
 <p><span >We were going to integrate lightning fully into "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a>"</strong> via "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >cyphernode</span></strong></a><span >" but we noticed some critical bugs that had to be fixed when we added donation mode and everything else we have done expanded from those initial bugs.  The Lightning updates have been pushed back until next time.</span></p>
@@ -158,22 +154,17 @@
         <link href="https://cryptoskillz.com/blog/setting-up-a-test-environment.html"/>
         <id>https://cryptoskillz.com/blog/setting-up-a-test-environment.html</id>
 
-        <updated>2019-10-11T16:10:48+07:00</updated>
+        <updated>2019-11-05T17:18:41+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/28/chuttersnap-pgfWIStWIfs-unsplash.jpg" alt="" />
-                    GIVE US YOUR BITCOIN ADVERTISEMENT STARTOnly joking, but not. We want your Bitcoin, any amount will do. We like Bitcoin and want more of it, so please give it to us. Click the button below to donate. Donate This guide aims to program a website&hellip;
+                    IntroductionThis guide aims to program a website to accept Bitcoin. In the previous tutorial, we added the donation mode to the CDN. This time we are going to go through the exact test environment we use locally. If you are a seasoned developer you will&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://cryptoskillz.com/blog/media/posts/28/chuttersnap-pgfWIStWIfs-unsplash.jpg" alt="" />
-                <h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT START</h2>
-<p>Only joking, but not. We want your Bitcoin, any amount will do.  We like Bitcoin and want more of it, so please give it to us.  Click the button below to donate.</p>
-<p><a style="color: #000;" href="#0" id="sr-add-to-cart" cart-type="2" class="sr-add-to-cart add-to-cart btn btn-primary"   >Donate</a> </p>
-<h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT END</h2>
-<p> </p>
-<h2 id="mcetoc_1dmo28s090">Introduction</h2>
+                <h2 id="mcetoc_1dmt0knbc0">Introduction</h2>
 <p>This guide aims to program a website to accept Bitcoin. In the previous tutorial, we added the donation mode to the CDN. This time we are going to go through the exact test environment we use locally. If you are a seasoned developer you will no doubt have your processes, practices and as such, you can skip the tutorial altogether but if you have tried to follow along from home and run into an issue or two this may prove to be of use to you.</p>
 <h2 id="mcetoc_1dmo29c291"><strong>Test Environment</strong></h2>
 <p><span >We develop on a MAC so all the software that we use reflects, however, there are equivalents of we use on every operating system so if you use Windows or something else then please swap as necessary.</span></p>
@@ -264,7 +255,7 @@
         <link href="https://cryptoskillz.com/blog/adding-a-donation-mode-and-launching-the-saas-product.html"/>
         <id>https://cryptoskillz.com/blog/adding-a-donation-mode-and-launching-the-saas-product.html</id>
 
-        <updated>2019-10-10T22:00:41+07:00</updated>
+        <updated>2019-11-05T17:18:58+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/27/alex-wong-2Ow2lfQQWY-unsplash.jpg" alt="" />
@@ -274,7 +265,7 @@
         <content type="html">
             <![CDATA[
                     <img src="https://cryptoskillz.com/blog/media/posts/27/alex-wong-2Ow2lfQQWY-unsplash.jpg" alt="" />
-                <h2 id="mcetoc_1dlmf56kk0">Introduction</h2>
+                <h2 id="mcetoc_1dmt0knbc0">Introduction</h2>
 <p class="graf graf--p">This guide aims to program a website to accept Bitcoin. In the previous tutorial, we integrated “<a href="https://cyphernode.io/"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">cyphernode</strong></a><strong class="markup--strong markup--p-strong">” </strong>into our “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a>” (with “<a href="https://en.wikipedia.org/wiki/Lightning_Network"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">Lightning</strong></a>”). This time we are going to add what we are calling a donation mode as well as going live with out SAAS offering.</p>
 <h2 id="mcetoc_1dlmf84h20">Note on the SAAS offering.</h2>
 <p><span >That is right we are offering "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a></strong>" as a "<a href="https://en.wikipedia.org/wiki/Software_as_a_service" target="_blank" rel="noopener noreferrer">SAAS</a>" (software as a service) that we will host. This appears to go against everything that we have been doing up until this point and you are right it does. However we have learned that going to a fully hosted Bitcoin powered e-commerce store is hard, it is a big commitment. So we decided (seeing as we are the authors of this software) to make your first steps as easy as possible. So we created this super simple offering that will allow you to get up and running in a few minutes, made it completely free (forever) allowing you to get comfortable with how everything works and allowing you to move to your self-sovereign solution on your timescales.</span></p>
@@ -332,15 +323,19 @@
         <link href="https://cryptoskillz.com/blog/tronbet-switching-to-win.html"/>
         <id>https://cryptoskillz.com/blog/tronbet-switching-to-win.html</id>
 
-        <updated>2019-09-23T17:40:36+07:00</updated>
+        <updated>2019-11-05T17:12:16+07:00</updated>
             <summary>
                 <![CDATA[
-                    UPDATE Wink have been true to their word and continued to deliver on their promises but unfortunately with Justin Sun seemingly massively involved and doing Justin Sun things, such as a 2 year (monthly airdrop) I fear this will have a long term negative impact on&hellip;
+                    GIVE US YOUR BITCOIN ADVERTISEMENT STARTOnly joking, but not. We want your Bitcoin, any amount will do. We like Bitcoin and want more of it, so please give it to us. Click the button below to donate. Donate Wink have been true to their word&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
-                <h2 id="mcetoc_1dler0rno0" class="mk ml ct ba mm b mn my mp mz mr na mt nb mv nc mx">UPDATE </h2>
+                <h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT START</h2>
+<p>Only joking, but not. We want your Bitcoin, any amount will do.  We like Bitcoin and want more of it, so please give it to us.  Click the button below to donate.</p>
+<p><a href="#0" id="sr-add-to-cart" cart-type="2" class="sr-add-to-cart add-to-cart btn btn-primary"    style="color: #000;">Donate</a> </p>
+<h2 id="mcetoc_1dmt0knbc0">GIVE US YOUR BITCOIN ADVERTISEMENT END</h2>
+<h2 id="mcetoc_1dler0rno0" class="mk ml ct ba mm b mn my mp mz mr na mt nb mv nc mx">UPDATE </h2>
 <p><em>Wink have been true to their word and continued to deliver on their promises but unfortunately with Justin Sun seemingly massively involved and doing Justin Sun things, such as a 2 year (monthly airdrop) I fear this will have a long term negative impact on the whole project.  </em></p>
 <p><em>The team (although great technically) are horrible at marketing and a simple update leads to weeks of panic and speculation. They also have this odd methodology of releasing a press release, which is usually very ambiguous and requires clarification and instead of doing this they treat the press release as a work of Shakespearean art and refuse to give any more details (often these press releases are good news) resulting in them taking hell in their telegram channel for days or even weeks.</em></p>
 <p> </p>
@@ -645,30 +640,28 @@
         <link href="https://cryptoskillz.com/blog/working-with-fullnodes-part-6-cyphernode-iii.html"/>
         <id>https://cryptoskillz.com/blog/working-with-fullnodes-part-6-cyphernode-iii.html</id>
 
-        <updated>2019-10-10T23:29:20+07:00</updated>
+        <updated>2019-11-05T17:10:14+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/22/0_tnWANgeBqBWRZOxF.png" alt="" />
-                     This article aims to play with "Lightning" on the "cyphernode" backend as well as explorer "docker" and figure out how it all works with the proxy etc. Now, let us be upfront and clear we know nothing about "docker" we will be learning and&hellip;
+                     PreambleThis article aims to play with "Lightning" on the "cyphernode" backend as well as explorer "docker" and figure out how it all works with the proxy etc. Now, let us be upfront and clear we know nothing about "docker" we will be learning and as&hellip;
                 ]]>
             </summary>
         <content type="html">
             <![CDATA[
                     <img src="https://cryptoskillz.com/blog/media/posts/22/0_tnWANgeBqBWRZOxF.png" alt="" />
-                <p> </p>
+                <h2 id="mcetoc_1dotge52m0"> Preamble</h2>
 <article>
-<div>
 <section class="jd je jf jg jh">
 <div class="ae ji ab dn v w">
-<h1 id="ec35" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Preamble</h1>
 <p id="8793" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >This article aims to play with "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" on the "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" backend as well as explorer "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" and figure out how it all works with the proxy etc. Now, let us be upfront and clear we know nothing about "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" we will be learning and as we go and making a lot of mistakes and most probably doing everything wrong but that is ok, that is how we learn.</p>
 <p id="f05c" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Also, this is not essential reading as it is purely a research article offering tertiary information on our journey. If you like minuta then I am pretty sure you will enjoy this, for everyone else please just move on to the next article.</p>
-<h1 id="2665" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Introduction</h1>
+<h2 id="mcetoc_1dotgeg181">Introduction</h2>
 <p id="8ce2" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >This guide aims to program a website to accept Bitcoin. In the previous tutorial, we integrated "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a><strong class="kf mh">" </strong>into our "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" (without "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>"). This time we are going to integrate "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" and ties it into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>".</p>
-<h1 id="ed64" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Installing cyphernode</h1>
-<p id="7a3c" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >We have done this a few times already so there is no reason to document the steps here again please refer to "<a class="cb bx md me mf mg" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-18-cyphernode-ab682ff85659" rel="noopener noreferrer"><strong class="kf mh">part 18</strong></a>" for installation instructions. Note we are still on testnet but you may install testnet or mainnet.</p>
+<h2 id="mcetoc_1dotgesth2">Installing cyphernode</h2>
+<p class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >We have done this a few times already so there is no reason to document the steps here again please refer to "<a class="cb bx md me mf mg" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-18-cyphernode-ab682ff85659" rel="noopener noreferrer"><strong class="kf mh">part 18</strong></a>" for installation instructions. Note we are still on testnet but you may install testnet or mainnet.</p>
 <p id="b1f9" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><em class="mi">Note, Presently you have to run a full node that is not pruned for "</em><a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Lightning</em></strong></a><em class="mi">" support so please make sure that you have 350gig of hard drive space available. Since "</em><a href="https://bitcoin.org/en/release/v0.16.0" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Bitcoin Core 0.16.0</em></strong></a><em class="mi">" with the introduction of "</em><a href="https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">BIP 159</em></strong></a><em class="mi">" you have been able to run "</em><a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Lightning</em></strong></a><em class="mi">" in a pruned node and "</em><a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">cyphernode</em></strong></a><em class="mi">" runs "</em><a href="https://bitcoin.org/en/release/v0.18.0" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Bitcoin Core 0.18.0</em></strong></a><em class="mi">" so we are sure that support for this will come soon.</em></p>
-<h1 id="433d" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Starting cyphernode</h1>
+<h2 id="433d" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Starting cyphernode</h2>
 <p id="e409" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >The first thing to do, as always is to start "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" and you do that by type the following command in the "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" installation directory.</p>
 <pre class="ks kt ku kv kw dv ge df"><span id="f57c" class="mj lm bf av mk b dz ml mm l mn" >./start.sh</span></pre>
 <p id="c252" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >First things first let us try the standard curl call we use to test things are running as excepted. Run the following command in terminal enter the password you set for RPC whilst setting up cyphernode.</p>
@@ -677,7 +670,7 @@
 <p id="8ec1" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >and you will get the following response.</p>
 <p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_xCGv5lAgr1gaA5-Ja5N9qA.png" alt="" width="2493" height="287"></p>
 <p > </p>
-<h1 id="30e3" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Using Docker with cyphernode</h1>
+<h2 id="30e3" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Using Docker with cyphernode</h2>
 <p id="f5d2" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >Now let us test it by typing the command in the docs which can be found here.</p>
 <p id="aa69" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >The first command they list is this</p>
 <pre class="ks kt ku kv kw dv ge df"><span id="28fd" class="mj lm bf av mk b dz ml mm l mn" >echo "GET /getbestblockinfo" | docker run --rm -i --network=cyphernodenet alpine nc proxy:8888 -</span></pre>
@@ -703,7 +696,7 @@
 <pre class="ks kt ku kv kw dv ge df"><span id="fcf6" class="mj lm bf av mk b dz ml mm l mn" >echo "GET /ln_getinfo" | docker run --rm -i --network=cyphernodenet alpine nc proxy:8888 -</span></pre>
 <p class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_N7O0v8qc9HZYT5KRnghzrg.png" alt="" width="1913" height="942"></p>
 <p id="8f2b" >Wow, it works (awesome) so we can push any command in the API reference and get a response that way, very cool.</p>
-<h2 id="6ac6" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl" >To app or not to app</h2>
+<h2 id="6ac6" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl">To app or not to app</h2>
 <p id="2931" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >Now we have the above working we have a clear inflection point we can use the above infrastructure and rebuild "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" as a "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" app, this is clearly the way want us to do and it and the way it has been built the framework is in place to allow us to do this fairly easily. However we want "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" to be agnostic we want it to work with "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>", "<a href="https://store.casa/lightning-node/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">casa</strong></a><strong class="kf mh">"</strong>, "<a href="https://www.nodl.it/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">nodl</strong></a>" and whatever else is out there and to build the apps this way would seriously curtail our ability to do this.</p>
 <p id="58e2" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Also, we suck at using "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Docker</strong></a>" at the moment so would not be confident everyone would not laugh at us if we attempted a 100% "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" implementation :]</p>
 <h2 id="5189" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl" >playing with docker</h2>
@@ -711,7 +704,11 @@
 <pre class="ks kt ku kv kw dv ge df"><span id="2b44" class="mj lm bf av mk b dz ml mm l mn" >docker ps</span></pre>
 <p id="d7fc" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >You will get an output like the one below</p>
 <p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_Adh7RBY-53j7mbedr3b38g.png" alt="" width="2505" height="699"></p>
-<p id="0697" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >as you can see all of the containers (cyphernode/bitcoin:v0.18.0) are running so let us see if we can talk to one of them.</p>
+<h3 id="mcetoc_1dotgh7eg3" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq">Log files</h3>
+<p>If you run into any issues type this and you will see any issues. </p>
+<p><code>docker-compose logs</code></p>
+<p>Note, most errors are caused when you switch between pruned and unprunded configs if this happens to you, simply delete/rename the testnet3/mainnet folder. </p>
+<p id="0697" >as you can see all of the containers (cyphernode/bitcoin:v0.18.0) are running so let us see if we can talk to one of them.</p>
 <p id="fc6c" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><strong class="kf mh">get getblockchaininfo</strong></p>
 <p id="57f3" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >We know that "<a href="https://en.bitcoin.it/wiki/Running_Bitcoin" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">bitcoin-cli</strong></a><strong class="kf mh">" </strong>is running on the cyphernode/bitcoin:v0.18.0 so let us see if we can get that to give us some blockchain info. We can do this br running the "<a href="https://docs.docker.com/engine/reference/commandline/exec/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker exec</strong></a>" command. First cop the container ID from the output of docker ps. and type the following command:</p>
 <pre class="ks kt ku kv kw dv ge df"><span id="4af9" class="mj lm bf av mk b dz ml mm l mn" >docker exec 24efdf4f691a bitcoin-cli getblockchaininfo</span></pre>
@@ -739,12 +736,12 @@
 <h2 id="4294" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl" >docker final thoughts</h2>
 <p id="995b" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >To be fair docker is pretty cool once you get over the insane learning curve as we can see us using it more at cryptoskillz towers in the future.</p>
 <p id="b8a2" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >One thing we are not able to do yet is run an exec command with the container name instead of the container ID. We know for sure this is possible but we are just to dumb to have figured it out (just yet). This is a real problem as container IDs change on every start and stop.</p>
-<h1 id="f3e8" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" ><strong class="ch">Using Docker commands with ECS</strong></h1>
+<h2 id="f3e8" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx"><strong class="ch">Using Docker commands with ECS</strong></h2>
 <p id="d56e" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >So now we have docker up and running it would be really cool if we could interface with it via "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" luckily we can do that.</p>
 <p id="9036" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >The latest branch that deals with code in this tutorial can be found "<a href="https://github.com/cryptoskillz/ECS/tree/cyphernodeIII" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">here</strong></a>"</p>
-<h1 id="6412" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Database base changes</h1>
+<h2 id="6412" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Database base changes</h2>
 <p id="3ec9" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >None</p>
-<h1 id="a3fe" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Code Changes</h1>
+<h2 id="a3fe" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Code Changes</h2>
 <p id="f3a5" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >we installed a new package called "<a href="https://www.npmjs.com/package/docker-cli-js" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker-cli-js</strong></a>" to handle our interactions with docker.</p>
 <p id="94cb" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><a href="https://github.com/cryptoskillz/ECS/blob/cyphernodeIII/server/light.js" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">light.js</strong></a></p>
 <p id="c479" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >This a new file we created (just for testing) we have not integrated into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" any more than this at this moment of time.</p>
@@ -759,12 +756,11 @@
 <p id="6a4a" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Lastly, let us use the proxy to get the Bitcoin balance</p>
 <pre class="ks kt ku kv kw dv ge df"><span id="a68b" class="mj lm bf av mk b dz ml mm l mn" >//calling the proxy server to get a balance<br>docker.command(<br>  'exec eaf667a5b8be curl   -H "content-type: text/plain;"  <a href="http://127.0.0.1:8888/getbalance'" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8888/getbalance'</a>,<br>  function(err, data) {<br>    console.log("data = ", data.raw);<br>  }<br>);</span></pre>
 <p id="604a" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >As you can see the commands above are exactly the same as we did from the command line (which is neat) so if we decide to go down this route (via proxy etc) it will be fairly trivial to implement.</p>
-<h1 id="7501" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx" >Conclusion</h1>
+<h2 id="7501" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Conclusion</h2>
 <p id="0ea3" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >There we have it, we have configured and implemented cyphernode into our overall software stack and interfaced it into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>". This gives us a really powerful boost to our back end infrastructure. But, to level with you, this was one of the hardest things we have done yet in this series and I think a lot of that can be attributed to our lack of Docker knowledge.</p>
 <p id="be61" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Next time we will look to host "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" and cyphernode on a "<a href="https://www.digitalocean.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">digitalocean</strong></a><strong class="kf mh">"</strong>server.</p>
 </div>
 </section>
-</div>
 </article>
             ]]>
         </content>
