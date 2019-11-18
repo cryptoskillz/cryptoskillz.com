@@ -1,0 +1,592 @@
+<!doctype html><html amp lang="en"><head><meta charset="utf-8"><title>Working With Fullnodes Part 8 Cyphernode V - cryptoskillz</title><meta name="description" content="ECS (e-commerce software) is an open source Bitcoin e-commerce server. It comes with a Javascript e-commerce injector a REST server and an admin control panel. "><link rel="canonical" href="https://cryptoskillz.com/blog/working-with-fullnodes-part-8-cyphernode-v.html"><meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1"><link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css"><script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script><script async custom-element="amp-social-share" src="https://cdn.ampproject.org/v0/amp-social-share-0.1.js"></script><script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script><script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script><script async custom-element="amp-video" src="https://cdn.ampproject.org/v0/amp-video-0.1.js"></script><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://cryptoskillz.com/blog/amp/working-with-fullnodes-part-8-cyphernode-v.html"},"headline":"Working With Fullnodes Part 8 Cyphernode V","datePublished":"2019-11-18T19:24","dateModified":"2019-11-18T19:24","image":{"@type":"ImageObject","url":"https://cryptoskillz.com/blog/media/posts/30/light.png","height":168,"width":300},"description":"IntroductionThis guide aims to program a website to accept Bitcoin. In the previous tutorial, we made it easier for front end devs to work with the \"cart\" and added a serverless mode. This time we are going to add \"Lightning\" support via \"cyphernode\". We have covered the&hellip;","author":{"@type":"Person","name":"cryptoskillz"},"publisher":{"@type":"Organization","name":"cryptoskillz"}}</script><style amp-custom>article,
+aside,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block; }
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+amp-img {
+  max-width: 100%; }
+
+button,
+input,
+select,
+textarea {
+  font: inherit; }
+
+html {
+  font-size: 1rem; }
+
+body {
+  background: #f1f1f1;
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.6; }
+
+a {
+  color:  #039be5;
+  text-decoration: none;
+  -webkit-transition: all 0.12s linear 0s;
+  -o-transition: all 0.12s linear 0s;
+  transition: all 0.12s linear 0s; }
+
+a:hover {
+  color: #262626;
+  text-decoration: underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink; }
+
+a:active {
+  color: #262626; }
+
+a:focus {
+  outline: 2px dotted #039be5; }
+
+figure,
+blockquote,
+p,
+ul,
+ol,
+dl,
+table,
+hr,
+fieldset {
+  margin-top: 1.6rem; }
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #262626;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 2.13333rem; }
+
+h1 {
+  font-size: 1.67583rem;
+  font-weight: normal; }
+
+h2 {
+  font-size: 1.4729rem; }
+
+h3 {
+  font-size: 1.29454rem; }
+
+h4 {
+  font-size: 1.13778rem; }
+
+h5 {
+  font-size: 1rem; }
+
+h6 {
+  font-size: 0.87891rem; }
+
+h2 + p,
+h3 + p,
+h4 + p,
+h5 + p,
+h6 + p {
+  margin-top: 0.8rem; }
+
+b,
+strong {
+  font-weight: 600; }
+
+blockquote {
+  color: #6c7175;
+  font-family: "Droid Serif", "Times", "Source Serif Pro", serif;
+  font-style: italic;
+  padding: 1.33333rem 0.53333rem 1.33333rem 3.2rem;
+  position: relative; }
+  blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 4.41226rem;
+    position: absolute;
+    left: 0;
+    top: -12px;
+    color: rgba(108, 113, 117, 0.5); }
+  blockquote > :nth-child(1) {
+    margin-top: 0; }
+
+ul,
+ol {
+  margin-left: 2rem; }
+  ul > li,
+  ol > li {
+    list-style: inherit;
+    padding: 0 0 0.26667rem 0.26667rem; }
+
+dl dt {
+  color: #262626;
+  font-weight: 600; }
+
+code,
+pre {
+  background-color: #f1f1f1;
+  font-family: monospace; }
+
+pre {
+  margin: 1.6rem 0 0;
+  padding: 1.6rem;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto; }
+  pre > code {
+    color: #262626;
+    padding: 0; }
+
+code {
+  border-radius: 3px;
+  color: #262626;
+  padding: 0.26667rem 0.53333rem; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border: 1px solid #d4d4d4;
+  width: 100%;
+  overflow-x: auto;
+  vertical-align: top;
+  text-align: left;
+  white-space: nowrap; }
+  table th {
+    font-weight: 500;
+    padding: 0.53333rem 1.06667rem; }
+  table tr {
+    border-bottom: 1px solid #d4d4d4; }
+    table tr:nth-child(2n) {
+      background: #f1f1f1; }
+  table td {
+    padding: 0.53333rem 1.06667rem; }
+
+figcaption {
+  clear: both;
+  color: rgba(108, 113, 117, 0.6);
+  font-size: 0.82397rem;
+  margin: 0.8rem 0 0;
+  text-align: center; }
+
+sub,
+sup {
+  font-size: 65%; }
+
+hr {
+  border: 0;
+  height: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+
+.btn, [type=button],
+[type=submit],
+button {
+  background: #039be5;
+  border: none;
+  border-radius: 2px;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.87891rem;
+  font-weight: 500;
+  line-height: 1.9;
+  padding: 0.53333rem 1.33333rem;
+  text-align: center;
+  text-decoration: none;
+  -webkit-transition: all .15s ease;
+  -o-transition: all .15s ease;
+  transition: all .15s ease;
+  width: auto; }
+  .btn:hover, [type=button]:hover,
+  [type=submit]:hover,
+  button:hover {
+    background: #262626;
+    color: #ffffff; }
+  .btn:focus, [type=button]:focus,
+  [type=submit]:focus,
+  button:focus {
+    outline: none; }
+  .btn-outline {
+    border: 1px solid #ddd;
+    background: #ffffff;
+    border-radius: 3px;
+    color: #262626; }
+
+[type=button],
+[type=submit],
+button {
+  text-transform: uppercase;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+
+.navbar {
+  background: #039be5;
+  -webkit-box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.2);
+  line-height: 3;
+  max-height: 4rem; }
+  .navbar > div {
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    text-align: left;
+    max-width: 700px;
+    margin: 0 auto; }
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none; }
+  .navbar-sidebar-toggle {
+    left: 0;
+    position: relative;
+    text-indent: -99999rem; }
+    .navbar-sidebar-toggle:before {
+      content: "";
+      display: block;
+      border-top: 0.375rem double #ffffff;
+      border-bottom: 0.125rem solid #ffffff;
+      height: 0.125rem;
+      position: absolute;
+      text-indent: 0;
+      top: 50%;
+      width: 1.3rem;
+      -webkit-transform: translate(0px, -50%);
+      -ms-transform: translate(0px, -50%);
+      transform: translate(0px, -50%); }
+
+
+.logo {
+            display: inline-block;
+  font-weight: 600;
+  line-height: 1;
+            margin: 0 auto;
+            height: 2rem;
+            text-indent: -9999px;
+            width: 240px;vertical-align: middle;
+        }
+        .logo.logo-text {
+            line-height: 2;
+            text-align: center;
+            text-indent: 0;
+        }
+
+amp-sidebar {
+  background: #ffffff;
+  width: 240px; }
+  amp-sidebar > ul {
+    margin: 0.8rem 0 0;
+    padding: 0; }
+    amp-sidebar > ul ul {
+      border-left: 1px solid #d4d4d4;
+      margin: 0.53333rem 0 0; }
+    amp-sidebar > ul li {
+      color: #262626;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      list-style: none;
+      line-height: 1.4;
+      padding: 0.42667rem 1.06667rem; }
+      amp-sidebar > ul li li {
+        font-weight: normal;
+        padding: 0.26667rem 0 0.26667rem 1.06667rem; }
+    amp-sidebar > ul a,
+    amp-sidebar > ul a:visited {
+      color: #262626; }
+
+.bg-white {
+  background: #ffffff; }
+
+.wrap-page {
+  max-width: 700px;
+  margin: 0 auto; }
+
+@media all and (max-width: 43.6875em) {
+  .wrap-inner {
+    padding: 0 6%; } }
+
+.page-title {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding: 1.6rem 6%; }
+  .page-title > h1 {
+    margin: 0;
+    font-size: 1.29454rem; }
+  .page-title > p {
+    font-size: 0.87891rem;
+    color: #6c7175;
+    line-height: 1.3;
+    margin: 0.26667rem 0 0; }
+  .page-title-author {
+    border-radius: 50%;
+    float: left;
+    height: 2.5rem;
+    width: 2.5rem; }
+    .page-title-author + h1 {
+      margin-left: 3.5rem; }
+      .page-title-author + h1 + p {
+        margin-left: 3.5rem; }
+
+.card {
+  background: #ffffff;
+  -webkit-box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  box-shadow: 0 2px 3px rgba(38, 38, 38, 0.1);
+  margin-bottom: 0.8rem;
+  padding-bottom: 1.06667rem; }
+
+  .card-meta {
+    border-top: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-top: 1.06667rem;
+    text-transform: uppercase; }
+    .card-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .card-text {
+    font-size: 0.9375rem;
+    overflow: hidden;
+    padding: 0 6%; }
+    .card-text h2 {
+      font-size: 1.13778rem; }
+
+.post {
+  margin-bottom: 2.13333rem; }
+  .post-featured-image {
+    margin-top: 0;
+    position: relative; }
+    .post-featured-image > figcaption {
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 3px;
+      color: #ffffff;
+      position: absolute;
+      bottom: 0.8rem;
+      padding: 0 0.26667rem;
+      right: 6%; }
+  .post-header {
+    margin-bottom: 2.13333rem; }
+  .post-meta {
+    border-bottom: 1px solid #d4d4d4;
+    color: rgba(108, 113, 117, 0.6);
+    font-size: 0.7242rem;
+    font-weight: 500;
+    margin-top: 1.06667rem;
+    padding-bottom: 1.06667rem;
+    text-transform: uppercase; }
+    .post-meta a + time:before {
+      content: "";
+      background: #d4d4d4;
+      display: inline-block;
+      height: 3px;
+      margin: 0 8px;
+      width: 3px;
+      vertical-align: middle;
+      border-radius: 50%; }
+  .post-tag {
+    margin: 0; }
+    .post-tag > li {
+      display: inline-block;
+      padding: 0; }
+      .post-tag > li a {
+        background: #f1f1f1;
+        border-radius: 2px;
+        color: #6c7175;
+        font-size: 0.77248rem;
+        display: inline-block;
+        margin: 0 0.26667rem 0.26667rem 0;
+        padding: 0.26667rem 0.53333rem; }
+        .post-tag > li a:hover {
+          background: #039be5;
+          color: #ffffff;
+          text-decoration: none; }
+  .post-share {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-top: 1.6rem;
+    width: 100%; }
+    .post-share amp-social-share {
+      -webkit-box-flex: 1;
+      -ms-flex: 1 0 auto;
+      flex: 1 0 auto;
+      background-size: 24px; }
+  .post-scroll {
+    color: #ffffff;
+    background: #039be5;
+    bottom: 10px;
+    border-radius: 50%;
+    border: none;
+    -webkit-box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    box-shadow: 0 1px 1.5px 0 rgba(38, 38, 38, 0.12), 0 1px 1px 0 rgba(38, 38, 38, 0.24);
+    font-size: 1.13778rem;
+    height: 46px;
+    opacity: 0;
+    outline: none;
+    position: fixed;
+    padding: 0;
+    right: 4%;
+    visibility: hidden;
+    width: 46px;
+    z-index: 9999; }
+    .post-scroll-marker {
+      height: 0px;
+      position: absolute;
+      top: 100px;
+      width: 0px; }
+        .post-pagination {
+    background: #f1f1f1;
+    -webkit-box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    box-shadow: inset 0 2px 3px rgba(38, 38, 38, 0.1);
+    border-top: 1px solid #d4d4d4;
+    padding: 1.06667rem 0; }
+    .post-pagination > div {
+      line-height: 1.2;
+      padding: 0.53333rem 1.06667rem;
+      text-align: center; }
+      .post-pagination > div span {
+        display: block;
+        color: #6c7175;
+        font-size: 0.7242rem;
+        font-weight: 500;
+        margin-bottom: 0.26667rem;
+        text-transform: uppercase; }
+    .post-pagination-prev a:before {
+      content: "\2190";
+      margin-right: 0.26667rem; }
+    .post-pagination-next a:after {
+      content: "\2192";
+      margin-left: 0.26667rem; }
+
+aside {
+  margin: 1.6rem 0 0; }
+
+.align-left {
+  text-align: left; }
+
+.align-right {
+  text-align: right; }
+
+.align-center {
+  text-align: center; }
+
+.align-justify {
+  text-align: justify; }
+
+.msg {
+  border-left: 2px solid transparent;
+  padding: 1.06667rem 1.06667rem; }
+  .msg--highlight {
+    background-color: #fff8e6;
+    border-color: #e2ac4f; }
+  .msg--info {
+    background: rgba(45, 97, 201, 0.03);
+    border-color: #039be5; }
+  .msg--success {
+    background: #f7fbf6;
+    border-color: #5ab44b; }
+  .msg--warning {
+    background: #fff3f3;
+    border-color: #c06367;
+    color: #a94442; }
+
+.dropcap:first-letter {
+  float: left;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  font-size: 2.16943rem;
+  line-height: 0.7;
+  margin-right: 0.53333rem;
+  padding: 0.53333rem 0.53333rem 0.53333rem 0; }
+
+.pagination {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  margin: 0.8rem 0; }
+  .pagination > a {
+    padding-left: 0;
+    padding-right: 0;
+    width: 49%; }
+  .pagination-right {
+    margin-left: auto; }
+
+.bottom {
+  background: #039be5;
+  color: #ffffff;
+  padding: 1.06667rem 4%;
+  text-align: center; }</style><style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript><script async src="https://cdn.ampproject.org/v0.js"></script><script custom-element="amp-animation" src="https://cdn.ampproject.org/v0/amp-animation-0.1.js" async></script><script custom-element="amp-position-observer" src="https://cdn.ampproject.org/v0/amp-position-observer-0.1.js" async></script></head><body class="bg-white"><nav class="navbar wrap-inner" id="top"><div><a on="tap:navbar-sidebar.toggle" class="navbar-sidebar-toggle" title="Menu">Menu</a> <a class="logo logo-text" href="https://cryptoskillz.com/blog/amp/">cryptoskillz</a></div></nav><main class="wrap-page"><article class="post"><figure class="post-featured-image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/light.png" alt="" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/light-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/light-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/light-md.png 768w" sizes="(max-width: 768px) 100vw, 768px" height="168" layout="responsive" width="300"></amp-img></figure><div class="wrap-inner"><header class="post-header"><h1>Working With Fullnodes Part 8 Cyphernode V</h1><p class="post-meta">By <a href="https://cryptoskillz.com/blog/amp/authors/cryptoskillz/" rel="nofollow" title="cryptoskillz">cryptoskillz</a> <time datetime="2019-11-18T19:24">November 18, 2019</time></p></header><h2>Introduction</h2><p>This guide aims to program a website to accept Bitcoin. In the previous tutorial, we made it easier for front end devs to work with the "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/demos/carts/default" target="_blank" rel="noopener noreferrer">cart</a>"</strong> and added a serverless mode. This time we are going to add "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> support via "<strong><a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cyphernode</a>"</strong>.  </p><h2>Setting up Cyphernode</h2><p><span data-preserver-spaces="true">We have covered the installation of "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">cyphernode</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> in the past and refer you back to a previous "</span><a target="_blank" href="https://cryptoskillz.com/blog/amp/working-with-full-nodes-part-4-cyphernode-i.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">article</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true">. This shows you to set up "<strong><a href="https://cyphernode.io/">cyphernode</a>"</strong> with "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> in test mode. You will need about 40gig of HD space to download the full "</span><a target="_blank" href="https://en.bitcoin.it/wiki/Testnet" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">testnet</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> and 350gig for BTC mainnet.</span></p><h2>Syncing up </h2><p>Once you have installed and started "<strong><a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cypernode</a>"</strong> by typing in terminal (as usual) </p><p><code>./start.sh</code></p><p>Then we have to sync the blockchain.  You can see it the progress of it by going to the "<strong><a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cypherode</a>"</strong> "<strong><a href="https://127.0.0.1/welcome" target="_blank" rel="noopener noreferrer">dashboard</a>"</strong> and logging in with your username and password you set during setup.</p><p> </p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp-2xl.png 1600w" alt="" width="2362" height="1244" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">You also have to wait for "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> to be in sync, now as we are very dumb this stumped us for a day or so and eventually figured out by the process of elimination which is the way devs find out most things. </span></p><p><span data-preserver-spaces="true">We also wrote a simple "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">script</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> that you can interact with "<strong><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">docker</a>"</strong> and shows you several useful things. You use it from the terminal and pass it and Test ID and the "<strong><a href="https://www.docker.com/resources/what-container" target="_blank" rel="noopener noreferrer">containers</a>"</strong> that you want to interact with. Start by running the "<strong><a href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" target="_blank" rel="noopener noreferrer">light script</a>"</strong> in the server/test directory of "<strong><a href="https://github.com/cryptoskillz/ECS" target="_blank" rel="noopener noreferrer">ECS</a>"</strong></span></p><p><code>cd server                                                   </code><code>cd tests                                                     </code><br><code>node light.js                                                </code></p><p>This will return you the "<strong><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">docker</a>"</strong> "<strong><a href="https://www.docker.com/resources/what-container" target="_blank" rel="noopener noreferrer">containers</a>"</strong> that are running as shown in the screenshot below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp2.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp2-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp2-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp2-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp2-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp2-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp2-2xl.png 1600w" alt="" width="1406" height="1747" layout="responsive"></amp-img></figure><p>Look for the container id for <span class="s1"><strong>cyphernode_lightning_1</strong> </span>and use this with the test id of 0</p><p class="p1"><code><span class="s1">node light.js<span class="Apple-converted-space">  </span>0 ded324549726                                   </span></code></p><p>This will show you the current state of the "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> sync as shown below.</p><figure class="post__image"><br><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp3.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp3-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp3-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp3-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp3-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp3-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp3-2xl.png 1600w" alt="" width="1326" height="935" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">What we are looking for here is the </span><strong><span data-preserver-spaces="true">block height </span></strong><span data-preserver-spaces="true">to be the same as Bitcoin's block height this means it is fully synced. We will be honest with you we did not know this was the case and as it took several days longer for this to fully sync we thought we had broken something and spend a great deal of time reinstalling, "<strong><a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cyphernode</a>"</strong>, etc. This, however, is good, it is how we learn. It is knowledge earned. </span></p><p><span data-preserver-spaces="true">To stop you from following into this trap we added a test, number 11 in fact to the "<strong><a href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" target="_blank" rel="noopener noreferrer">light script</a>"</strong> that shows you what percentage "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> has synced. You run it by calling the command below, the first container id is the "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> "<strong><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">container</a>"</strong> and the second is the proxy "<strong><a href="https://www.docker.com/" target="_blank" rel="noopener noreferrer">container</a>"</strong>.</span></p><p class="p1"><code><span class="s1">node light.js 11 ded324549726 ff3c81a590f7                      </span></code></p><p>When you run the above you will get an output something like this. Note, of course, you are looking for it to at 100% (fully synced) before you move on.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp4.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp4-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp4-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp4-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp4-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp4-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp4-2xl.png 1600w" alt="" width="1283" height="726" layout="responsive"></amp-img></figure><h2>Funding and channels </h2><p><span data-preserver-spaces="true">Now that we have a fully synced Bitcoin and "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> instance of "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">cyphernode</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> we have to fund and open a channel. Full disclosure we found this "</span><a target="_blank" href="https://medium.com/@Jayvdb/setting-up-and-transacting-on-the-bitcoin-lightning-network-a9ada42ec305" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">article</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> a very good resource for this part and we suggest you give it a read.</span></p><p><span data-preserver-spaces="true">For testing purposes, we use 2 testnet wallets on our android phone. We just find this to be the easiest way to do it as you can use your camera to read QR codes etc. The 2 testnet BTC wallets we use are:</span></p><p><strong>"<a href="https://play.google.com/store/apps/details?id=de.schildbach.wallet_test&amp;hl=en" target="_blank" rel="noopener noreferrer">Testnet</a>"</strong></p><p><strong>"<a href="https://play.google.com/store/apps/details?id=com.mycelium.testnetwallet&amp;hl=en" target="_blank" rel="noopener noreferrer">Mycelium</a>"</strong></p><p><span data-preserver-spaces="true">As far as funding these wallets go we use this "</span><a target="_blank" href="https://coinfaucet.eu/en/btc-testnet/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">faucet</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> but there are many more out there so use whatever one you want/prefer.</span></p><p><span data-preserver-spaces="true">Note, at this stage we are going to skip using the "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">cyphernode</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> "</span><a target="_blank" href="https://en.wikipedia.org/wiki/Application_programming_interface" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">API</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> (which would be the correct way to do it) in favour of accessing the "</span><a target="_blank" href="https://www.docker.com/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">docker containers</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> via the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">light.js</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> script we coded, mainly for consistency and the fact we are going to be discussing the proxy and API in detail next time.</span></p><h2>Generate a new address</h2><p><span data-preserver-spaces="true">The first thing we have to do is call the "</span><a target="_blank" href="https://lightning.readthedocs.io/lightning-newaddr.7.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">newaddr</span></strong></a><strong><span data-preserver-spaces="true">" method </span></strong><span data-preserver-spaces="true">which generates a new address that we can use to fund our Lightning node. Run the command below (with 1 as the test ID) and your Lightning container ID as shown below.</span></p><p class="p1"><code><span class="s1">node light.js 1 ded324549726                                   </span></code></p><p>You will get something like the following output:</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp5.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp5-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp5-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp5-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp5-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp5-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp5-2xl.png 1600w" alt="" width="1051" height="170" layout="responsive"></amp-img></figure><h3>Send funds to the address</h3><p>Copy the above address and send some BTC to this address via one of the android wallets as shown in the screenshot below</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/Screenshot_20191115-141126.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-141126-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-141126-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-141126-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-141126-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-141126-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-141126-2xl.png 1600w" alt="" width="1080" height="2160" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">Now let's see it on the "</span><a target="_blank" href="https://www.blockchain.com/btctest/address/tb1qtvc3uu9ne65xxu8v6dakdymvpxk0pu30xlru7d" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">blockchain</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> and as soon as we have one "<strong><a href="https://en.bitcoin.it/wiki/Confirmation" target="_blank" rel="noopener noreferrer">confirmation</a>"</strong> we can go ahead and fund a channel</span></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp6.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp6-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp6-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp6-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp6-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp6-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp6-2xl.png 1600w" alt="" width="2514" height="1361" layout="responsive"></amp-img></figure><h2>Check the funds</h2><p><span data-preserver-spaces="true">We check if the funds are ready to use by calling the "</span><a target="_blank" href="https://lightning.readthedocs.io/lightning-listfunds.7.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">listfunds</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> method, again we can do this by calling the "<strong><a href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" target="_blank" rel="noopener noreferrer">light script</a>"</strong> this time with the test id of 2</span></p><p class="p1"><code><span class="s1">node light.js 2 ded324549726                                   </span></code></p><p>Thos will show the address we sent to in the output array as shown in the screen show below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp7.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp7-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp7-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp7-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp7-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp7-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp7-2xl.png 1600w" alt="" width="1213" height="426" layout="responsive"></amp-img></figure><h2>Set up our android Lightning wallet</h2><p><span data-preserver-spaces="true">Now, let us create an invoice and send some cash to us. Again we use an android as our Lightning testnet and you can get it from the link below </span></p><p><strong><span data-preserver-spaces="true">"</span></strong><a target="_blank" href="https://play.google.com/store/apps/details?id=com.lightning.wallet&amp;hl=en" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">testnet lightning wallet</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong></p><p><span data-preserver-spaces="true">Open this wallet and send some funds to it by clicking the orange Bitcoin button (bottom right). As shown in the screen shown below. </span></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/Screenshot_20191115-145315.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-145315-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-145315-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-145315-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-145315-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-145315-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-145315-2xl.png 1600w" alt="" width="1080" height="2160" layout="responsive"></amp-img></figure><p>Hit receive funds and finally Bitcoin Transaction from the modal that appears</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/Screenshot_20191115-144443.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-144443-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-144443-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-144443-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-144443-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-144443-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/Screenshot_20191115-144443-2xl.png 1600w" alt="" width="1080" height="2160" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">Once it has 6 confirmations we can use this to fund a channel. </span></p><h4><span data-preserver-spaces="true">Open and fund a channel on our node.</span></h4><p><span data-preserver-spaces="true">Now that the above was just to set up our wallet and add a channel so we can send data to it, we have to do the same on our node, so let us open a channel and fund it. We have chosen "</span><a target="_blank" href="https://demo1.lndexplorer.com/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">lndexplorer.com</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> as it is a pretty good size site with a lot of active channels. We want to use their node details that we find at the bottom of their homepage as shown in the screenshot below</span></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/spartk.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/spartk-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spartk-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spartk-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spartk-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spartk-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spartk-2xl.png 1600w" alt="" width="2827" height="1305" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">Next, we want to use the "</span><a target="_blank" href="https://lightning.readthedocs.io/lightning-connect.7.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">connect</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> method and we do this by calling test id 3 in our "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">light.js</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> script and passing in the node id, IP and port.</span></p><p><code>node light.js 3 ded324549726                                     036b96e4713c5f84dcb8030592e1bd42a2d9a43d91fa2e535b9bfd05f2c5def9b9 38.87.54.163 9745                                            </code></p><p>The screen show below shows the output.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp8.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp8-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp8-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp8-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp8-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp8-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp8-2xl.png 1600w" alt="" width="2133" height="142" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">After that, we want to fund this channel we do this by using the "</span><a target="_blank" href="https://lightning.readthedocs.io/lightning-fundchannel.7.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">fundchannel</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> method which can be accessed by calling the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">light js</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> script (again) this time with test id of 4 and passing in the node id and the number of satoshis we want to fund the channel with.</span></p><p class="p1"><code><span class="s1">node light.js 4 ded324549726                                    036b96e4713c5f84dcb8030592e1bd42a2d9a43d91fa2e535b9bfd05f2c5def9b9 200000                                                        </span></code></p><p>The output of this is shown in the screenshot below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp9.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp9-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp9-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp9-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp9-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp9-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp9-2xl.png 1600w" alt="" width="2878" height="310" layout="responsive"></amp-img></figure><p>Finally, we can use the "<strong><a href="https://lightning.readthedocs.io/lightning-listpeers.7.html" target="_blank" rel="noopener noreferrer">listpeers</a>"</strong> command by passing in test id 5 (into the "<strong><a href="https://github.com/cryptoskillz/ECS/blob/cyphernode-lightning/server/tests/light.js" target="_blank" rel="noopener noreferrer">light.js</a>"</strong> script) as shown below which will show us the current state of the channel.</p><p class="p1"><code><span class="s1">node light.js 5 ded324549726                                    036b96e4713c5f84dcb8030592e1bd42a2d9a43d91fa2e535b9bfd05f2c5def9b9                                                               </span></code></p><p>The output is shown in the screenshot below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp10.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp10-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp10-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp10-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp10-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp10-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp10-2xl.png 1600w" alt="" width="2188" height="1330" layout="responsive"></amp-img></figure><h2><span data-preserver-spaces="true">Using Spark wallet GUI</span></h2><p><span data-preserver-spaces="true">We did all that by the command line which we feel was and is important as it is the best way to figure out what commands are being called and more importantly why but "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">cyphernode</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> comes with "</span><a target="_blank" href="https://github.com/shesek/spark-wallet" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">sparkwallet</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> which a great "</span><a target="_blank" href="https://lightning.network/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">Lightning</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> "</span><a target="_blank" href="https://en.wikipedia.org/wiki/Graphical_user_interface" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">GUI</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> that we can use to do most of these tasks much easier.</span></p><p><span data-preserver-spaces="true">Note we are not going to show how to do everything we did in the command line again in "<strong><a href="https://github.com/shesek/spark-wallet" target="_blank" rel="noopener noreferrer">sparkwallet</a>"</strong> as it is pretty simple to understand "<strong>pay</strong>" pays someone, "<strong>request</strong>" creates an invoice to send funds to, etc. as an aside "<strong><a href="https://github.com/shesek/spark-wallet" target="_blank" rel="noopener noreferrer">spark</a>"</strong> has an "</span><a target="_blank" href="https://play.google.com/store/apps/details?id=com.spark.wallet&amp;hl=en" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">android</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> (possibly IOS) app to control our lightning node so we are for sure going to look at this in a future article.</span></p><p><span data-preserver-spaces="true">We will show you the basics, like how to access "</span><a target="_blank" href="https://github.com/shesek/spark-wallet" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">spark</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true">. To access it go the following "</span><a target="_blank" href="https://127.0.0.1/sparkwallet/#/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">URL</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> type in your "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">cyphernode</span></strong></a><span data-preserver-spaces="true">" username and password (if requested) and you will see a screen show like the one below</span></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/spark0.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/spark0-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark0-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark0-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark0-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark0-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark0-2xl.png 1600w" alt="" width="2791" height="1347" layout="responsive"></amp-img></figure><p>As you can see there is pay, a request button and the channel we just set up if you click the node (in the green bottom left) you will see our address as well as a QR code and a deposit button.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/spark1.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/spark1-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark1-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark1-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark1-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark1-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark1-2xl.png 1600w" alt="" width="2846" height="1358" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">If we go ahead and click on the "</span><a target="_blank" href="https://127.0.0.1/sparkwallet/#/channels" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">channels</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> button you will see that the channel is opening when it is moved to open then we will be able to pay an invoice</span></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/spark3.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/spark3-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark3-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark3-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark3-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark3-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark3-2xl.png 1600w" alt="" width="2757" height="1347" layout="responsive"></amp-img></figure><p>Just so you know it can take up to an hour to open this channel so if you are playing along now may be a great time to go and get a refreshing beverage of your choice, we recommend Iced Peach Tea but get whatever you want. Once the channel is open you will see a screenshot like the one below and it is time to send some funds to it. </p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/spark4.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/spark4-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark4-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark4-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark4-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark4-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/spark4-2xl.png 1600w" alt="" width="2208" height="1331" layout="responsive"></amp-img></figure><h3>Sending funds</h3><p>Let's see if we can make a payment by going to "<strong><a href="https://testnet.yalls.org/reactions/" target="_blank" rel="noopener noreferrer">yalls</a>"</strong> and buying a reaction.  Go the "<strong><a href="https://testnet.yalls.org/reactions/" target="_blank" rel="noopener noreferrer">url</a>"</strong> and click a reaction you would like to purchase. </p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp14.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp14-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp14-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp14-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp14-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp14-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp14-2xl.png 1600w" alt="" width="1694" height="1017" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">We like skulls, we are going to buy that the skull by clicking on the "</span><strong><span data-preserver-spaces="true">$0.01 tusd" </span></strong><span data-preserver-spaces="true">button underneath it, once we do this we will be presented with a payment invoice address.</span></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp15.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp15-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp15-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp15-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp15-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp15-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp15-2xl.png 1600w" alt="" width="1490" height="998" layout="responsive"></amp-img></figure><p>copy the address and go to the "<strong><a href="https://127.0.0.1/sparkwallet/#/" target="_blank" rel="noopener noreferrer">spark wallet</a>"</strong> (we could also do this from the command line if we wanted to) as show below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp13.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp13-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp13-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp13-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp13-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp13-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp13-2xl.png 1600w" alt="" width="2797" height="526" layout="responsive"></amp-img></figure><p>Click the "<strong>pay</strong>" button and paste in the address and then press the "<strong>decode request</strong>" button.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp16.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp16-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp16-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp16-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp16-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp16-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp16-2xl.png 1600w" alt="" width="2797" height="1195" layout="responsive"></amp-img></figure><p>When you do this you will see a payment confirmed screen like the one shown below.</p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp17.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp17-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp17-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp17-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp17-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp17-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp17-2xl.png 1600w" alt="" width="2462" height="1341" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">Finally, if we go back to "</span><a target="_blank" href="https://testnet.yalls.org/reactions/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">yalls</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> we will see that the reaction has now been purchased as shown in the screenshot below.</span></p><figure class="post__image"><amp-img src="https://cryptoskillz.com/blog/media/posts/30/cyp18.png" sizes="(max-width: 48em) 100vw, 768px" srcset="https://cryptoskillz.com/blog/media/posts/30/responsive/cyp18-xs.png 300w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp18-sm.png 480w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp18-md.png 768w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp18-lg.png 1024w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp18-xl.png 1360w ,https://cryptoskillz.com/blog/media/posts/30/responsive/cyp18-2xl.png 1600w" alt="" width="1548" height="1094" layout="responsive"></amp-img></figure><p><span data-preserver-spaces="true">Just a quick takeaway here the speed this transaction happens is outstanding, I did not have time to click back on the page to see the purchase in realtime (it is that fast). That coupled with the fact it was for a very small amount of money is just amazing and yes I opened a channel directly to "</span><a target="_blank" href="https://testnet.yalls.org/reactions/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">yalls</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> but that is beside the point, this technology is a game-changer.</span></p><h3><span data-preserver-spaces="true">Inbound payments and capacity</span></h3><p><span data-preserver-spaces="true">It is worth noting here that we only used this to make payments and receive them, now there is a good reason for this and that is the fact we are running this on a local machine and to get it to do this required opening of port 9735, exposing cyphernode to the network, etc. All of the above is network stuff that is out of scope for this article and we will be dealing with in the next article when we tie it into "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">ECS</span></strong></a><strong><span data-preserver-spaces="true">".  </span></strong><span data-preserver-spaces="true">Here is a nice "</span><a target="_blank" href="https://medium.com/@pierre_rochard/bitcoin-and-lightning-nodes-port-forwarding-faq-f92ca5c50d5d" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">article</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> about port forwarding in case you want to read more</span></p><p><span data-preserver-spaces="true">Inbound capacity, however, is going to be an issue, you see as a peer to peer payment mechanism it works great. You open a channel to whomever you want to send funds to and close the channel when you are done. However when you are using it to power an e-commerce website it is online all the time and you want anybody on the network to be able to pay for your goods and services with minimum friction. There are several ways to solve this but they all appear to be incompatible with c-lightning. That said we are no experts (in fact we only found out about this issue whilst writing this article) and like every time, we have run into an issue like this we have studied our way out of it and we will do some once more. If you want to read more about inbound capacity click "</span><a target="_blank" href="https://medium.com/@crypto_coffee/how-to-get-inbound-lightning-network-channels-using-thor-from-bitrefill-ede45e7f51f0" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">here</span></strong></a><strong><span data-preserver-spaces="true">",</span></strong><span data-preserver-spaces="true"> "</span><a target="_blank" href="https://medium.com/lightningto-me/practical-solutions-to-inbound-capacity-problem-in-lightning-network-60224aa13393" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">here</span></strong></a><strong><span data-preserver-spaces="true">" </span></strong><span data-preserver-spaces="true">and</span><strong><span data-preserver-spaces="true"> "</span></strong><a target="_blank" href="https://blog.muun.com/the-inbound-capacity-problem-in-the-lightning-network/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">here</span></strong></a><strong><span data-preserver-spaces="true">" </span></strong></p><h2><span data-preserver-spaces="true"> </span><span data-preserver-spaces="true">Conclusion</span></h2><p><span data-preserver-spaces="true">To say we learned a lot this article is an understatmement if this was a video game (and it may very well be) we leveled up several times. We have a good understanding of the fundamentals of "</span><a target="_blank" href="https://lightning.network/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">Lightning</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> (finally) as well as a deeper understanding of "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">cyphernode</span></strong></a><strong><span data-preserver-spaces="true">"</span></strong><span data-preserver-spaces="true"> (finally figured out the proxy for instance). Next time we will do the work and integrate it into the "</span><a target="_blank" href="https://github.com/cryptoskillz/ECS" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span data-preserver-spaces="true">ECS</span></strong></a><strong><span data-preserver-spaces="true">" </span></strong>codebase</p><p> </p><p> </p><p> </p><p> </p><p> </p><aside><div class="post-share"><amp-social-share type="system" width="40" height="40" data-param-text="Working With Fullnodes Part 8 Cyphernode V"></amp-social-share><amp-social-share type="twitter" width="40" height="40" data-param-text="Working With Fullnodes Part 8 Cyphernode V" data-param-url="https://cryptoskillz.com/blog/amp/working-with-fullnodes-part-8-cyphernode-v.html"></amp-social-share></div></aside></div></article><nav class="post-pagination wrap-inner"><div class="post-pagination-prev"><span>Previous Post</span> <a href="https://cryptoskillz.com/blog/amp/cart-refactor-and-serverless-mode.html">Cart refactor and serverless mode</a></div></nav></main><amp-animation id="showAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "1",
+                            "visibility": "visible",
+                            "transform": "scale(1)"
+                        }]
+                    }]
+                }</script></amp-animation><amp-animation id="hideAnim" layout="nodisplay"><script type="application/json">{
+                    "duration": "200ms",
+                    "fill": "both",
+                    "iterations": "1",
+                    "direction": "alternate",
+                    "animations": [{
+                        "selector": ".post-scroll",
+                        "keyframes": [{
+                            "opacity": "0",
+                            "visibility": "hidden",
+                            "transform": "scale(0.1)"
+                        }]
+                    }]
+                }</script></amp-animation><div class="post-scroll-marker"><amp-position-observer on="enter:hideAnim.start; exit:showAnim.start" layout="nodisplay"></amp-position-observer></div><button class="post-scroll" on="tap:top.scrollTo(duration=200)">&#8593;</button><footer class="bottom">Powered by Publii</footer><amp-sidebar id="navbar-sidebar" layout="nodisplay"><ul><li><a href="https://cryptoskillz.com/index.html">ECS</a></li><li><a href="https://cryptoskillz.com/blox.html">BLOX</a></li><li><a href="https://cryptoskillz.com/about.html">ABOUT</a></li></ul></amp-sidebar><amp-analytics type="googleanalytics" id="analytics1"><script type="application/json">{
+            "vars": {
+                "account": "ca-pub-4710117865976591"
+            },
+            "triggers": {
+                "trackPageview": {
+                    "on": "visible",
+                    "request": "pageview"
+                }
+            }
+        }</script></amp-analytics></body></html>

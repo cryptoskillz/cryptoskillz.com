@@ -18,12 +18,10 @@ if(window.location.href.indexOf("cryptoskillz") > -1)
 
 //debug
 //alert(serverurl)
-
-
 var outputcode = '<!-- Payment button -->'
 outputcode = outputcode+'<a href="#0" id="sr-add-to-cart" class="sr-add-to-cart" data-price="0.01" data-name="Entity T" data-preview="">Add To Cart</a>';
 outputcode = outputcode+'<!-- add this to the footer -->';
-outputcode = outputcode+'<script type="text/javascript">SR.init(["'+serverurl+'",false,15,"https://s3.eu-west-1.amazonaws.com/cryptoskillz.com/srcrypto/prod/cdn/","[ECSUSERID]","",0,0,"GB"]);';
+outputcode = outputcode+'<script type="text/javascript">SR.init(["'+serverurl+'",15,"https://s3.eu-west-1.amazonaws.com/cryptoskillz.com/srcrypto/prod/cdn/","[ECSUSERID]","3",1,"GB",0,""]);';
 outputcode = outputcode+'</script>';
 
 (function($) {
