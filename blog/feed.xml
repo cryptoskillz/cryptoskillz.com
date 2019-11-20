@@ -3,21 +3,21 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2019-11-18T19:24:45+07:00</updated>
+    <updated>2019-11-20T23:19:50+07:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
     <id>https://cryptoskillz.com/blog</id>
 
     <entry>
-        <title>Working With Fullnodes Part 8 Cyphernode V</title>
+        <title>Cyphernode V figuring out Lightning</title>
         <author>
             <name>cryptoskillz</name>
         </author>
         <link href="https://cryptoskillz.com/blog/working-with-fullnodes-part-8-cyphernode-v.html"/>
         <id>https://cryptoskillz.com/blog/working-with-fullnodes-part-8-cyphernode-v.html</id>
 
-        <updated>2019-11-18T19:24:12+07:00</updated>
+        <updated>2019-11-20T23:13:08+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/30/light.png" alt="" />
@@ -30,7 +30,7 @@
                 <h2 id="mcetoc_1dmo28s090">Introduction</h2>
 <p>This guide aims to program a website to accept Bitcoin. In the previous tutorial, we made it easier for front end devs to work with the "<strong><a href="https://github.com/cryptoskillz/ECS/tree/master/demos/carts/default" target="_blank" rel="noopener noreferrer">cart</a>"</strong> and added a serverless mode. This time we are going to add "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> support via "<strong><a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cyphernode</a>"</strong>.  </p>
 <h2 id="mcetoc_1dpi8thrv0">Setting up Cyphernode</h2>
-<p><span >We have covered the installation of "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >cyphernode</span></strong></a><strong><span >"</span></strong><span > in the past and refer you back to a previous "</span><a target="_blank" href="https://cryptoskillz.com/blog/working-with-full-nodes-part-4-cyphernode-i.html" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >article</span></strong></a><strong><span >"</span></strong><span >. This shows you to set up "<strong><a href="https://cyphernode.io/">cyphernode</a>"</strong> with "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> in test mode. You will need about 40gig of HD space to download the full "</span><a target="_blank" href="https://en.bitcoin.it/wiki/Testnet" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >testnet</span></strong></a><strong><span >"</span></strong><span > and 350gig for BTC mainnet.</span></p>
+<p><span >We have covered the installation of "</span><a target="_blank" href="https://cyphernode.io/" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >cyphernode</span></strong></a><strong><span >"</span></strong><span > in the past and refer you back to a previous "</span><strong><span ><a href="https://cryptoskillz.com/blog/working-with-fullnodes-part-6-cyphernode-iii.html">article</a></span></strong><strong><span >"</span></strong><span >. This shows you to set up "<strong><a href="https://cyphernode.io/">cyphernode</a>"</strong> with "<strong><a href="https://lightning.network/" target="_blank" rel="noopener noreferrer">Lightning</a>"</strong> in test mode. You will need about 40gig of HD space to download the full "</span><a target="_blank" href="https://en.bitcoin.it/wiki/Testnet" class="_e75a791d-denali-editor-page-rtfLink" rel="noopener noreferrer"><strong><span >testnet</span></strong></a><strong><span >"</span></strong><span > and 350gig for BTC mainnet.</span></p>
 <h2 id="mcetoc_1dpi97p870">Syncing up </h2>
 <p>Once you have installed and started "<strong><a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cypernode</a>"</strong> by typing in terminal (as usual) </p>
 <p><code>./start.sh</code></p>
@@ -617,14 +617,14 @@
         </content>
     </entry>
     <entry>
-        <title>Working With Fullnodes Part 7 Cyphernode IV</title>
+        <title>Cyphernode IV Hosting on digitalocean</title>
         <author>
             <name>cryptoskillz</name>
         </author>
         <link href="https://cryptoskillz.com/blog/working-with-fullnodes-part-7-cyphernode-iv.html"/>
         <id>https://cryptoskillz.com/blog/working-with-fullnodes-part-7-cyphernode-iv.html</id>
 
-        <updated>2019-10-10T23:28:36+07:00</updated>
+        <updated>2019-11-20T23:13:54+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/23/download.png" alt="" />
@@ -693,7 +693,7 @@
 <figure class="graf graf--figure"><img class="graf-image" src="https://cdn-images-1.medium.com/max/1600/1*x2nPIfMzjYrPmmmAxnQHGw.png"   ></figure>
 <p class="graf graf--p graf--empty"> </p>
 <h4 id="mcetoc_1dlan93jkc" class="graf graf--h4">step 10: Install cyphernode</h4>
-<p class="graf graf--p">We are not going to document the cyphernode install process again you can review it “<a href="https://medium.com/bitcoin-e-commerce-development/part-19-cyphernode-ii-a2b01e8d702c"  class="markup--anchor markup--p-anchor" target="_blank" rel="noopener noreferrer"><strong class="markup--strong markup--p-strong">here</strong></a>” if you want to run through the whole process again. We install the BTC full node without Lightning as we want it to run on a 50 gig digitalocean box. We will add Lightning in a later article.</p>
+<p class="graf graf--p">We are not going to document the cyphernode install process again you can review it “<a href="https://medium.com/bitcoin-e-commerce-development/part-19-cyphernode-ii-a2b01e8d702c"  class="markup--anchor markup--p-anchor" target="_blank" rel="noopener noreferrer"></a><strong><a href="https://cryptoskillz.com/blog/working-with-fullnodes-part-5-cyphernode-ii.html">here</a></strong>” if you want to run through the whole process again. We install the BTC full node without Lightning as we want it to run on a 50 gig digitalocean box. We will add Lightning in a later article.</p>
 <h3 id="mcetoc_1dlan93jkd" class="graf graf--h3">ECS droplet</h3>
 <p class="graf graf--p">Now we have to create a droplet for “<a href="https://github.com/cryptoskillz/ECS"  class="markup--anchor markup--p-anchor" rel="noopener noreferrer" target="_blank"><strong class="markup--strong markup--p-strong">ECS</strong></a><strong class="markup--strong markup--p-strong">”</strong>. Repeat steps 1–5 from the previous installation (cyphernode droplet)</p>
 <h4 id="mcetoc_1dlan93jke" class="graf graf--h4">step 6: install node js</h4>
@@ -758,14 +758,14 @@
         </content>
     </entry>
     <entry>
-        <title>Working With Fullnodes Part 6 Cyphernode III</title>
+        <title>Cyphernode III setting up Lightning</title>
         <author>
             <name>cryptoskillz</name>
         </author>
         <link href="https://cryptoskillz.com/blog/working-with-fullnodes-part-6-cyphernode-iii.html"/>
         <id>https://cryptoskillz.com/blog/working-with-fullnodes-part-6-cyphernode-iii.html</id>
 
-        <updated>2019-11-05T17:10:14+07:00</updated>
+        <updated>2019-11-20T23:15:28+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/22/0_tnWANgeBqBWRZOxF.png" alt="" />
@@ -782,9 +782,9 @@
 <p id="8793" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >This article aims to play with "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" on the "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" backend as well as explorer "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" and figure out how it all works with the proxy etc. Now, let us be upfront and clear we know nothing about "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" we will be learning and as we go and making a lot of mistakes and most probably doing everything wrong but that is ok, that is how we learn.</p>
 <p id="f05c" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Also, this is not essential reading as it is purely a research article offering tertiary information on our journey. If you like minuta then I am pretty sure you will enjoy this, for everyone else please just move on to the next article.</p>
 <h2 id="mcetoc_1dotgeg181">Introduction</h2>
-<p id="8ce2" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >This guide aims to program a website to accept Bitcoin. In the previous tutorial, we integrated "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a><strong class="kf mh">" </strong>into our "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" (without "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>"). This time we are going to integrate "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" and ties it into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>".</p>
+<p id="8ce2" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >This guide aims to program a website to accept Bitcoin. In the previous tutorial, we integrated "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a><strong class="kf mh">" </strong>into our "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" (without "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>"). This time we are going to integrate "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" and tie it into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>".</p>
 <h2 id="mcetoc_1dotgesth2">Installing cyphernode</h2>
-<p class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >We have done this a few times already so there is no reason to document the steps here again please refer to "<a class="cb bx md me mf mg" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-18-cyphernode-ab682ff85659" rel="noopener noreferrer"><strong class="kf mh">part 18</strong></a>" for installation instructions. Note we are still on testnet but you may install testnet or mainnet.</p>
+<p class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >We have done this a few times already so there is no reason to document the steps here again please refer to the previous "<a class="cb bx md me mf mg" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-18-cyphernode-ab682ff85659" rel="noopener noreferrer"></a><strong class="kf mh"><a href="https://cryptoskillz.com/blog/working-with-fullnodes-part-5-cyphernode-ii.html">article</a></strong>" for installation instructions. Note we are still on testnet but you may install testnet or mainnet.</p>
 <p id="b1f9" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><em class="mi">Note, Presently you have to run a full node that is not pruned for "</em><a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Lightning</em></strong></a><em class="mi">" support so please make sure that you have 350gig of hard drive space available. Since "</em><a href="https://bitcoin.org/en/release/v0.16.0" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Bitcoin Core 0.16.0</em></strong></a><em class="mi">" with the introduction of "</em><a href="https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">BIP 159</em></strong></a><em class="mi">" you have been able to run "</em><a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Lightning</em></strong></a><em class="mi">" in a pruned node and "</em><a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">cyphernode</em></strong></a><em class="mi">" runs "</em><a href="https://bitcoin.org/en/release/v0.18.0" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Bitcoin Core 0.18.0</em></strong></a><em class="mi">" so we are sure that support for this will come soon.</em></p>
 <h2 id="433d" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Starting cyphernode</h2>
 <p id="e409" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >The first thing to do, as always is to start "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" and you do that by type the following command in the "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" installation directory.</p>
@@ -891,14 +891,14 @@
         </content>
     </entry>
     <entry>
-        <title>Working With Fullnodes Part 5 Cyphernode II</title>
+        <title>Cyphernode II rebuilding it for ECS</title>
         <author>
             <name>cryptoskillz</name>
         </author>
         <link href="https://cryptoskillz.com/blog/working-with-fullnodes-part-5-cyphernode-ii.html"/>
         <id>https://cryptoskillz.com/blog/working-with-fullnodes-part-5-cyphernode-ii.html</id>
 
-        <updated>2019-10-10T23:31:04+07:00</updated>
+        <updated>2019-11-20T23:19:44+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/21/1_h6R4v-LSbRG83IGCUZDN0Q.jpeg" alt="" />
@@ -908,16 +908,16 @@
         <content type="html">
             <![CDATA[
                     <img src="https://cryptoskillz.com/blog/media/posts/21/1_h6R4v-LSbRG83IGCUZDN0Q.jpeg" alt="" />
-                <h1 id="e317" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" >Introduction</h1>
+                <h2 id="e317" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr">Introduction</h2>
 <p id="f921" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >This guide aims to program a website to accept Bitcoin. In the previous tutorial, we set up and configured "<a href="https://cyphernode.io/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">cyphernode</strong></a><strong class="lu mg">" </strong>which is an excellent dockerised bitcoin and lightning full node plus other useful. Now we are going to set it up to use specifically for our requirements. Namely as a commerce backend for websites.</p>
-<h1 id="ac4d" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr" >Configuring cyphernode</h1>
+<h2 id="ac4d" class="lf lg bf av au el lh li lj lk ll lm ln lo lp lq lr">Configuring cyphernode</h2>
 <p id="b852" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >We are going to make a number of changes to the tutorial in the previous "<a class="cb bx lb lc ld le" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-18-cyphernode-ab682ff85659" rel="noopener noreferrer"><strong class="lu mg">article</strong></a>" which was simply showing how to get "<a href="https://cyphernode.io/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">cyphernode</strong></a>" working in its default set up.</p>
-<h2 id="51b2" class="mh lg bf av au el mi mj mk ml mm mn mo mp mq mr ms" >Remove Lightning</h2>
+<h3 id="51b2" class="mh lg bf av au el mi mj mk ml mm mn mo mp mq mr ms">Remove Lightning</h3>
 <p id="fa43" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >As we do not natively support it yet</p>
-<h2 id="06f6" class="mh lg bf av au el mi mj mk ml mm mn mo mp mq mr ms" >Prune the blockchain</h2>
-<p id="af6f" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >As we are using it to do as a commerce server and every sale will we do is moved to our cold storage via a hardware wallet (such as "<a href="https://www.ledgerwallet.com/products/12-ledger-nano-s" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">Ledger</strong></a>") or a full node (such as "<a href="https://store.casa/lightning-node/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">casa</strong></a>") which has been built to be a store of value.</p>
-<h2 id="9991" class="mh lg bf av au el mi mj mk ml mm mn mo mp mq mr ms" >Building cyphernode</h2>
-<p id="cf78" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >Note, a number of these steps are a repetition of the previous "<a class="cb bx lb lc ld le" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-18-cyphernode-ab682ff85659" rel="noopener noreferrer"><strong class="lu mg">article</strong></a>" but it is worth repeating as they change (although subtly) in a significant manner.</p>
+<h3 id="06f6" class="mh lg bf av au el mi mj mk ml mm mn mo mp mq mr ms">Prune the blockchain</h3>
+<p id="af6f" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >As we are using it to do as a commerce server and every sale will we do is moved to our cold storage via a hardware wallet (such as "<a href="https://www.ledgerwallet.com/products/12-ledger-nano-s" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg"><a href="https://cryptoskillz.com/blog/working-with-fullnodes-part-5-cyphernode-ii.html">Ledger</a></strong></a>") or a full node (such as "<a href="https://store.casa/lightning-node/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">casa</strong></a>") which has been built to be a store of value.</p>
+<h2 id="9991" class="mh lg bf av au el mi mj mk ml mm mn mo mp mq mr ms">Building cyphernode</h2>
+<p id="cf78" class="ls lt bf av lu b lv lw lx ly lz ma mb mc md me mf" >Note, a number of these steps are a repetition of the previous "<strong class="lu mg">article</strong>" but it is worth repeating as they change (although subtly) in a significant manner.</p>
 <p id="7799" class="ls lt bf av lu b lv mt lx mu lz mv mb mw md mx mf" >Open a terminal client (we use Macs) if you use Windows use "<a href="https://www.putty.org/" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">putty</strong></a><strong class="lu mg">"</strong> or whatever terminal client you are comfortable with.</p>
 <p id="3af2" class="ls lt bf av lu b lv mt lx mu lz mv mb mw md mx mf" ><strong class="lu mg">Step 1: Create a directory</strong></p>
 <pre class="ke kf kg kh ki dv ge df"><span id="e0f8" class="mh lg bf av my b dz mz na l nb" >mkdir cyphernode &amp;&amp; cd cyphernode</span></pre>
@@ -934,7 +934,8 @@
 <p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/21/1_wyFEHuAJgg3B8PY51rs1vQ.png" alt="" width="1127" height="169"></p>
 <p id="7827" class="ls lt bf av lu b lv mt lx mu lz mv mb mw md mx mf" >Next, we want to select Testnet as we are testing.</p>
 <p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/21/1_P4DgFm_MaK9MeWGbXieYXg.png" alt="" width="1216" height="154"></p>
-<p id="0cdd" class="ls lt bf av lu b lv mt lx mu lz mv mb mw md mx mf" >Next, It asks to change user which is very good advice which we are going to ignore for the sake of simplicity. Go ahead and select N</p>
+<p id="0cdd" class="ls lt bf av lu b lv mt lx mu lz mv mb mw md mx mf" >Next, It asks to change user which is very good advice which we are going to ignore for the sake of simplicity. Go ahead and select N. </p>
+<p >Note the above it correct for local instances but if you are hosting on digitial ocean (or any provider for that matter) it will most likely be better if you select Y and create a new user (the default is cyphernode and you should go with this) otherwise you will most likely run into permission issues (espically with gatekeeper)</p>
 <p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/21/1_FS-e2QKY5ybkqVNaOkfRUg.png" alt="" width="1169" height="260"></p>
 <p id="8fb2" class="ls lt bf av lu b lv mt lx mu lz mv mb mw md mx mf" >Next, select "N". To be frank, we are still not 100% sure what is "<a href="https://support.blockchain.com/hc/en-us/articles/360000939843-Understanding-the-xPub-and-address-generation" class="cb bx lb lc ld le" target="_blank" rel="noopener noreferrer"><strong class="lu mg">xPub</strong></a>" is and until we do and can make an informed decision about it we are going to ignore its existence.</p>
 <p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/21/1_sQSemJH9liax29ac84tvIw.png" alt="" width="1154" height="233"></p>
@@ -1019,14 +1020,14 @@
         </content>
     </entry>
     <entry>
-        <title>Working With Fullnodes Part 4 Cyphernode I</title>
+        <title>Introduction to Cyphernode</title>
         <author>
             <name>cryptoskillz</name>
         </author>
         <link href="https://cryptoskillz.com/blog/working-with-full-nodes-part-4-cyphernode-i.html"/>
         <id>https://cryptoskillz.com/blog/working-with-full-nodes-part-4-cyphernode-i.html</id>
 
-        <updated>2019-10-11T13:09:56+07:00</updated>
+        <updated>2019-11-20T23:07:27+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/20/1_8uCeMDcHVyVSlXe0y6UCtg.png" alt="" />
