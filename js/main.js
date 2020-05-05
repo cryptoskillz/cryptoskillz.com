@@ -3,6 +3,7 @@
 var ecsuserid = 3;
 var serverurl;
 
+/*
 if(window.location.href.indexOf("127.0.0.1") > -1) 
 {
     serverurl = "http://127.0.0.1:3030";
@@ -12,9 +13,10 @@ if(window.location.href.indexOf("cryptoskillz") > -1)
 {
     serverurl = "https://ecslive.cryptoskillz.com";
 }
+*/
 
 //if you want to point to testnet then unghost the line below/
-//serverurl = "https://ecstest.cryptoskillz.com"; //testnet
+serverurl = "https://ecstest.cryptoskillz.com"; //testnet
 
 //debug
 //alert(serverurl)
