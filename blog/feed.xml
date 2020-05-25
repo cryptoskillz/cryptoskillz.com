@@ -3,12 +3,90 @@
     <title>cryptoskillz</title>
     <link href="https://cryptoskillz.com/blog/feed.xml" rel="self" />
     <link href="https://cryptoskillz.com/blog" />
-    <updated>2020-05-06T17:31:30+07:00</updated>
+    <updated>2020-05-25T15:23:08+07:00</updated>
     <author>
         <name>cryptoskillz</name>
     </author>
     <id>https://cryptoskillz.com/blog</id>
 
+    <entry>
+        <title>Raspberry PI full node prerequisites   </title>
+        <author>
+            <name>cryptoskillz</name>
+        </author>
+        <link href="https://cryptoskillz.com/blog/raspberry-pi-full-node-prerequisites.html"/>
+        <id>https://cryptoskillz.com/blog/raspberry-pi-full-node-prerequisites.html</id>
+
+        <updated>2020-05-25T15:22:56+07:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://cryptoskillz.com/blog/media/posts/33/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg" alt="" />
+                    The following is a list of the hardware and software we bought to cover all the use cases that we. The hardware here cost us around $1,000. Of course you do not have to buy this but we plan to do a deep dive into&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <img src="https://cryptoskillz.com/blog/media/posts/33/alexandre-debieve-FO7JIlwjOtU-unsplash.jpg" alt="" />
+                <p class="p1">The following is a list of the hardware and software we bought to cover all the use cases that we. The hardware here cost us around $1,000. Of course you do not have to buy this but we plan to do a deep dive into full nodes and plan to test as many of the offerings out there as possible.<br>Also, none of these are affiliate links so go ahead and click them (or not) as you see fit.</p>
+<h2 id="mcetoc_1e81llf1q0" class="p2"><a href="https://www.amazon.com/Raspberry-Model-2019-Quad-Bluetooth/dp/B07TC2BK1X/ref=sr_1_2?crid=2OSYNN4LUNEVR&amp;dchild=1&amp;keywords=raspberry+pi+4&amp;qid=1588842360&amp;sprefix=rasp%2Caps%2C767&amp;sr=8-2" target="_blank" rel="noopener noreferrer">Raspberry PI 4 x5</a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/pi4.png" alt="" width="978" height="656"></p>
+<p>We purchased 5 of these are the main hardware we are going to use for the majority of our full nodes.</p>
+<h2 id="mcetoc_1e95d4ccq0"> <a href="https://www.amazon.com/Raspberry-Pi-MS-004-00000024-Model-Board/dp/B01LPLPBS8/ref=sr_1_1?dchild=1&amp;keywords=raspberry+pi+3&amp;qid=1588842395&amp;sr=8-1" target="_blank" rel="noopener noreferrer">Raspberry PI 3 x1</a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/pi3.png" alt="" width="1114" height="728"></p>
+<p class="p3">We purchased one of these, just to see if it is possible to run a full node on one (or not)</p>
+<h2 id="mcetoc_1e95d4i7q1"><a href="https://www.amazon.com/UCTRONICS-Raspberry-Touchscreen-High-Speed-Portable/dp/B083FJXCW2/ref=sr_1_4?dchild=1&amp;keywords=raspberry+pi+3.5+touch+screen&amp;qid=1589518416&amp;sr=8-4" target="_blank" rel="noopener noreferrer">3.5inch touch screen display x1</a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/ts.png" alt="" width="994" height="792"></p>
+<p>This was the touchscreen we bought (at random) buy this one or another or do not buy one at all, the choice is yours. </p>
+<p><a style="font-family: -apple-system, BlinkMacSystemFont, Arial, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: calc(1.42383rem + (0.17798 * ((100vw - 20rem) / 80))); font-weight: 600; letter-spacing: -0.03rem;">TTBIT Bitcoin SHA256 USB Stick Miner</a></p>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/ttbit.png" alt="" width="1164" height="690"></p>
+<p>This will not make use rich, it will not even cover the electricity costs but as a pure research tool that costs $40 it is a great little piece of kit. </p>
+<h2 id="mcetoc_1e95e5hqd1"><span >Hard drives and storage</span></h2>
+<h3 id="mcetoc_1e95e6off0"><a href="https://www.amazon.com/SanDisk-Ultra-microSDXC-Memory-Adapter/dp/B073JWXGNT/ref=sr_1_1?dchild=1&amp;keywords=32+gig+micro+SD+Card&amp;qid=1588843244&amp;s=electronics&amp;sr=1-1">32 gig micro SD Card x2</a>, <a href="https://www.amazon.com/SanDisk-Ultra-microSDXC-Memory-Adapter/dp/B073JYVKNX/ref=sr_1_1?dchild=1&amp;keywords=64+gig+micro+SD+Card&amp;qid=1588843293&amp;sr=8-1" target="_blank" rel="noopener noreferrer">64 gig micro SD Card x2</a> , <a href="https://www.amazon.com/SanDisk-128GB-Extreme-microSD-Adapter/dp/B07FCMKK5X/ref=sr_1_2?dchild=1&amp;keywords=128+gig+micro+SD+Card&amp;qid=1588843333&amp;sr=8-2" target="_blank" rel="noopener noreferrer">128 gig micro SD Card x1</a>, <a href="https://www.amazon.com/SanDisk-256GB-microSDXC-Memory-Adapter/dp/B0758NHWS8/ref=sr_1_2?dchild=1&amp;keywords=256+gig+micro+SD+Card&amp;qid=1588843394&amp;sr=8-2" target="_blank" rel="noopener noreferrer">256 gig micro SD Card x1</a></h3>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/sd.png" alt="" width="890" height="778"></p>
+<p class="p3">Various SD cards are required to hold the Raspberry PI OS but we will also be used to hold the blockchain data in its various states, pruned, etc. This is not something we would ever do in production but we want to test all the variants and see just how efficient the Bitcoin full node code is. </p>
+<h3 id="mcetoc_1e95d5c0q4" class="p3"><a href="https://www.amazon.com/Passport-Portable-External-Drive-Black/dp/B07VTWX8MN/ref=sr_1_2?dchild=1&amp;keywords=usb+passport+1+terabyte&amp;qid=1588843440&amp;sr=8-2" target="_blank" rel="noopener noreferrer">1 terabyte USB HD</a></h3>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/pass1.png" alt="" width="996" height="1360"></p>
+<p>External HD drives are the best way to store the blockchain, we chose the USB variant just for ease of use. There are internal HD's available for the Raspberry PI as well and we ought to test those as well at some point.  </p>
+<h3 id="mcetoc_1e95e2d4l0"><a href="https://www.amazon.com/Green-1TB-Internal-SSD-WDS100T2G0A/dp/B07NNRTTCM/ref=sr_1_31?dchild=1&amp;keywords=raspberry+pi+hardrive&amp;qid=1590394071&amp;sr=8-31" target="_blank" rel="noopener noreferrer">1 terabyte internal HD  </a></h3>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/1tb.png" alt="" width="1113" height="857"></p>
+<p><span style="font-family: -apple-system, BlinkMacSystemFont, Arial, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'; font-size: inherit;">We also bought a solid-state hard drive as at some point we plan to have a compact and efficient until (we can always dream) </span></p>
+<h3 id="mcetoc_1e95d5i7n5" class="p1"><a href="https://www.amazon.com/SanDisk-Ultra-Android-Devices-Computers/dp/B01LXHKR4T/ref=pd_sim_147_2/132-0502934-4875631?_encoding=UTF8&amp;pd_rd_i=B01LXHKR4T&amp;pd_rd_r=c9651a41-b5c6-4328-ad86-b6fec64c969e&amp;pd_rd_w=bFpaO&amp;pd_rd_wg=OKPfu&amp;pf_rd_p=9fec2710-b93d-4b3e-b3ca-e55dc1c5909a&amp;pf_rd_r=7921PHYQHHXJ82TGHSCA&amp;psc=1&amp;refRID=7921PHYQHHXJ82TGHSCA" target="_blank" rel="noopener noreferrer">32 gig USB thumb drives x2</a>, <a href="https://www.amazon.com/SanDisk-Ultra-Android-Devices-Computers/dp/B01M127X8F/ref=sr_1_2?dchild=1&amp;keywords=64GB+Ultra+Dual+Drive&amp;qid=1589517984&amp;s=electronics&amp;sr=1-2" target="_blank" rel="noopener noreferrer">64 gig USB thumb drive x1</a>, <a href="https://www.amazon.com/SanDisk-Ultra-Type-C-128GB-SDCZ450-128G-G46/dp/B01BUSN0DO/ref=sr_1_8?dchild=1&amp;keywords=128GB+Ultra+Dual+Drive&amp;qid=1589518015&amp;sr=8-8" target="_blank" rel="noopener noreferrer">128 gig USB thumb drive x1</a>, <a href="https://www.amazon.com/SanDisk-256GB-Ultra-Drive-Type-C/dp/B07YYJL21Z/ref=sr_1_4?dchild=1&amp;keywords=256GB+Ultra+Dual+Drive&amp;qid=1589518097&amp;sr=8-4" target="_blank" rel="noopener noreferrer">256 gig USB thumb drive x 1</a></h3>
+<p class="p1"><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/hd2.png" alt="" width="1250" height="988"></p>
+<p class="p1">Various SUB HD's just like the SD cards we have to just to test how well the BTC full node will run on the various hardware.</p>
+<h2 id="mcetoc_1e95d60as7"> <a href="https://www.amazon.com/Anker-Portable-Reader-RS-MMC-Micro/dp/B006T9B6R2/ref=sr_1_3?dchild=1&amp;keywords=sd+card+reader&amp;qid=1589518209&amp;sr=8-3" target="_blank" rel="noopener noreferrer">SD card reader  </a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/sdr.png" alt="" width="1022" height="1150"></p>
+<p>Standard sd card reader, use anyone you want to.</p>
+<h2 id="mcetoc_1e95d6bkm9"> <a href="https://www.amazon.com/Motorola-XT1925-2-Unlocked-Smartphone-International/dp/B07CHW5KMY/ref=sr_1_1?dchild=1&amp;keywords=moto+g6&amp;qid=1589518701&amp;sr=8-1" target="_blank" rel="noopener noreferrer">moto g6 (dual sim) x1  </a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/g6.png" alt="" width="658" height="1210"></p>
+<p>We had an old G6 so this what we used, we could use an onboard sim, etc (and may do in the future) but wanted to keep it simple as possible (for now).</p>
+<h2 id="mcetoc_1e95d6o3gb" class="p1"><a href="https://www.amazon.com/Portable-Charger-30000mAh-Bright-Flashlight/dp/B07PG6C5C7/ref=sxin_5_ac_d_rm?ac_md=2-2-dXNiIHBvd2VyIGJhbmsgaGlnaCBjYXBhY2l0eQ%3D%3D-ac_d_rm&amp;cv_ct_cx=usb+power+bank&amp;dchild=1&amp;keywords=usb+power+bank&amp;pd_rd_i=B07PG6C5C7&amp;pd_rd_r=cca55c99-29e8-4250-8f65-cf92acf88b6d&amp;pd_rd_w=w6TYX&amp;pd_rd_wg=Kf6I5&amp;pf_rd_p=165462b8-b004-445b-8c70-cf9e9e805494&amp;pf_rd_r=4NNAMX37S5ZGC2R637YD&amp;psc=1&amp;qid=1589518898&amp;sr=1-3-12d4272d-8adb-4121-8624-135149aa9081" target="_blank" rel="noopener noreferrer">USB Power bank  </a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/pb.png" alt="" width="1218" height="1150"></p>
+<p>Again, standard power bank anything works </p>
+<h2 id="mcetoc_1e95d6tj2c"><a href="https://www.amazon.com/Splitter-Charging-Individual-Switches-Extension/dp/B07G8CMR18/ref=sr_1_5?dchild=1&amp;keywords=usb+3+hub&amp;qid=1589519138&amp;sr=8-5" target="_blank" rel="noopener noreferrer">USB 3 hub x 2</a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/usbh.png" alt="" width="1166" height="1192"></p>
+<h2 id="mcetoc_1e95d73end" class="p1"><a href="https://www.amazon.com/Raspberry-Micro-USB-Charger-Raspberry-Pi-Adapter/dp/B00L88M8TE/ref=sr_1_4?crid=33UZW02NFXA3F&amp;dchild=1&amp;keywords=raspberry+pi+3+charger&amp;qid=1589519255&amp;sprefix=raspberry+pi+3+b%2B+charger%2Caps%2C537&amp;sr=8-4" target="_blank" rel="noopener noreferrer">USB charger (for pi 3) x1</a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/pic.png" alt="" width="890" height="880"></p>
+<h2 id="mcetoc_1e95d78hqe" class="p1"><a href="https://www.amazon.com/Braided-Charger-Charging-Compatible-Samsung/dp/B07VQYLXJC/ref=sr_1_4?crid=2WBN2UYROUV1O&amp;dchild=1&amp;keywords=usb+c+cable&amp;qid=1589519361&amp;sprefix=usb+c+c%2Caps%2C974&amp;sr=8-4" target="_blank" rel="noopener noreferrer">USB C charger cable x5</a></h2>
+<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/33/cable.png" alt="" width="1200" height="1318"> </p>
+<h2 id="mcetoc_1e8bbsai91" class="p1">HDMI Cables</h2>
+<h3 id="mcetoc_1e95chq964" class="p1"> <a href="https://thepihut.com/products/official-raspberry-pi-hdmi-cable" target="_blank" rel="noopener noreferrer">Raspberry PI 3   </a></h3>
+<h3 id="mcetoc_1e95co18d6" class="p1"> <a href="https://thepihut.com/products/micro-hdmi-to-standard-hdmi-a-cable" target="_blank" rel="noopener noreferrer">Raspberry PI 4  </a></h3>
+<h3 id="mcetoc_1e95eik0h0"> <a href="https://www.amazon.com/Gold-Plated-Compatible-Projector-Chromebook-Raspberry/dp/B07CTK4TH4/ref=sr_1_19?crid=1V6UKWQO835MA&amp;dchild=1&amp;keywords=raspberry+pi+3+hdmi+cable&amp;qid=1590392898&amp;sprefix=raspberry+pi+3+hdmi%2Caps%2C475&amp;sr=8-19" target="_blank" rel="noopener noreferrer">HDMI to VGA</a></h3>
+<p>This is an optional item as PI 4's have HDMI issues.  Our Samsung TV will not show any output and rather than go through the 1,000,000 "fixes" on the internet (most of them incorrect) we went another route and bought this $11 cable as we assumed everything can render VGA and we were correct. </p>
+<h2 id="mcetoc_1e95eje7m0">Software</h2>
+<h3 id="mcetoc_1e8bbtvud3"><a href="https://www.raspberrypi.org/downloads/raspbian/" target="_blank" rel="noopener noreferrer">Raspbian Buster lite</a></h3>
+<p>The OS we use, if you want to use any OS you want. </p>
+<h3 id="mcetoc_1e95ek6sn1" class="p3"><a href="https://www.balena.io/etcher/" target="_blank" rel="noopener noreferrer">Etcher</a></h3>
+<p>Flashing software for the mac, if you do not have a mac us whatever flashing software you like.</p>
+<h3 id="mcetoc_1e95cgmfi1"><a href="https://www.sdcard.org/downloads/formatter/" target="_blank" rel="noopener noreferrer">SD card formatter</a></h3>
+<p> </p>
+<h2 id="mcetoc_1e95epfi40">Conclusion </h2>
+<p>As we go on we will no doubt add stuff to this list so please check back on this list from time to time. Next time we will build our firsrt full node <a href="https://cyphernode.io/" target="_blank" rel="noopener noreferrer">cyphernode</a>. </p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>BTC Full nodes with Raspberry PI part 1</title>
         <author>
@@ -17,7 +95,7 @@
         <link href="https://cryptoskillz.com/blog/btc-full-nodes-with-raspberry-pi.html"/>
         <id>https://cryptoskillz.com/blog/btc-full-nodes-with-raspberry-pi.html</id>
 
-        <updated>2020-05-06T17:24:48+07:00</updated>
+        <updated>2020-05-25T14:57:06+07:00</updated>
             <summary>
                 <![CDATA[
                         <img src="https://cryptoskillz.com/blog/media/posts/32/stefan-cosma-f3Yk7gW6chM-unsplash.jpg" alt="" />
@@ -886,139 +964,6 @@
 <p class="graf graf--p graf--empty"> </p>
 <p class="graf graf--p graf--empty"> </p>
 <p class="graf graf--p graf--empty"> </p>
-            ]]>
-        </content>
-    </entry>
-    <entry>
-        <title>Cyphernode III setting up Lightning</title>
-        <author>
-            <name>cryptoskillz</name>
-        </author>
-        <link href="https://cryptoskillz.com/blog/working-with-fullnodes-part-6-cyphernode-iii.html"/>
-        <id>https://cryptoskillz.com/blog/working-with-fullnodes-part-6-cyphernode-iii.html</id>
-
-        <updated>2019-11-20T23:15:28+07:00</updated>
-            <summary>
-                <![CDATA[
-                        <img src="https://cryptoskillz.com/blog/media/posts/22/0_tnWANgeBqBWRZOxF.png" alt="" />
-                     PreambleThis article aims to play with "Lightning" on the "cyphernode" backend as well as explorer "docker" and figure out how it all works with the proxy etc. Now, let us be upfront and clear we know nothing about "docker" we will be learning and as&hellip;
-                ]]>
-            </summary>
-        <content type="html">
-            <![CDATA[
-                    <img src="https://cryptoskillz.com/blog/media/posts/22/0_tnWANgeBqBWRZOxF.png" alt="" />
-                <h2 id="mcetoc_1dotge52m0"> Preamble</h2>
-<article>
-<section class="jd je jf jg jh">
-<div class="ae ji ab dn v w">
-<p id="8793" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >This article aims to play with "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" on the "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" backend as well as explorer "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" and figure out how it all works with the proxy etc. Now, let us be upfront and clear we know nothing about "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" we will be learning and as we go and making a lot of mistakes and most probably doing everything wrong but that is ok, that is how we learn.</p>
-<p id="f05c" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Also, this is not essential reading as it is purely a research article offering tertiary information on our journey. If you like minuta then I am pretty sure you will enjoy this, for everyone else please just move on to the next article.</p>
-<h2 id="mcetoc_1dotgeg181">Introduction</h2>
-<p id="8ce2" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >This guide aims to program a website to accept Bitcoin. In the previous tutorial, we integrated "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a><strong class="kf mh">" </strong>into our "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" (without "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>"). This time we are going to integrate "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" and tie it into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>".</p>
-<h2 id="mcetoc_1dotgesth2">Installing cyphernode</h2>
-<p class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >We have done this a few times already so there is no reason to document the steps here again please refer to the previous "<a class="cb bx md me mf mg" target="_blank" href="https://medium.com/bitcoin-e-commerce-development/part-18-cyphernode-ab682ff85659" rel="noopener noreferrer"></a><strong class="kf mh"><a href="https://cryptoskillz.com/blog/working-with-fullnodes-part-5-cyphernode-ii.html">article</a></strong>" for installation instructions. Note we are still on testnet but you may install testnet or mainnet.</p>
-<p id="b1f9" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><em class="mi">Note, Presently you have to run a full node that is not pruned for "</em><a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Lightning</em></strong></a><em class="mi">" support so please make sure that you have 350gig of hard drive space available. Since "</em><a href="https://bitcoin.org/en/release/v0.16.0" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Bitcoin Core 0.16.0</em></strong></a><em class="mi">" with the introduction of "</em><a href="https://github.com/bitcoin/bips/blob/master/bip-0159.mediawiki" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">BIP 159</em></strong></a><em class="mi">" you have been able to run "</em><a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Lightning</em></strong></a><em class="mi">" in a pruned node and "</em><a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">cyphernode</em></strong></a><em class="mi">" runs "</em><a href="https://bitcoin.org/en/release/v0.18.0" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh"><em class="mi">Bitcoin Core 0.18.0</em></strong></a><em class="mi">" so we are sure that support for this will come soon.</em></p>
-<h2 id="433d" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Starting cyphernode</h2>
-<p id="e409" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >The first thing to do, as always is to start "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" and you do that by type the following command in the "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" installation directory.</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="f57c" class="mj lm bf av mk b dz ml mm l mn" >./start.sh</span></pre>
-<p id="c252" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >First things first let us try the standard curl call we use to test things are running as excepted. Run the following command in terminal enter the password you set for RPC whilst setting up cyphernode.</p>
-<p id="56f1" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Note, we are using testnet so the port at the end is 18332 if you selected mainnet then you will have to change this to 8332.</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="d185" class="mj lm bf av mk b dz ml mm l mn" >curl --user admin  --data-binary '{"jsonrpc": "1.0", "id":"curltest", "method": "getblockchaininfo", "params": [] }'     -H 'content-type: text/plain;' http://127.0.0.1:18332/</span></pre>
-<p id="8ec1" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >and you will get the following response.</p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_xCGv5lAgr1gaA5-Ja5N9qA.png" alt="" width="2493" height="287"></p>
-<p > </p>
-<h2 id="30e3" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Using Docker with cyphernode</h2>
-<p id="f5d2" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >Now let us test it by typing the command in the docs which can be found here.</p>
-<p id="aa69" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >The first command they list is this</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="28fd" class="mj lm bf av mk b dz ml mm l mn" >echo "GET /getbestblockinfo" | docker run --rm -i --network=cyphernodenet alpine nc proxy:8888 -</span></pre>
-<p id="cab4" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Which will provide the following output</p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_k_wYuHIap43PqBMO9fKAFw.png" alt="" width="2510" height="688"></p>
-<p id="a1e3" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >We are not 100% sure how this is working but we do know what is is doing it is running the proxy node in "<a href="https://hub.docker.com/_/alpine" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">alpine</strong></a>" which is a minimal Docker image based on Alpine Linux with a complete package index and only 5 MB in size!. Then it makes the API call (getbestblockinfo) through the proxy.</p>
-<p id="b129" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Ok, cool so now let us see what <strong class="kf mh"><em class="mi">getbestblockinfo</em></strong> is by looking at the cyphernode "<a href="https://github.com/SatoshiPortal/cyphernode/blob/master/doc/API.v0.md" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">API reference</strong></a>" which show the following</p>
-<blockquote class="ms mt mu">
-<p id="4ce0" class="kd ke bf mi kf b kg kh ki kj kk kl km kn ko kp kq" >Get the Best Block Info (called by application)</p>
-<p id="6f85" class="kd ke bf mi kf b kg kh ki kj kk kl km kn ko kp kq" >Returns best block info: calls getblockinfo with bestblockhash.</p>
-</blockquote>
-<p id="155f" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >as you can see sho the "<a href="https://github.com/SatoshiPortal/cyphernode/blob/master/doc/API.v0.md" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">API reference</strong></a><strong class="kf mh">"</strong> there are a number of API calls that we can take advantage of and a few more in "<a href="https://github.com/SatoshiPortal/cyphernode/blob/master/doc/API.v1.md" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">V1</strong></a><strong class="kf mh">"</strong> of the API which as far as we can tell is not being used yet but it may be.</p>
-<p id="8f2a" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Alright now, let us run the other commands in the documentation to make sure the above was not a fluke.</p>
-<p id="c8a9" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><strong class="kf mh">getbalance</strong></p>
-<pre class="ks kt ku kv kw dv ge df"><span id="df5c" class="mj lm bf av mk b dz ml mm l mn" >echo "GET /getbalance" | docker run --rm -i --network=cyphernodenet alpine nc proxy:8888 -<br></span></pre>
-<p id="c592" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><strong class="kf mh">getbestblockhash</strong></p>
-<pre class="ks kt ku kv kw dv ge df"><span id="2ad6" class="mj lm bf av mk b dz ml mm l mn" >echo "GET /getbestblockhash" | docker run --rm -i --network=cyphernodenet alpine nc proxy:8888 -<br></span></pre>
-<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_MDScTYTMvI66XOiBy99RgA.png" alt="" width="1911" height="274"></p>
-<p id="89d4" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><strong class="kf mh">getblockinfo</strong></p>
-<pre class="ks kt ku kv kw dv ge df"><span id="06da" class="mj lm bf av mk b dz ml mm l mn" >echo "GET /getblockinfo/00000000a64e0d1ae0c39166f4e8717a672daf3d61bf7bbb41b0f487fcae74d2" | docker run --rm -i --network=cyphernodenet alpine nc proxy:8888 -</span></pre>
-<p><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_d6Wu4nEcgkOk852jXwBR8A.png" alt="" width="2499" height="1052"></p>
-<p id="5e47" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><strong class="kf mh">ln_getinfo</strong></p>
-<pre class="ks kt ku kv kw dv ge df"><span id="fcf6" class="mj lm bf av mk b dz ml mm l mn" >echo "GET /ln_getinfo" | docker run --rm -i --network=cyphernodenet alpine nc proxy:8888 -</span></pre>
-<p class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_N7O0v8qc9HZYT5KRnghzrg.png" alt="" width="1913" height="942"></p>
-<p id="8f2b" >Wow, it works (awesome) so we can push any command in the API reference and get a response that way, very cool.</p>
-<h2 id="6ac6" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl">To app or not to app</h2>
-<p id="2931" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >Now we have the above working we have a clear inflection point we can use the above infrastructure and rebuild "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" as a "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>" app, this is clearly the way want us to do and it and the way it has been built the framework is in place to allow us to do this fairly easily. However we want "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" to be agnostic we want it to work with "<a href="https://cyphernode.io/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">cyphernode</strong></a>", "<a href="https://store.casa/lightning-node/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">casa</strong></a><strong class="kf mh">"</strong>, "<a href="https://www.nodl.it/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">nodl</strong></a>" and whatever else is out there and to build the apps this way would seriously curtail our ability to do this.</p>
-<p id="58e2" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Also, we suck at using "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Docker</strong></a>" at the moment so would not be confident everyone would not laugh at us if we attempted a 100% "<a href="https://www.docker.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker</strong></a>" implementation :]</p>
-<h2 id="5189" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl" >playing with docker</h2>
-<p id="4793" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >right the first thing we want to do is see what is running we do this by running the "<a href="https://docs.docker.com/engine/reference/commandline/ps/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">list containers command</strong></a><strong class="kf mh">"</strong> as shown below:</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="2b44" class="mj lm bf av mk b dz ml mm l mn" >docker ps</span></pre>
-<p id="d7fc" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >You will get an output like the one below</p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_Adh7RBY-53j7mbedr3b38g.png" alt="" width="2505" height="699"></p>
-<h3 id="mcetoc_1dotgh7eg3" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq">Log files</h3>
-<p>If you run into any issues type this and you will see any issues. </p>
-<p><code>docker-compose logs</code></p>
-<p>Note, most errors are caused when you switch between pruned and unprunded configs if this happens to you, simply delete/rename the testnet3/mainnet folder. </p>
-<p id="0697" >as you can see all of the containers (cyphernode/bitcoin:v0.18.0) are running so let us see if we can talk to one of them.</p>
-<p id="fc6c" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><strong class="kf mh">get getblockchaininfo</strong></p>
-<p id="57f3" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >We know that "<a href="https://en.bitcoin.it/wiki/Running_Bitcoin" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">bitcoin-cli</strong></a><strong class="kf mh">" </strong>is running on the cyphernode/bitcoin:v0.18.0 so let us see if we can get that to give us some blockchain info. We can do this br running the "<a href="https://docs.docker.com/engine/reference/commandline/exec/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker exec</strong></a>" command. First cop the container ID from the output of docker ps. and type the following command:</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="4af9" class="mj lm bf av mk b dz ml mm l mn" >docker exec 24efdf4f691a bitcoin-cli getblockchaininfo</span></pre>
-<p id="6bbd" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >and you should get the following output</p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_0lgEue_e3ok1W7DOIIFMbQ.png" alt="" width="1255" height="1333"></p>
-<p id="ecff" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Awesome, so we can use the "<a href="https://en.bitcoin.it/wiki/Running_Bitcoin" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">bitcoin-cli</strong></a><strong class="kf mh">" </strong>via docker.exec or the curl method which is awesome.</p>
-<p id="ab1f" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><strong class="kf mh">get lightning info</strong></p>
-<p id="70aa" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Now, we are getting somewhere so now let us see if we can do the same with "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">lightning</strong></a>". Run the following command with the "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">lightning</strong></a>" container ID.</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="1469" class="mj lm bf av mk b dz ml mm l mn" >docker exec cf0b5d94ab8d lightning-cli</span></pre>
-<p id="e3ca" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >you will get the following output</p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_mW1Xssi1jqPaDt7omJM-bw.png" alt="" width="1272" height="516"></p>
-<p id="bc17" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Hmm, that did not work as "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" requires the working directory and we are not 100% sure where that is, no worries "<a href="https://en.wikipedia.org/wiki/Grep" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">grep</strong></a>" to the rescue. Run the following command.</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="8d35" class="mj lm bf av mk b dz ml mm l mn" >docker exec cf0b5d94ab8d grep .lightning</span></pre>
-<p id="c957" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >This will tell us that "<a href="https://en.wikipedia.org/wiki/Lightning_Network" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">Lightning</strong></a>" is in the following directory .<strong class="kf mh"><em class="mi">lightning </em></strong>so let us set that directory and try again by typing the following command.</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="0844" class="mj lm bf av mk b dz ml mm l mn" >docker exec cf0b5d94ab8d lightning-cli --lightning-dir=.lightning getinfo</span></pre>
-<p id="04ad" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >and we will get the following output</p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_b_bbTEQeeAhNRv067PxoEw.png" alt="" width="1784" height="1042"></p>
-<p id="d304" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Yay, it works.</p>
-<h2 id="425a" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl" >accessing the containers via the proxy</h2>
-<p id="3c21" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >Just for fun let us see if we can use the proxy. I say for fun as we will most likely be bypassing this for usecase when it gets to production.</p>
-<p id="c087" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >we can do this by running the following command of course you can use any of the API endpoints as described aboce</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="693f" class="mj lm bf av mk b dz ml mm l mn" >docker exec 2b62aa57aa95 curl http://proxy:8888/getbestblockinfo</span></pre>
-<p id="74fe" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >and you will get the following result</p>
-<p ><img class="post__image" src="https://cryptoskillz.com/blog/media/posts/22/1_2bWMRohqczIJmP6JEImwDA.png" alt="" width="2504" height="436"></p>
-<h2 id="4294" class="mj lm bf av au el nb nc nd ne nf ng nh ni nj nk nl" >docker final thoughts</h2>
-<p id="995b" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >To be fair docker is pretty cool once you get over the insane learning curve as we can see us using it more at cryptoskillz towers in the future.</p>
-<p id="b8a2" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >One thing we are not able to do yet is run an exec command with the container name instead of the container ID. We know for sure this is possible but we are just to dumb to have figured it out (just yet). This is a real problem as container IDs change on every start and stop.</p>
-<h2 id="f3e8" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx"><strong class="ch">Using Docker commands with ECS</strong></h2>
-<p id="d56e" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >So now we have docker up and running it would be really cool if we could interface with it via "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" luckily we can do that.</p>
-<p id="9036" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >The latest branch that deals with code in this tutorial can be found "<a href="https://github.com/cryptoskillz/ECS/tree/cyphernodeIII" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">here</strong></a>"</p>
-<h2 id="6412" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Database base changes</h2>
-<p id="3ec9" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >None</p>
-<h2 id="a3fe" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Code Changes</h2>
-<p id="f3a5" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >we installed a new package called "<a href="https://www.npmjs.com/package/docker-cli-js" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">docker-cli-js</strong></a>" to handle our interactions with docker.</p>
-<p id="94cb" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" ><a href="https://github.com/cryptoskillz/ECS/blob/cyphernodeIII/server/light.js" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">light.js</strong></a></p>
-<p id="c479" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >This a new file we created (just for testing) we have not integrated into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" any more than this at this moment of time.</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="9662" class="mj lm bf av mk b dz ml mm l mn" ><br>var dockerCLI = require("docker-cli-js");<br>var DockerOptions = dockerCLI.Options;<br>var Docker = dockerCLI.Docker;<br>var docker = new Docker();<br></span><span id="6f3d" class="mj lm bf av mk b dz nw nx ny nz oa mm l mn" >//call lightning container get info command<br>docker.command('exec 99a7103d7ab9 lightning-cli --lightning-dir=.lightning getinfo', function (err, data) <br>{<br> console.log('data = ', data);<br>});</span><span id="288e" class="mj lm bf av mk b dz nw nx ny nz oa mm l mn" >//call the proxy server to the get the balance<br>docker.command(<br>  'exec eaf667a5b8be curl   -H "content-type: text/plain;"  <a href="http://127.0.0.1:8888/ln_getinfo'" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8888/ln_getinfo'</a>,<br>  function(err, data) {<br>    console.log("data = ", data.raw);<br>  }<br>);</span><span id="3db3" class="mj lm bf av mk b dz nw nx ny nz oa mm l mn" >//calling the proxy server to get a balance<br>docker.command(<br>  'exec eaf667a5b8be curl   -H "content-type: text/plain;"  <a href="http://127.0.0.1:8888/getbalance'" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8888/getbalance'</a>,<br>  function(err, data) {<br>    console.log("data = ", data.raw);<br>  }<br>);</span></pre>
-<p id="5811" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Let us take a look and see what is happening with the above.</p>
-<p id="ccc3" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >The first block of code set up the docker package.</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="ddc5" class="mj lm bf av mk b dz ml mm l mn" >var dockerCLI = require("docker-cli-js");<br>var DockerOptions = dockerCLI.Options;<br>var Docker = dockerCLI.Docker;<br>var docker = new Docker();</span></pre>
-<p id="ae52" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >next, let us call the lightning container and get the info</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="34ef" class="mj lm bf av mk b dz ml mm l mn" >//call lightning container get info command<br>docker.command('exec 99a7103d7ab9 lightning-cli --lightning-dir=.lightning getinfo', function (err, data) <br>{<br> console.log('data = ', data);<br>});</span></pre>
-<p id="6efb" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Now, let us do the same thing but this time via the proxy</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="24de" class="mj lm bf av mk b dz ml mm l mn" >//call the proxy server to the get the balance<br>docker.command(<br>  'exec eaf667a5b8be curl   -H "content-type: text/plain;"  <a href="http://127.0.0.1:8888/ln_getinfo'" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8888/ln_getinfo'</a>,<br>  function(err, data) {<br>    console.log("data = ", data.raw);<br>  }<br>);</span></pre>
-<p id="6a4a" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Lastly, let us use the proxy to get the Bitcoin balance</p>
-<pre class="ks kt ku kv kw dv ge df"><span id="a68b" class="mj lm bf av mk b dz ml mm l mn" >//calling the proxy server to get a balance<br>docker.command(<br>  'exec eaf667a5b8be curl   -H "content-type: text/plain;"  <a href="http://127.0.0.1:8888/getbalance'" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer">http://127.0.0.1:8888/getbalance'</a>,<br>  function(err, data) {<br>    console.log("data = ", data.raw);<br>  }<br>);</span></pre>
-<p id="604a" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >As you can see the commands above are exactly the same as we did from the command line (which is neat) so if we decide to go down this route (via proxy etc) it will be fairly trivial to implement.</p>
-<h2 id="7501" class="ll lm bf av au el ln lo lp lq lr ls lt lu lv lw lx">Conclusion</h2>
-<p id="0ea3" class="kd ke bf av kf b kg ly ki lz kk ma km mb ko mc kq" >There we have it, we have configured and implemented cyphernode into our overall software stack and interfaced it into "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>". This gives us a really powerful boost to our back end infrastructure. But, to level with you, this was one of the hardest things we have done yet in this series and I think a lot of that can be attributed to our lack of Docker knowledge.</p>
-<p id="be61" class="kd ke bf av kf b kg kh ki kj kk kl km kn ko kp kq" >Next time we will look to host "<a href="https://github.com/cryptoskillz/ECS" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">ECS</strong></a>" and cyphernode on a "<a href="https://www.digitalocean.com/" class="cb bx md me mf mg" target="_blank" rel="noopener noreferrer"><strong class="kf mh">digitalocean</strong></a><strong class="kf mh">"</strong>server.</p>
-</div>
-</section>
-</article>
             ]]>
         </content>
     </entry>
